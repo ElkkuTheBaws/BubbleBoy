@@ -1,0 +1,22 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dgchs2bhrv1t7"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_fhvo2"]
+resource_name = "Reverb"
+room_size = 0.2
+wet = 0.2
+
+[resource]
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"R"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"SFX"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_fhvo2")
+bus/2/effect/0/enabled = true

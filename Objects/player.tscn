@@ -1,0 +1,104 @@
+[gd_scene load_steps=18 format=3 uid="uid://dlxndqcjrl1gc"]
+
+[ext_resource type="Script" path="res://Objects/player.gd" id="1_3tb4l"]
+[ext_resource type="Script" path="res://Objects/head_component.gd" id="2_3s470"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_ork5m"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6ooqh"]
+[ext_resource type="Script" path="res://Scripts/InputComponent.gd" id="5_gw77a"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_jf2yf"]
+[ext_resource type="Script" path="res://Objects/footstep_manager.gd" id="7_owfbr"]
+[ext_resource type="AudioStream" uid="uid://b5jyl65m5r3q" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium A.wav" id="8_yg0et"]
+[ext_resource type="AudioStream" uid="uid://df1cekb407d4l" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium B.wav" id="9_diynt"]
+[ext_resource type="AudioStream" uid="uid://c37hb8ggp11sf" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium C.wav" id="10_hmtq5"]
+[ext_resource type="AudioStream" uid="uid://5gex5loues77" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium D.wav" id="11_6bhh5"]
+[ext_resource type="AudioStream" uid="uid://cre1qs0h2x1bh" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium E.wav" id="12_6ueyt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mhdyx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j2aar"]
+noise_type = 5
+frequency = 0.0137
+fractal_octaves = 4
+fractal_gain = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hdmby"]
+radius = 1.0
+
+[sub_resource type="Resource" id="Resource_ci2mt"]
+script = ExtResource("4_6ooqh")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_0tvgc"]
+script = ExtResource("5_jf2yf")
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("headComponent", "inputComponent")]
+collision_layer = 16
+script = ExtResource("1_3tb4l")
+headComponent = NodePath("HeadComponent")
+inputComponent = NodePath("PlayerInputComponent")
+acceleration = 20.0
+walk_speed = 5.0
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_mhdyx")
+
+[node name="HeadComponent" type="Area3D" parent="." node_paths=PackedStringArray("camera", "eyes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+collision_layer = 16
+script = ExtResource("2_3s470")
+noise = SubResource("FastNoiseLite_j2aar")
+max_x = 20.0
+max_y = 20.0
+c_noise_speed = 100.0
+c_max_x = 5.0
+c_max_y = 2.0
+c_max_z = 2.0
+camera = NodePath("Eyes/PhantomCamera3D")
+eyes = NodePath("Eyes")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadComponent"]
+shape = SubResource("SphereShape3D_hdmby")
+
+[node name="Eyes" type="Node3D" parent="HeadComponent"]
+
+[node name="PhantomCamera3D" type="Node3D" parent="HeadComponent/Eyes"]
+script = ExtResource("3_ork5m")
+tween_resource = SubResource("Resource_ci2mt")
+camera_3d_resource = SubResource("Resource_0tvgc")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="HeadComponent/Eyes/PhantomCamera3D"]
+current = true
+
+[node name="InteractionRay" type="RayCast3D" parent="HeadComponent/Eyes/PhantomCamera3D"]
+
+[node name="Hands" type="Node3D" parent="HeadComponent/Eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.491665, -0.57338)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="HeadComponent/Eyes/Hands"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="PlayerInputComponent" type="Node" parent="."]
+script = ExtResource("5_gw77a")
+
+[node name="FootstepManager" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("7_owfbr")
+player = NodePath("..")
+step_sounds = Array[AudioStreamWAV]([ExtResource("8_yg0et"), ExtResource("9_diynt"), ExtResource("10_hmtq5"), ExtResource("11_6bhh5"), ExtResource("12_6ueyt")])
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="FootstepManager"]
+unit_size = 3.0
+max_distance = 10.0
+bus = &"R"
+
+[connection signal="on_step" from="HeadComponent" to="FootstepManager" method="_on_head_component_on_step"]
