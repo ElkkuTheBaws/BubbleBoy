@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d1uhluo81pb8i"
+path.s3tc="res://.godot/imported/pile-nails_fishbowl.png-f3c2dfb3c5ca99483963cae90509f8b1.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "b370b4c197e2c9e5480d18a397d2269e"
+}
+
+[deps]
+
+source_file="res://Assets/Meshes/ingredients/pile-nails_fishbowl.png"
+dest_files=["res://.godot/imported/pile-nails_fishbowl.png-f3c2dfb3c5ca99483963cae90509f8b1.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
