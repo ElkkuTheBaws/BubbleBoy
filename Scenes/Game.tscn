@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0qdjpqsx64sp"]
+[gd_scene load_steps=7 format=3 uid="uid://b0qdjpqsx64sp"]
 
 [ext_resource type="PackedScene" uid="uid://cpxc77235lfv2" path="res://Scenes/Level.tscn" id="1_mn8rk"]
 [ext_resource type="Shader" path="res://Scenes/Game.gdshader" id="1_rycl1"]
 [ext_resource type="Script" path="res://Scenes/UI.gd" id="2_v85xg"]
 [ext_resource type="Texture2D" uid="uid://cxnxvvqh6v0i" path="res://Assets/Textures/Environment/Boyle_Order_BoiledWater.png" id="4_i5oj2"]
+[ext_resource type="Material" uid="uid://d4b73rudev87d" path="res://Assets/Shaders/shake_UI.tres" id="4_l6v8n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_55sls"]
 shader = ExtResource("1_rycl1")
@@ -70,10 +71,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/Control/MarginContainer"]
+material = ExtResource("4_l6v8n")
 layout_mode = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/Control/MarginContainer/CenterContainer"]
+use_parent_material = true
 custom_minimum_size = Vector2(350, 350)
 layout_mode = 2
 mouse_filter = 2

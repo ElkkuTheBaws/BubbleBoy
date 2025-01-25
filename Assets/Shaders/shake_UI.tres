@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d4b73rudev87d"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/shake_UI.gdshader" id="1_3q4n6"]
+
+[resource]
+shader = ExtResource("1_3q4n6")
+shader_parameter/shakeAmount = 100.0
+shader_parameter/frequency = 1.0
