@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://83q4y24sg7kc"
+path="res://.godot/imported/Cauldron drop.ogg-2406a7b8cc8815041550484ebfbcf1bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Interactions/Cauldron Drop/Cauldron drop.ogg"
+dest_files=["res://.godot/imported/Cauldron drop.ogg-2406a7b8cc8815041550484ebfbcf1bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

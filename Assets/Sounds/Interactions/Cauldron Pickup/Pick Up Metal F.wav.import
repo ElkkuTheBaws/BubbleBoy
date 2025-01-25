@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jkhy8xstvw4m"
+path="res://.godot/imported/Pick Up Metal F.wav-c689d615b059135913a4cf25b12db0cc.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Interactions/Cauldron Pickup/Pick Up Metal F.wav"
+dest_files=["res://.godot/imported/Pick Up Metal F.wav-c689d615b059135913a4cf25b12db0cc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

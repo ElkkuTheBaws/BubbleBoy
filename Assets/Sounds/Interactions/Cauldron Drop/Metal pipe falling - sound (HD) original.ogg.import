@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdpn1eaiihpak"
+path="res://.godot/imported/Metal pipe falling - sound (HD) original.ogg-a33f3261d5efdb1a1f4e869abdfaa536.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Interactions/Cauldron Drop/Metal pipe falling - sound (HD) original.ogg"
+dest_files=["res://.godot/imported/Metal pipe falling - sound (HD) original.ogg-a33f3261d5efdb1a1f4e869abdfaa536.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -5,7 +5,7 @@ class_name GameManager
 @export var order_papers: Array[OrderPapers]
 var current_order: int = 0
 
-var current_persons = []
+var current_person = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	person_appear()
@@ -17,9 +17,9 @@ func person_appear():
 	persons.erase(person)
 	person.enable_person()
 	var order = orders[current_order]
-	person.order = order
-	current_persons.append(person)
 	order_papers[current_order].set_order(order)
+	person.order = order
+	current_person = person
 
 func order_done(order: Order):
 	order.completed = true

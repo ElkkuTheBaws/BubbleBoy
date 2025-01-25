@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdu3a1vgq7aja"
+path="res://.godot/imported/HVAC Loop 003.wav-60b8931c0a8f575eb5ef9cc069bd65d5.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Ambient/HVAC Loop 003.wav"
+dest_files=["res://.godot/imported/HVAC Loop 003.wav-60b8931c0a8f575eb5ef9cc069bd65d5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
