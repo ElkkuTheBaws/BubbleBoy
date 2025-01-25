@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://br51typemgaol"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/outline_shader.gdshader" id="1_qritu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qritu")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 2.0
+shader_parameter/fade_start = 10.0
+shader_parameter/fade_end = 30.0

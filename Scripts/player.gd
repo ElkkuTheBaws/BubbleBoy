@@ -10,11 +10,31 @@ class_name Player
 @export_category("Movement speed")
 @export_range(0,40) var walk_speed: float = 30
 
+@export_category("Carrying")
+@export var interact_raycast: RayCast3D
+@export var hands: Hands
+@export var pot: Node3D
+var current_interaction: Interactable:
+	set(object):
+		if object != null:
+			object.highlight(true)
+			Global.on_interaction_hover.emit(object.interactable_name)
+		else:
+			if current_interaction != null:
+				current_interaction.highlight(false)
+			Global.on_interaction_hover.emit(null)
+		current_interaction = object
+var carrying: bool = false
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	inputComponent.connect("interact_action", interact)
+	hands.visible = false
 
 func _input(event):
-	look(event)
+	if carrying:
+		hands.move(event)
+	else:
+		look(event)
 
 func look(event: InputEvent):
 	#var inverted: float = -1.0 if Settings.inverted else 1.0
@@ -23,7 +43,10 @@ func look(event: InputEvent):
 
 func _physics_process(delta: float) -> void:
 	inputComponent.setMovementInput()
+	if not is_on_floor():
+		velocity.y -= delta * 25
 	ground_move(delta)
+	check_interaction()
 	
 func ground_move(delta: float) -> void:
 	var direction: Vector3 = (global_transform.basis.x * inputComponent.input_dir.x + global_transform.basis.z * inputComponent.input_dir.y).normalized()
@@ -34,6 +57,7 @@ func ground_move(delta: float) -> void:
 	# Apply headbob
 	headComponent.applyGroundHeadBob(direction, delta)
 	headComponent.calculate_side_sway(velocity, delta)
+	hands.velocity = velocity
 
 func getGroundVelocity(velocity: Vector3, direction: Vector3, delta: float, speed: float = 10) -> Vector3:
 	if direction != Vector3.ZERO:
@@ -41,3 +65,27 @@ func getGroundVelocity(velocity: Vector3, direction: Vector3, delta: float, spee
 	else:
 		velocity = velocity.lerp(Vector3.ZERO, delta*deacceleration)
 	return velocity
+
+func check_interaction():
+	current_interaction = null
+	if interact_raycast.is_colliding():
+		var collider = interact_raycast.get_collider()
+		if collider is Interactable:
+			current_interaction = collider
+
+func interact():
+	if current_interaction:
+		current_interaction.interact(null)
+
+
+func _on_couldron_interacted(position) -> void:
+	if not carrying:
+		carrying = true
+		hands.active = true
+		if position != null:
+			pot.global_position = position
+			var t: Tween = get_tree().create_tween()
+			t.tween_property(pot, "position", Vector3.ZERO, 0.2)
+	else:
+		hands.active = false
+		carrying = false

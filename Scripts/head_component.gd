@@ -48,6 +48,7 @@ var c_old_trauma: float = 0
 
 @export_category("Required Components")
 @export var camera: PhantomCamera3D
+@export var sub_cam: Camera3D
 @export var eyes: Node3D
 #@export var headAnimation: AnimationPlayer
 
@@ -60,7 +61,7 @@ var headBobVector: Vector2 = Vector2.ZERO
 var headBobIndex: float = 0
 var headBobCurrentIntensity: float = 0
 
-var currentHeadHeight = 0.7
+var currentHeadHeight = 0.3
 
 func _ready():
 	#camera.fov = defaultFov
@@ -80,6 +81,7 @@ func _process(delta):
 	eyes.rotation_degrees.x = lerp(x_c_rotation, x_rotation, trauma)
 	eyes.rotation_degrees.y = lerp(y_c_rotation, y_rotation, trauma)
 	eyes.rotation_degrees.z = lerp(z_c_rotation, z_rotation, trauma)
+	sub_cam.global_transform = camera.global_transform
 
 func _physics_process(delta):
 	position.y = lerp(position.y, currentHeadHeight, delta*10)
