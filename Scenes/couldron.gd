@@ -10,8 +10,7 @@ var heat: float = 0:
 		var normalized = normalize(heat, 30, 100)
 		liquid.material_override.set_shader_parameter("Displacement_Intensity",snappedf(normalized, 0.2))
 		liquid.material_override.set_shader_parameter("Texture_Speed", snappedf(normalized, 0.2))
-		print("HEat: " + str(heat))
-		print(normalized)
+
 @export var spawn_pos: Node3D
 
 func reset():

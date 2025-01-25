@@ -38,6 +38,7 @@ func set_item(item):
 			pot.visible = true
 			pot.global_position = item.global_position
 			pot.set_amount(item.amount)
+			pot.ingredients = item.ingredients
 			pot.heat = item.heat
 			var t: Tween = get_tree().create_tween()
 			t.tween_property(pot, "position", Vector3.ZERO, 0.2)

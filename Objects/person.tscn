@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv17e08oqxyvc"]
+
+[ext_resource type="Script" path="res://Scenes/Person.gd" id="1_1ngre"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j85jj"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yj2sk"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f5c40"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lg1x"]
+size = Vector3(2.31079, 2.08975, 2.38324)
+
+[node name="Person" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96834, 0.996547, 0)
+collision_layer = 9
+script = ExtResource("1_1ngre")
+mesh = NodePath("MeshInstance3D")
+interactable_name = "Person"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_j85jj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_yj2sk")
+
+[node name="Plate" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25597)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plate"]
+mesh = SubResource("PlaneMesh_f5c40")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0996246, 0.69162)
+shape = SubResource("BoxShape3D_2lg1x")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
