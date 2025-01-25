@@ -1,17 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=16 format=3 uid="uid://cpxc77235lfv2"]
 
+[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
 [ext_resource type="PackedScene" uid="uid://dlxndqcjrl1gc" path="res://Objects/player.tscn" id="1_xr3mm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_m5g53"]
+[ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="2_pvail"]
+[ext_resource type="PackedScene" uid="uid://p3usgunbyy0k" path="res://Objects/order.tscn" id="4_8k5u3"]
 [ext_resource type="PackedScene" uid="uid://33pkcg3sb66g" path="res://Objects/couldron.tscn" id="4_183qa"]
+[ext_resource type="Resource" uid="uid://crxvf548n2kat" path="res://Scripts/Orders/Order_2.tres" id="4_t5jri"]
+[ext_resource type="Resource" uid="uid://btccmx0hslx74" path="res://Scripts/Orders/Order_3.tres" id="5_01hux"]
 [ext_resource type="Script" path="res://Scenes/ingredient.gd" id="5_7ll5r"]
 [ext_resource type="PackedScene" uid="uid://cbkedg3echlj7" path="res://Assets/Meshes/chair1.fbx" id="6_q8npv"]
+[ext_resource type="Resource" uid="uid://dfcsq1lxwyfmn" path="res://Scripts/Orders/Order_1.tres" id="8_fxx7n"]
+[ext_resource type="PackedScene" uid="uid://dv17e08oqxyvc" path="res://Objects/person.tscn" id="11_1hmru"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ly8sr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ejgk0"]
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("persons", "order_papers")]
+script = ExtResource("1_a2221")
+persons = [NodePath("People/Person"), NodePath("People/Person2"), NodePath("People/Person3")]
+orders = Array[ExtResource("2_pvail")]([ExtResource("8_fxx7n"), ExtResource("4_t5jri"), ExtResource("5_01hux")])
+order_papers = [NodePath("Orders/Order"), NodePath("Orders/Order2"), NodePath("Orders/Order3"), NodePath("Orders/Order4"), NodePath("Orders/Order5"), NodePath("Orders/Order6"), NodePath("Orders/Order7")]
+
+[node name="Orders" type="Node3D" parent="."]
+
+[node name="Order" parent="Orders" instance=ExtResource("4_8k5u3")]
+
+[node name="Order2" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0.07611, 0.997099, 3.32687e-09, -0.997099, 0.07611, -4.35846e-08, -1.72828, 1.90485, 1.13556)
+
+[node name="Order3" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0.07611, 0.997099, 3.32687e-09, -0.997099, 0.07611, -4.35846e-08, -1.72828, 1.90485, 0.894813)
+
+[node name="Order4" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 0.639872)
+
+[node name="Order5" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 0.417339)
+
+[node name="Order6" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 0.158539)
+
+[node name="Order7" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 1.80575)
 
 [node name="restaurant" parent="." instance=ExtResource("1_uosr1")]
 
@@ -26,9 +59,6 @@ cull_mask = 524287
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("2_m5g53")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.478876, 0.877883, 0, -0.877883, 0.478876, 0, 4.15573, 0)
 
 [node name="Couldron" parent="." instance=ExtResource("4_183qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.792586, 1.15024)
@@ -46,6 +76,40 @@ shape = SubResource("BoxShape3D_ly8sr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ingredient"]
 mesh = SubResource("BoxMesh_ejgk0")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.914235, 1.98635, 1.19481)
+layers = 524289
+light_color = Color(1, 1, 0.921569, 1)
+light_energy = 0.8
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.327, 1.9123, 1.19481)
+layers = 524289
+light_color = Color(1, 1, 0.921569, 1)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 30.0
+omni_attenuation = 0.4
+
+[node name="People" type="Node3D" parent="."]
+
+[node name="Person" parent="People" instance=ExtResource("11_1hmru")]
+
+[node name="Person2" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96834, 0.996547, 2)
+
+[node name="Person3" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96834, 0.996547, -3)
 
 [connection signal="interacted" from="Couldron" to="Player" method="_on_couldron_interacted"]
 [connection signal="interacted" from="Ingredient" to="Player" method="_on_ingredient_interacted"]

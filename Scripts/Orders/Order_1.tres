@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Order" load_steps=3 format=3 uid="uid://dfcsq1lxwyfmn"]
+
+[ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_2ae2b"]
+[ext_resource type="Texture2D" uid="uid://6t8ekg3vjjie" path="res://Assets/Textures/Environment/Boyle_Order_Soup.png" id="1_4bpyq"]
+
+[resource]
+script = ExtResource("1_2ae2b")
+small_image = ExtResource("1_4bpyq")
+detailed_image = ExtResource("1_4bpyq")
+requirements = Array[int]([0])

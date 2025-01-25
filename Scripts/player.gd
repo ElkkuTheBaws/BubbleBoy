@@ -13,6 +13,9 @@ class_name Player
 @export_category("Carrying")
 @export var interact_raycast: RayCast3D
 @export var hands: Hands
+
+var inspecting: bool = false
+
 #@export var pot: Node3D
 #var current_carry = null
 var current_interaction: Interactable:
@@ -29,8 +32,14 @@ var current_interaction: Interactable:
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	inputComponent.connect("interact_action", interact)
+	Global.on_inspect.connect(_on_inspect)
+
+func _on_inspect(texture):
+	inspecting = true
 
 func _input(event):
+	if inspecting:
+		return
 	if hands.curret_carry is Couldron:
 		hands.move(event)
 	else:
@@ -45,6 +54,8 @@ func _physics_process(delta: float) -> void:
 	inputComponent.setMovementInput()
 	if not is_on_floor():
 		velocity.y -= delta * 25
+	if inspecting:
+		return
 	ground_move(delta)
 	check_interaction()
 	
@@ -74,6 +85,10 @@ func check_interaction():
 			current_interaction = collider
 
 func interact():
+	if inspecting:
+		Global.end_inspect.emit()
+		inspecting = false
+		return
 	if current_interaction:
 		current_interaction.interact(hands.curret_carry)
 
