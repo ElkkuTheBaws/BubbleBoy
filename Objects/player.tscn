@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlxndqcjrl1gc"]
+[gd_scene load_steps=21 format=3 uid="uid://dlxndqcjrl1gc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3tb4l"]
 [ext_resource type="Script" path="res://Scripts/head_component.gd" id="2_3s470"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/hands.gd" id="6_2qkwx"]
 [ext_resource type="Script" path="res://Scripts/footstep_manager.gd" id="7_owfbr"]
 [ext_resource type="PackedScene" uid="uid://dkjv434vl0d1p" path="res://Assets/Meshes/POT.glb" id="7_ugdtp"]
+[ext_resource type="Script" path="res://Assets/Meshes/pot.gd" id="8_j737t"]
 [ext_resource type="AudioStream" uid="uid://b5jyl65m5r3q" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium A.wav" id="8_yg0et"]
 [ext_resource type="AudioStream" uid="uid://df1cekb407d4l" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium B.wav" id="9_diynt"]
 [ext_resource type="AudioStream" uid="uid://c37hb8ggp11sf" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium C.wav" id="10_hmtq5"]
@@ -92,19 +93,24 @@ current = true
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 8
 
-[node name="Hands" type="Node3D" parent="HeadComponent/Eyes" node_paths=PackedStringArray("input", "liquid")]
+[node name="Hands" type="Node3D" parent="HeadComponent/Eyes" node_paths=PackedStringArray("input")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.589224, -0.911479)
 script = ExtResource("6_2qkwx")
 input = NodePath("../../../PlayerInputComponent")
-liquid = NodePath("POT/liquid")
 swaySpeed = 0.25
 swayAngle = 50.0
 
-[node name="POT" parent="HeadComponent/Eyes/Hands" instance=ExtResource("7_ugdtp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.265839, 0)
+[node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid") instance=ExtResource("7_ugdtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+script = ExtResource("8_j737t")
+liquid = NodePath("liquid")
+
+[node name="pot" parent="HeadComponent/Eyes/Hands/POT" index="0"]
+layers = 524288
 
 [node name="liquid" parent="HeadComponent/Eyes/Hands/POT" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332751, 0)
+layers = 524288
 
 [node name="PlayerInputComponent" type="Node" parent="."]
 script = ExtResource("5_gw77a")

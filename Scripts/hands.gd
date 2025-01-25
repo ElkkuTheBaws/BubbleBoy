@@ -2,7 +2,7 @@ extends Node3D
 class_name Hands
 
 @export var input: PlayerInputComponent
-@export var liquid: Node3D
+#@export var liquid: Node3D
 @export_category("Sway")
 @export var swaySpeed: float = 10
 @export var swayAngle: float = 90
@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees.z = clampf(rotation_degrees.z, -swayAngle, swayAngle)
 		rotation_degrees.x = clampf(rotation_degrees.x, -swayAngle, swayAngle)
 		rotation_degrees.y = 0
+		
 
 func move(event: InputEvent):
 	if active:
