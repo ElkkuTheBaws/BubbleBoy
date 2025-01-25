@@ -3,36 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
 [ext_resource type="PackedScene" uid="uid://dlxndqcjrl1gc" path="res://Objects/player.tscn" id="1_xr3mm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_m5g53"]
-[ext_resource type="Script" path="res://Scenes/couldron.gd" id="5_eutmf"]
-[ext_resource type="PackedScene" uid="uid://dkjv434vl0d1p" path="res://Assets/Meshes/POT.glb" id="5_okbug"]
+[ext_resource type="PackedScene" uid="uid://33pkcg3sb66g" path="res://Objects/couldron.tscn" id="4_183qa"]
+[ext_resource type="Script" path="res://Scenes/ingredient.gd" id="5_7ll5r"]
+[ext_resource type="PackedScene" uid="uid://cbkedg3echlj7" path="res://Assets/Meshes/chair1.fbx" id="6_q8npv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6qocp"]
-size = Vector3(20, 1, 20)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ly8sr"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_yaitx"]
-size = Vector3(20, 1, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_av2e5"]
-size = Vector3(1, 0.469604, 0.641541)
+[sub_resource type="BoxMesh" id="BoxMesh_ejgk0"]
 
 [node name="Level" type="Node3D"]
 
 [node name="restaurant" parent="." instance=ExtResource("1_uosr1")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_6qocp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_yaitx")
-
 [node name="Player" parent="." instance=ExtResource("1_xr3mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552, 0.647884, 0)
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552, 0.947884, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552, 1.24788, 0)
 cull_mask = 524287
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera"]
@@ -43,19 +30,23 @@ script = ExtResource("2_m5g53")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.478876, 0.877883, 0, -0.877883, 0.478876, 0, 4.15573, 0)
 
-[node name="Couldron" type="StaticBody3D" parent="." node_paths=PackedStringArray("mesh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.946551, 1.61157)
+[node name="Couldron" parent="." instance=ExtResource("4_183qa")]
+
+[node name="Ingredient" type="StaticBody3D" parent="." node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 3.16631)
 collision_layer = 9
-script = ExtResource("5_eutmf")
-mesh = NodePath("POT/pot")
+script = ExtResource("5_7ll5r")
+hand_mesh = ExtResource("6_q8npv")
+mesh = NodePath("MeshInstance3D")
+interactable_name = "Tomato"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Couldron"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265198, 0.00430298)
-shape = SubResource("BoxShape3D_av2e5")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ingredient"]
+shape = SubResource("BoxShape3D_ly8sr")
 
-[node name="POT" parent="Couldron" instance=ExtResource("5_okbug")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ingredient"]
+mesh = SubResource("BoxMesh_ejgk0")
 
 [connection signal="interacted" from="Couldron" to="Player" method="_on_couldron_interacted"]
+[connection signal="interacted" from="Ingredient" to="Player" method="_on_ingredient_interacted"]
 
 [editable path="restaurant"]
-[editable path="Couldron/POT"]

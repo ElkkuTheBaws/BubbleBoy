@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cre1qs0h2x1bh" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium E.wav" id="12_6ueyt"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mhdyx"]
-height = 1.5
+height = 1.8
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j2aar"]
 noise_type = 5
@@ -46,7 +46,7 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("headComponent", "inputComponent", "interact_raycast", "hands", "pot")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("headComponent", "inputComponent", "interact_raycast", "hands")]
 collision_layer = 16
 script = ExtResource("1_3tb4l")
 headComponent = NodePath("HeadComponent")
@@ -56,13 +56,12 @@ deacceleration = 3.0
 walk_speed = 2.5
 interact_raycast = NodePath("HeadComponent/Eyes/PhantomCamera3D/InteractionRay")
 hands = NodePath("HeadComponent/Eyes/Hands")
-pot = NodePath("HeadComponent/Eyes/Hands/POT")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_mhdyx")
 
 [node name="HeadComponent" type="Area3D" parent="." node_paths=PackedStringArray("camera", "sub_cam", "eyes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 collision_layer = 16
 script = ExtResource("2_3s470")
 noise = SubResource("FastNoiseLite_j2aar")
@@ -93,12 +92,14 @@ current = true
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 8
 
-[node name="Hands" type="Node3D" parent="HeadComponent/Eyes" node_paths=PackedStringArray("input")]
+[node name="Hands" type="Node3D" parent="HeadComponent/Eyes" node_paths=PackedStringArray("input", "pot", "hand")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.589224, -0.911479)
 script = ExtResource("6_2qkwx")
 input = NodePath("../../../PlayerInputComponent")
 swaySpeed = 0.25
 swayAngle = 50.0
+pot = NodePath("POT")
+hand = NodePath("Hand")
 
 [node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid") instance=ExtResource("7_ugdtp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
@@ -111,6 +112,8 @@ layers = 524288
 [node name="liquid" parent="HeadComponent/Eyes/Hands/POT" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332751, 0)
 layers = 524288
+
+[node name="Hand" type="Node3D" parent="HeadComponent/Eyes/Hands"]
 
 [node name="PlayerInputComponent" type="Node" parent="."]
 script = ExtResource("5_gw77a")

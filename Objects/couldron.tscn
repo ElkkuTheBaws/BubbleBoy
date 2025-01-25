@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://33pkcg3sb66g"]
+
+[ext_resource type="Script" path="res://Scenes/couldron.gd" id="1_ff61u"]
+[ext_resource type="PackedScene" uid="uid://dkjv434vl0d1p" path="res://Assets/Meshes/POT.glb" id="2_mhv4n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_av2e5"]
+size = Vector3(1, 0.469604, 0.641541)
+
+[node name="Couldron" type="StaticBody3D" node_paths=PackedStringArray("spawn_pos", "mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.946551, 1.61157)
+collision_layer = 9
+script = ExtResource("1_ff61u")
+spawn_pos = NodePath("SpawnPosition")
+mesh = NodePath("POT/pot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265198, 0.00430298)
+shape = SubResource("BoxShape3D_av2e5")
+
+[node name="POT" parent="." instance=ExtResource("2_mhv4n")]
+
+[node name="SpawnPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+
+[editable path="POT"]
