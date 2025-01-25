@@ -13,7 +13,8 @@ class_name Player
 @export_category("Carrying")
 @export var interact_raycast: RayCast3D
 @export var hands: Hands
-@export var pot: Node3D
+#@export var pot: Node3D
+#var current_carry = null
 var current_interaction: Interactable:
 	set(object):
 		if object != null:
@@ -24,14 +25,13 @@ var current_interaction: Interactable:
 				current_interaction.highlight(false)
 			Global.on_interaction_hover.emit(null)
 		current_interaction = object
-var carrying: bool = false
+#var carrying: bool = false
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	inputComponent.connect("interact_action", interact)
-	hands.visible = false
 
 func _input(event):
-	if carrying:
+	if hands.curret_carry is Couldron:
 		hands.move(event)
 	else:
 		look(event)
@@ -75,17 +75,24 @@ func check_interaction():
 
 func interact():
 	if current_interaction:
-		current_interaction.interact(null)
+		current_interaction.interact(hands.curret_carry)
 
 
-func _on_couldron_interacted(position) -> void:
-	if not carrying:
-		carrying = true
-		hands.active = true
-		if position != null:
-			pot.global_position = position
-			var t: Tween = get_tree().create_tween()
-			t.tween_property(pot, "position", Vector3.ZERO, 0.2)
-	else:
-		hands.active = false
-		carrying = false
+func _on_couldron_interacted(couldron) -> void:
+	#if current_carry == null:
+	if couldron != null:
+		if couldron is Couldron:
+			if not couldron.visible:
+				hands.set_item(couldron)
+			else:
+				if hands.curret_carry is Pot:
+					couldron.heat = hands.curret_carry.heat
+				hands.remove_item()
+		if couldron is Ingredient:
+			if hands.curret_carry == couldron:
+				hands.remove_item()
+
+
+func _on_ingredient_interacted(ingredient) -> void:
+	if hands.curret_carry == null:
+		hands.set_item(ingredient)

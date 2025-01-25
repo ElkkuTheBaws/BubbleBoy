@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=47 format=3 uid="uid://b2ddru7wjyovx"]
+[gd_resource type="VisualShader" load_steps=47 format=3 uid="uid://di4aexa1t6g5y"]
 
 [ext_resource type="Texture2D" uid="uid://cbe828l1gj3ls" path="res://Assets/Textures/Objects/potwatersheet.png" id="1_q3lyr"]
 [ext_resource type="Texture2D" uid="uid://l77adomt6lt6" path="res://Assets/Textures/Objects/potwater-displacement.png" id="2_5s2cp"]
