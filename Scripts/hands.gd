@@ -23,6 +23,7 @@ func _ready() -> void:
 	hand.visible = false
 
 func remove_item():
+	pot.audio.stop()
 	pot.visible = false
 	hand.visible = false
 	if curret_carry != null:
@@ -36,6 +37,7 @@ func set_item(item):
 	if item != null:
 		if item is Couldron:
 			pot.visible = true
+			pot.audio.play()
 			pot.global_position = item.global_position
 			pot.set_amount(item.amount)
 			pot.ingredients = item.ingredients

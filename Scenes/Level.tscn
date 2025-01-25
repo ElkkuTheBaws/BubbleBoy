@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=34 format=3 uid="uid://cpxc77235lfv2"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://crxvf548n2kat" path="res://Scripts/Orders/Order_2.tres" id="4_t5jri"]
 [ext_resource type="Resource" uid="uid://btccmx0hslx74" path="res://Scripts/Orders/Order_3.tres" id="5_01hux"]
 [ext_resource type="Resource" uid="uid://dfcsq1lxwyfmn" path="res://Scripts/Orders/Order_1.tres" id="8_fxx7n"]
-[ext_resource type="PackedScene" path="res://Objects/person.tscn" id="11_1hmru"]
+[ext_resource type="PackedScene" uid="uid://dv17e08oqxyvc" path="res://Objects/person.tscn" id="11_1hmru"]
 [ext_resource type="PackedScene" uid="uid://cklthnmeg4r8e" path="res://Objects/ingredient_pile.tscn" id="11_ykokl"]
 [ext_resource type="PackedScene" uid="uid://vckw43bwo4tn" path="res://Assets/Meshes/ingredients/soup-onion.glb" id="12_216df"]
 [ext_resource type="PackedScene" uid="uid://dflu3mm2pgqog" path="res://Assets/Meshes/ingredients/pile-tomato.glb" id="13_04vpi"]
@@ -23,6 +23,16 @@
 [ext_resource type="PackedScene" uid="uid://b6cts8qbff4di" path="res://Assets/Meshes/ingredients/pile-shroom.glb" id="19_b3wc2"]
 [ext_resource type="PackedScene" uid="uid://dafm6spwnlgtu" path="res://Assets/Meshes/ingredients/pile-beans.glb" id="21_bh5a0"]
 [ext_resource type="PackedScene" uid="uid://clp77li7716l7" path="res://Assets/Meshes/ingredients/pile-beer.glb" id="23_rktbv"]
+[ext_resource type="AudioStream" uid="uid://cdu3a1vgq7aja" path="res://Assets/Sounds/Ambient/HVAC Loop 003.wav" id="24_4j1h4"]
+[ext_resource type="PackedScene" uid="uid://cnuequa1eesr8" path="res://Assets/Meshes/ingredients/soup-burger.glb" id="24_klcak"]
+[ext_resource type="AudioStream" uid="uid://cgaaq2djgievi" path="res://Assets/Sounds/Ambient/Oven Hum Loop 001.wav" id="25_4jp4b"]
+[ext_resource type="PackedScene" uid="uid://c3c2vmxvo34t5" path="res://Assets/Meshes/ingredients/pile-burger.glb" id="25_k3nxh"]
+[ext_resource type="PackedScene" uid="uid://blvvq7ydmsnrv" path="res://Assets/Meshes/ingredients/soup-fish.glb" id="26_1r11v"]
+[ext_resource type="PackedScene" uid="uid://cwq8s1cea3xmc" path="res://Assets/Meshes/ingredients/pile-fish.glb" id="26_jvs3r"]
+[ext_resource type="PackedScene" uid="uid://yxytm3d3f8yi" path="res://Assets/Meshes/ingredients/soup-nails.glb" id="28_ev31a"]
+[ext_resource type="PackedScene" uid="uid://bq82way3ojt5j" path="res://Assets/Meshes/ingredients/pile-nails.glb" id="29_o711n"]
+[ext_resource type="PackedScene" uid="uid://d32mttwk8go8" path="res://Assets/Meshes/ingredients/soup-potato.glb" id="30_3tny0"]
+[ext_resource type="PackedScene" uid="uid://d4ema65po868h" path="res://Assets/Meshes/ingredients/pile-potato.glb" id="31_4wkdk"]
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("persons", "order_papers")]
 script = ExtResource("1_a2221")
@@ -105,87 +115,179 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96834, 0.996547, -3)
 
 [node name="Ingredients" type="Node3D" parent="."]
 
-[node name="Ingredient" parent="Ingredients" instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13649, 1.48507, 3.16631)
+[node name="Tomatos" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
+transform = Transform3D(0.92075, 0, -0.390153, 0, 1, 0, 0.390153, 0, 0.92075, 2.13649, 1.48507, 3.30866)
+mesh = NodePath("pile-tomato2/pile-tomato")
 
-[node name="MeshInstance3D" parent="Ingredients/Ingredient" index="1"]
+[node name="MeshInstance3D" parent="Ingredients/Tomatos" index="1"]
 visible = false
 
-[node name="pile-tomato2" parent="Ingredients/Ingredient" instance=ExtResource("13_04vpi")]
+[node name="pile-tomato2" parent="Ingredients/Tomatos" instance=ExtResource("13_04vpi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186656, -0.469278, 0)
 
-[node name="Ingredient2" parent="Ingredients" instance=ExtResource("11_ykokl")]
+[node name="Onions" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 0.267833, 3.16631)
 type = 1
 hand_mesh = ExtResource("12_216df")
+mesh = NodePath("pile-onion2/pile-onion")
 interactable_name = "Onion"
 
-[node name="MeshInstance3D" parent="Ingredients/Ingredient2" index="1"]
+[node name="MeshInstance3D" parent="Ingredients/Onions" index="1"]
 visible = false
 
-[node name="pile-onion2" parent="Ingredients/Ingredient2" instance=ExtResource("15_md083")]
+[node name="pile-onion2" parent="Ingredients/Onions" instance=ExtResource("15_md083")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.162367, -0.084707, -0.220611)
 
-[node name="Ingredient3" parent="Ingredients" instance=ExtResource("11_ykokl")]
+[node name="Sandals" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33713, 1.48507, 0.778789)
 type = 2
 hand_mesh = ExtResource("13_scl4j")
+mesh = NodePath("pile-sandal2/pile-sandal")
 interactable_name = "Sandal"
 
-[node name="MeshInstance3D" parent="Ingredients/Ingredient3" index="1"]
+[node name="MeshInstance3D" parent="Ingredients/Sandals" index="1"]
 visible = false
 
-[node name="pile-sandal2" parent="Ingredients/Ingredient3" instance=ExtResource("17_s3duv")]
+[node name="pile-sandal2" parent="Ingredients/Sandals" instance=ExtResource("17_s3duv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104789, -0.459494, 0)
 
-[node name="Ingredient4" parent="Ingredients" instance=ExtResource("11_ykokl")]
+[node name="Shrooms" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, -1.05697)
 type = 3
 hand_mesh = ExtResource("14_fy5k0")
-interactable_name = "Sandal"
+mesh = NodePath("pile-shroom2/pile-shroom")
+interactable_name = "Mushrooms"
 
-[node name="MeshInstance3D" parent="Ingredients/Ingredient4" index="1"]
+[node name="MeshInstance3D" parent="Ingredients/Shrooms" index="1"]
 visible = false
 
-[node name="pile-shroom2" parent="Ingredients/Ingredient4" instance=ExtResource("19_b3wc2")]
+[node name="pile-shroom2" parent="Ingredients/Shrooms" instance=ExtResource("19_b3wc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.486942, 0)
 
-[node name="Ingredient5" parent="Ingredients" instance=ExtResource("11_ykokl")]
+[node name="Beans" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67451, 1.48507, -3.84872)
 type = 4
 hand_mesh = ExtResource("15_tcmmr")
+mesh = NodePath("pile-beans2/pile-beans")
 interactable_name = "Beans"
 
-[node name="MeshInstance3D" parent="Ingredients/Ingredient5" index="1"]
+[node name="MeshInstance3D" parent="Ingredients/Beans" index="1"]
 visible = false
 
-[node name="pile-beans2" parent="Ingredients/Ingredient5" instance=ExtResource("21_bh5a0")]
+[node name="pile-beans2" parent="Ingredients/Beans" instance=ExtResource("21_bh5a0")]
 transform = Transform3D(0.314688, 0, 0.949195, 0, 1, 0, -0.949195, 0, 0.314688, -0.00201499, -0.48551, -0.289742)
 
-[node name="Ingredient6" parent="Ingredients" instance=ExtResource("11_ykokl")]
+[node name="Beer" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 2.97809)
 type = 6
 hand_mesh = ExtResource("16_ktsx5")
-interactable_name = "Beans"
+mesh = NodePath("pile-beer2/pile-beer")
+interactable_name = "Beer"
 
-[node name="MeshInstance3D" parent="Ingredients/Ingredient6" index="1"]
+[node name="MeshInstance3D" parent="Ingredients/Beer" index="1"]
 visible = false
 
-[node name="pile-beer2" parent="Ingredients/Ingredient6" instance=ExtResource("23_rktbv")]
+[node name="pile-beer2" parent="Ingredients/Beer" instance=ExtResource("23_rktbv")]
 transform = Transform3D(-0.998721, 0, 0.0505581, 0, 1, 0, -0.0505581, 0, -0.998721, 0, -0.441999, 0)
 
+[node name="Burger" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395115, 1.47545, 4.2617)
+type = 6
+hand_mesh = ExtResource("24_klcak")
+mesh = NodePath("pile-burger2/pile-burger")
+interactable_name = "Burger"
+
+[node name="MeshInstance3D" parent="Ingredients/Burger" index="1"]
+visible = false
+
+[node name="pile-burger2" parent="Ingredients/Burger" instance=ExtResource("25_k3nxh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.503909, 0)
+
+[node name="Fish" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48902, 1.47545, 4.2617)
+type = 6
+hand_mesh = ExtResource("26_1r11v")
+mesh = NodePath("pile-fish2/pile-fish")
+interactable_name = "Fish"
+
+[node name="MeshInstance3D" parent="Ingredients/Fish" index="1"]
+visible = false
+
+[node name="pile-fish2" parent="Ingredients/Fish" instance=ExtResource("26_jvs3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="Nails" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11018, -0.0163431, -0.551283)
+type = 6
+hand_mesh = ExtResource("28_ev31a")
+mesh = NodePath("pile-nails2/pile-nails")
+interactable_name = "Nails"
+
+[node name="MeshInstance3D" parent="Ingredients/Nails" index="1"]
+visible = false
+
+[node name="pile-nails2" parent="Ingredients/Nails" instance=ExtResource("29_o711n")]
+
+[node name="Potates" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16184, 0.995736, 2.35972)
+type = 6
+hand_mesh = ExtResource("30_3tny0")
+mesh = NodePath("pile-potato2/pile-potato")
+interactable_name = "Potatoes"
+
+[node name="MeshInstance3D" parent="Ingredients/Potates" index="1"]
+visible = false
+
+[node name="pile-potato2" parent="Ingredients/Potates" instance=ExtResource("31_4wkdk")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25256, 2.94968, 6.01068)
+stream = ExtResource("24_4j1h4")
+volume_db = -10.0
+unit_size = 5.0
+autoplay = true
+max_distance = 45.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61375, -0.0977305, 0.782244)
+stream = ExtResource("25_4jp4b")
+volume_db = -10.0
+unit_size = 2.0
+autoplay = true
+max_distance = 30.0
+bus = &"R"
+
 [connection signal="interacted" from="Couldron" to="Player" method="_on_couldron_interacted"]
-[connection signal="interacted" from="Ingredients/Ingredient" to="Player" method="_on_ingredient_interacted"]
-[connection signal="interacted" from="Ingredients/Ingredient2" to="Player" method="_on_ingredient_interacted"]
-[connection signal="interacted" from="Ingredients/Ingredient3" to="Player" method="_on_ingredient_interacted"]
-[connection signal="interacted" from="Ingredients/Ingredient4" to="Player" method="_on_ingredient_interacted"]
-[connection signal="interacted" from="Ingredients/Ingredient5" to="Player" method="_on_ingredient_interacted"]
-[connection signal="interacted" from="Ingredients/Ingredient6" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Tomatos" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Onions" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Sandals" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Shrooms" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Beans" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Beer" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Burger" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Fish" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Nails" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Potates" to="Player" method="_on_ingredient_interacted"]
 
 [editable path="restaurant"]
-[editable path="Ingredients/Ingredient"]
-[editable path="Ingredients/Ingredient2"]
-[editable path="Ingredients/Ingredient3"]
-[editable path="Ingredients/Ingredient4"]
-[editable path="Ingredients/Ingredient5"]
-[editable path="Ingredients/Ingredient6"]
+[editable path="Ingredients/Tomatos"]
+[editable path="Ingredients/Tomatos/pile-tomato2"]
+[editable path="Ingredients/Onions"]
+[editable path="Ingredients/Onions/pile-onion2"]
+[editable path="Ingredients/Sandals"]
+[editable path="Ingredients/Sandals/pile-sandal2"]
+[editable path="Ingredients/Shrooms"]
+[editable path="Ingredients/Shrooms/pile-shroom2"]
+[editable path="Ingredients/Beans"]
+[editable path="Ingredients/Beans/pile-beans2"]
+[editable path="Ingredients/Beer"]
+[editable path="Ingredients/Beer/pile-beer2"]
+[editable path="Ingredients/Burger"]
+[editable path="Ingredients/Burger/pile-burger2"]
+[editable path="Ingredients/Fish"]
+[editable path="Ingredients/Fish/pile-fish2"]
+[editable path="Ingredients/Nails"]
+[editable path="Ingredients/Nails/pile-nails2"]
+[editable path="Ingredients/Potates"]
+[editable path="Ingredients/Potates/pile-potato2"]

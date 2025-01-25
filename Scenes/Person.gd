@@ -34,12 +34,12 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if self ==  Global.current_person_area:
 		Global.current_person_area = null
 
-func play_sentence(dialog: Sentence):
-	audio_player.stream = dialog.audio
-	audio_player.volume_db = -20
-	audio_player.play()
-	print(dialog.audio)
-	Global.start_dialog.emit(dialog.text, dialog.audio.get_length())
-	await audio_player.finished
-	await get_tree().create_timer(2).timeout
-	Global.end_dialog.emit()
+#func play_sentence(dialog: Sentence):
+	#audio_player.stream = dialog.audio
+	#audio_player.volume_db = -20
+	#audio_player.play()
+	#print(dialog.audio)
+	#Global.start_dialog.emit(dialog.text, dialog.audio.get_length())
+	#await audio_player.finished
+	#await get_tree().create_timer(2).timeout
+	#Global.end_dialog.emit()

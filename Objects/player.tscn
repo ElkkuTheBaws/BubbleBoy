@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlxndqcjrl1gc"]
+[gd_scene load_steps=25 format=3 uid="uid://dlxndqcjrl1gc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3tb4l"]
 [ext_resource type="Script" path="res://Scripts/head_component.gd" id="2_3s470"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cbe828l1gj3ls" path="res://Assets/Textures/Objects/potwatersheet.png" id="10_7jumk"]
 [ext_resource type="AudioStream" uid="uid://c37hb8ggp11sf" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium C.wav" id="10_hmtq5"]
 [ext_resource type="AudioStream" uid="uid://5gex5loues77" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium D.wav" id="11_6bhh5"]
+[ext_resource type="AudioStream" uid="uid://drr4lvtutvh6q" path="res://Assets/Sounds/Water/Boiling water_3.wav" id="11_gn065"]
 [ext_resource type="AudioStream" uid="uid://cre1qs0h2x1bh" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium E.wav" id="12_6ueyt"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mhdyx"]
@@ -60,8 +61,7 @@ script = ExtResource("1_3tb4l")
 headComponent = NodePath("HeadComponent")
 inputComponent = NodePath("PlayerInputComponent")
 acceleration = 20.0
-deacceleration = 3.0
-walk_speed = 2.5
+walk_speed = 2.0
 interact_raycast = NodePath("HeadComponent/Eyes/PhantomCamera3D/InteractionRay")
 hands = NodePath("HeadComponent/Eyes/Hands")
 
@@ -110,10 +110,11 @@ swayAngle = 50.0
 pot = NodePath("POT")
 hand = NodePath("Hand")
 
-[node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid") instance=ExtResource("7_ugdtp")]
+[node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid", "audio") instance=ExtResource("7_ugdtp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 script = ExtResource("8_j737t")
 liquid = NodePath("liquid")
+audio = NodePath("AudioStreamPlayer3D")
 
 [node name="pot" parent="HeadComponent/Eyes/Hands/POT" index="0"]
 layers = 524288
@@ -122,6 +123,12 @@ layers = 524288
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332751, 0)
 layers = 524288
 material_override = SubResource("ShaderMaterial_hg66j")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="HeadComponent/Eyes/Hands/POT"]
+stream = ExtResource("11_gn065")
+unit_size = 3.0
+max_distance = 5.0
+bus = &"R"
 
 [node name="Hand" type="Node3D" parent="HeadComponent/Eyes/Hands"]
 

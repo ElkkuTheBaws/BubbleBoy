@@ -2,13 +2,14 @@ extends Node3D
 class_name Pot
 @export_range(0, 0.35) var default_liquid_height: float = 0.33
 @export var liquid: Node3D
-
+@export var audio: AudioStreamPlayer3D
 var ingredients = null
 
 var heat: float = 0:
 	set(value):
 		heat = clamp(value, 30, 100)
 		var normalized = normalize(heat, 30, 100)
+		audio.volume_db = linear_to_db(normalized * 0.5)
 		liquid.material_override.set_shader_parameter("Displacement_Intensity",snappedf(normalized, 0.2))
 		liquid.material_override.set_shader_parameter("Texture_Speed", snappedf(normalized, 0.2))
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			check_pour()
 		else:
 			liquid.visible = false
+			audio.stop()
 	heat -= delta * 5
 	var normalized = normalize(heat, 30, 100) * 0.015
 	position.x = randf_range(-normalized, normalized)

@@ -7,4 +7,4 @@ signal on_interaction_hover(item)
 signal on_inspect(image)
 signal end_inspect
 signal start_dialog(text: String, time: float)
-enum IngredientType {tomato, onion, sandal, mushroom, beans, random, beer}
+enum IngredientType {tomato, onion, sandal, mushroom, beans, beer, burger, fish, nails, potatoes}
