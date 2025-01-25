@@ -51,6 +51,8 @@ func look(event: InputEvent):
 	headComponent.rotateHead(inputComponent.getYRotation(event))
 
 func _physics_process(delta: float) -> void:
+	if hands.curret_carry is Couldron:
+		look_at_person(delta)
 	inputComponent.setMovementInput()
 	if not is_on_floor():
 		velocity.y -= delta * 25
@@ -58,7 +60,16 @@ func _physics_process(delta: float) -> void:
 		return
 	ground_move(delta)
 	check_interaction()
-	
+
+func look_at_person(delta: float):
+	var current_position = global_transform.origin
+	var person = Global.gameManager.current_person
+	if person != null:
+		var direction = (person.global_position - current_position).normalized()
+		direction.y = 0
+		rotation.y= lerp(rotation.y,atan2(-direction.x,-direction.z),.03)
+		headComponent.rotation.x = lerp(headComponent.rotation.x, deg_to_rad(-20.0), delta)
+
 func ground_move(delta: float) -> void:
 	var direction: Vector3 = (global_transform.basis.x * inputComponent.input_dir.x + global_transform.basis.z * inputComponent.input_dir.y).normalized()
 	var calculatedVelocity = getGroundVelocity(velocity, direction, delta, walk_speed)
