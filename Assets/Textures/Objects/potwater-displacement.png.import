@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck3p4luabolqk"
-path.s3tc="res://.godot/imported/potwater_potwater_1.png-f39bcc2e141dee9ad50e89942ab28d01.s3tc.ctex"
+uid="uid://l77adomt6lt6"
+path.s3tc="res://.godot/imported/potwater-displacement.png-aebe0ae11acc3b55cbfcfdad007d6849.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Objects/potwater_potwater_1.png"
-dest_files=["res://.godot/imported/potwater_potwater_1.png-f39bcc2e141dee9ad50e89942ab28d01.s3tc.ctex"]
+source_file="res://Assets/Textures/Objects/potwater-displacement.png"
+dest_files=["res://.godot/imported/potwater-displacement.png-aebe0ae11acc3b55cbfcfdad007d6849.s3tc.ctex"]
 
 [params]
 

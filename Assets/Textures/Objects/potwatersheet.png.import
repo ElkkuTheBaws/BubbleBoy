@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck3p4luabolqk"
-path.s3tc="res://.godot/imported/potwater_potwater_1.png-f39bcc2e141dee9ad50e89942ab28d01.s3tc.ctex"
+uid="uid://cbe828l1gj3ls"
+path.s3tc="res://.godot/imported/potwatersheet.png-0b17c7c14aab383eb2bb8d0701830414.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Objects/potwater_potwater_1.png"
-dest_files=["res://.godot/imported/potwater_potwater_1.png-f39bcc2e141dee9ad50e89942ab28d01.s3tc.ctex"]
+source_file="res://Assets/Textures/Objects/potwatersheet.png"
+dest_files=["res://.godot/imported/potwatersheet.png-0b17c7c14aab383eb2bb8d0701830414.s3tc.ctex"]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
