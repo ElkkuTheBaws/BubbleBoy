@@ -7,10 +7,12 @@ func set_order(_order: Order):
 	var material = mesh.mesh.surface_get_material(0)
 	material.albedo_texture = order.small_image
 	mesh.mesh.surface_set_material(0, material)
+	set_collision_layer_value(4, true)
 	visible = true
 	
 func _ready() -> void:
 	visible = false
+	set_collision_layer_value(4, false)
 	
 func interact(item) -> void:
 	print(order)

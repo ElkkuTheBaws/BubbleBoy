@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=18 format=3 uid="uid://cpxc77235lfv2"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
@@ -9,14 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://33pkcg3sb66g" path="res://Objects/couldron.tscn" id="4_183qa"]
 [ext_resource type="Resource" uid="uid://crxvf548n2kat" path="res://Scripts/Orders/Order_2.tres" id="4_t5jri"]
 [ext_resource type="Resource" uid="uid://btccmx0hslx74" path="res://Scripts/Orders/Order_3.tres" id="5_01hux"]
-[ext_resource type="Script" path="res://Scenes/ingredient.gd" id="5_7ll5r"]
-[ext_resource type="PackedScene" uid="uid://cbkedg3echlj7" path="res://Assets/Meshes/chair1.fbx" id="6_q8npv"]
 [ext_resource type="Resource" uid="uid://dfcsq1lxwyfmn" path="res://Scripts/Orders/Order_1.tres" id="8_fxx7n"]
 [ext_resource type="PackedScene" uid="uid://dv17e08oqxyvc" path="res://Objects/person.tscn" id="11_1hmru"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ly8sr"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ejgk0"]
+[ext_resource type="PackedScene" uid="uid://cklthnmeg4r8e" path="res://Objects/ingredient_pile.tscn" id="11_ykokl"]
+[ext_resource type="PackedScene" uid="uid://vckw43bwo4tn" path="res://Assets/Meshes/ingredients/soup-onion.glb" id="12_216df"]
+[ext_resource type="PackedScene" uid="uid://8f3cvstobkdt" path="res://Assets/Meshes/ingredients/soup-sandal.glb" id="13_scl4j"]
+[ext_resource type="PackedScene" uid="uid://cvgxyrhemw8l6" path="res://Assets/Meshes/ingredients/soup-shroom.glb" id="14_fy5k0"]
+[ext_resource type="PackedScene" uid="uid://bs6d8f0ukk0y3" path="res://Assets/Meshes/ingredients/soup-beans.glb" id="15_tcmmr"]
+[ext_resource type="PackedScene" uid="uid://oh10fn0vs6ec" path="res://Assets/Meshes/ingredients/soup-beer.glb" id="16_ktsx5"]
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("persons", "order_papers")]
 script = ExtResource("1_a2221")
@@ -63,20 +63,6 @@ script = ExtResource("2_m5g53")
 [node name="Couldron" parent="." instance=ExtResource("4_183qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.792586, 1.15024)
 
-[node name="Ingredient" type="StaticBody3D" parent="." node_paths=PackedStringArray("mesh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 3.16631)
-collision_layer = 9
-script = ExtResource("5_7ll5r")
-hand_mesh = ExtResource("6_q8npv")
-mesh = NodePath("MeshInstance3D")
-interactable_name = "Tomato"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ingredient"]
-shape = SubResource("BoxShape3D_ly8sr")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ingredient"]
-mesh = SubResource("BoxMesh_ejgk0")
-
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
@@ -111,7 +97,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96834, 0.996547, 2)
 [node name="Person3" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96834, 0.996547, -3)
 
+[node name="Ingredients" type="Node3D" parent="."]
+
+[node name="Ingredient" parent="Ingredients" instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13649, 1.48507, 3.16631)
+
+[node name="Ingredient2" parent="Ingredients" instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 0.267833, 3.16631)
+type = 1
+hand_mesh = ExtResource("12_216df")
+interactable_name = "Onion"
+
+[node name="Ingredient3" parent="Ingredients" instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33713, 1.48507, 0.778789)
+type = 2
+hand_mesh = ExtResource("13_scl4j")
+interactable_name = "Sandal"
+
+[node name="Ingredient4" parent="Ingredients" instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, -1.05697)
+type = 3
+hand_mesh = ExtResource("14_fy5k0")
+interactable_name = "Sandal"
+
+[node name="Ingredient5" parent="Ingredients" instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67451, 1.48507, -3.84872)
+type = 4
+hand_mesh = ExtResource("15_tcmmr")
+interactable_name = "Beans"
+
+[node name="Ingredient6" parent="Ingredients" instance=ExtResource("11_ykokl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 2.97809)
+type = 6
+hand_mesh = ExtResource("16_ktsx5")
+interactable_name = "Beans"
+
 [connection signal="interacted" from="Couldron" to="Player" method="_on_couldron_interacted"]
-[connection signal="interacted" from="Ingredient" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Ingredient" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Ingredient2" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Ingredient3" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Ingredient4" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Ingredient5" to="Player" method="_on_ingredient_interacted"]
+[connection signal="interacted" from="Ingredients/Ingredient6" to="Player" method="_on_ingredient_interacted"]
 
 [editable path="restaurant"]

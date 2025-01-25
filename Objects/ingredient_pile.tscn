@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cklthnmeg4r8e"]
+
+[ext_resource type="Script" path="res://Scenes/ingredient.gd" id="1_epk8d"]
+[ext_resource type="PackedScene" uid="uid://rrf2pw5q6uge" path="res://Assets/Meshes/ingredients/soup-tomato.glb" id="2_sxr2v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ly8sr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ejgk0"]
+
+[node name="Ingredient" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 3.16631)
+collision_layer = 9
+script = ExtResource("1_epk8d")
+hand_mesh = ExtResource("2_sxr2v")
+mesh = NodePath("MeshInstance3D")
+interactable_name = "Tomato"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ly8sr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ejgk0")

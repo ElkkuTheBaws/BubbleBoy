@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0qdjpqsx64sp"]
+[gd_scene load_steps=11 format=3 uid="uid://b0qdjpqsx64sp"]
 
 [ext_resource type="PackedScene" uid="uid://cpxc77235lfv2" path="res://Scenes/Level.tscn" id="1_mn8rk"]
 [ext_resource type="Shader" path="res://Scenes/Game.gdshader" id="1_rycl1"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c81nv8lbyf1ok" path="res://Assets/Fonts/TypewriterBold.ttf" id="3_yoted"]
 [ext_resource type="Texture2D" uid="uid://cxnxvvqh6v0i" path="res://Assets/Textures/Environment/Boyle_Order_BoiledWater.png" id="4_i5oj2"]
 [ext_resource type="Material" uid="uid://d4b73rudev87d" path="res://Assets/Shaders/shake_UI.tres" id="4_l6v8n"]
+[ext_resource type="Shader" path="res://Assets/Shaders/shake_UI.gdshader" id="7_e2mtw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_55sls"]
 shader = ExtResource("1_rycl1")
@@ -17,6 +18,11 @@ shader_parameter/dither_size = 3
 [sub_resource type="Theme" id="Theme_6b0s2"]
 default_font = ExtResource("3_yoted")
 default_font_size = 25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmuwq"]
+shader = ExtResource("7_e2mtw")
+shader_parameter/shakeAmount = 100.0
+shader_parameter/frequency = 1.0
 
 [node name="Game" type="Node"]
 
@@ -87,3 +93,19 @@ custom_minimum_size = Vector2(350, 350)
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("4_i5oj2")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Control/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_vmuwq")
+layout_mode = 2
+size_flags_horizontal = 4
+text = "WOw yummers!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogTimer" type="Timer" parent="UI/Control"]
+wait_time = 6.0
+one_shot = true

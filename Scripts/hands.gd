@@ -54,7 +54,12 @@ func remove_ingredient():
 	hand.visible = false
 
 func set_ingredient(mesh: Resource):
-	var ingredient = mesh.instantiate()
+	var ingredient: Node3D = mesh.instantiate()
+	var child = ingredient.get_child(0)
+	if child is MeshInstance3D:
+		child.set_layer_mask_value(1, false)
+		child.set_layer_mask_value(20, true)
+	print("SPAWNED")
 	hand.add_child(ingredient)
 	hand.visible = true
 

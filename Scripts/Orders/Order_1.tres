@@ -7,4 +7,4 @@
 script = ExtResource("1_2ae2b")
 small_image = ExtResource("1_4bpyq")
 detailed_image = ExtResource("1_4bpyq")
-requirements = Array[int]([0])
+requirements = Array[int]([1, 0])

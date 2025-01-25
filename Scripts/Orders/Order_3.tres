@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://6t8ekg3vjjie" path="res://Assets/Textures/Environment/Boyle_Order_Soup.png" id="1_7bdct"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="2_67vho"]
-[ext_resource type="Texture2D" uid="uid://407qmqcxbid1" path="res://Assets/Textures/Environment/Boyle_Order_Blank.png" id="3_8aiku"]
+[ext_resource type="Texture2D" uid="uid://cxnxvvqh6v0i" path="res://Assets/Textures/Environment/Boyle_Order_BoiledWater.png" id="3_f81fj"]
 
 [resource]
 script = ExtResource("2_67vho")
-small_image = ExtResource("3_8aiku")
+small_image = ExtResource("3_f81fj")
 detailed_image = ExtResource("1_7bdct")
 requirements = Array[int]([1, 0])
