@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dapbjwo0nuxkd"
+path="res://.godot/imported/Fire ignite_2.wav-20e2d66f6c2bcfe80f9a8275bd55f616.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Oven/Fire ignite_2.wav"
+dest_files=["res://.godot/imported/Fire ignite_2.wav-20e2d66f6c2bcfe80f9a8275bd55f616.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

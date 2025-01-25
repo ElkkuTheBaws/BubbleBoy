@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddux1xjnhogct"
+path="res://.godot/imported/Cooking on fire_10.wav-35f436150b30a07fac39b3b0a7ad1713.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Oven/Cooking on fire_10.wav"
+dest_files=["res://.godot/imported/Cooking on fire_10.wav-35f436150b30a07fac39b3b0a7ad1713.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

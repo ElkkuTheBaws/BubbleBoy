@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://50nn86xem5o0"
+path="res://.godot/imported/Pick Up Paper B.wav-77787baf7f473bbe3652098e16ce1c17.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Interactions/Paper Pickup/Pick Up Paper B.wav"
+dest_files=["res://.godot/imported/Pick Up Paper B.wav-77787baf7f473bbe3652098e16ce1c17.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

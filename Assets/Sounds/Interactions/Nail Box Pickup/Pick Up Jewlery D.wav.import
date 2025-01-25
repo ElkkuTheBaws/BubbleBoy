@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cr55nban0fg6r"
+path="res://.godot/imported/Pick Up Jewlery D.wav-2c93dbb6f812b84abfc86ed66ee805f4.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Interactions/Nail Box Pickup/Pick Up Jewlery D.wav"
+dest_files=["res://.godot/imported/Pick Up Jewlery D.wav-2c93dbb6f812b84abfc86ed66ee805f4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

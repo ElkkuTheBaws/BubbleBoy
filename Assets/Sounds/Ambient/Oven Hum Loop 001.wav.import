@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgaaq2djgievi"
+path="res://.godot/imported/Oven Hum Loop 001.wav-b13bc70e92ac5ff2073346fdc0d28c52.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Ambient/Oven Hum Loop 001.wav"
+dest_files=["res://.godot/imported/Oven Hum Loop 001.wav-b13bc70e92ac5ff2073346fdc0d28c52.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
