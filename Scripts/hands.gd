@@ -8,7 +8,7 @@ class_name Hands
 @export var swaySpeed: float = 10
 @export var swayAngle: float = 90
 @export_category("Carry_meshes")
-@export var pot: Node3D
+@export var pot: Pot
 @export var hand: Node3D
 
 var curret_carry = null
@@ -37,6 +37,8 @@ func set_item(item):
 		if item is Couldron:
 			pot.visible = true
 			pot.global_position = item.global_position
+			pot.set_amount(item.amount)
+			pot.heat = item.heat
 			var t: Tween = get_tree().create_tween()
 			t.tween_property(pot, "position", Vector3.ZERO, 0.2)
 		elif item is Ingredient:

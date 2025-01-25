@@ -19,7 +19,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552, 0.647884, 0)
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552, 1.24788, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552, 1.39788, 0)
 cull_mask = 524287
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera"]
@@ -31,6 +31,7 @@ script = ExtResource("2_m5g53")
 transform = Transform3D(1, 0, 0, 0, 0.478876, 0.877883, 0, -0.877883, 0.478876, 0, 4.15573, 0)
 
 [node name="Couldron" parent="." instance=ExtResource("4_183qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.792586, 1.15024)
 
 [node name="Ingredient" type="StaticBody3D" parent="." node_paths=PackedStringArray("mesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 3.16631)

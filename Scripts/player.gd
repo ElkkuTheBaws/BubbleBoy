@@ -82,13 +82,15 @@ func _on_couldron_interacted(couldron) -> void:
 	#if current_carry == null:
 	if couldron != null:
 		if couldron is Couldron:
-			print("HELLO")
-			hands.set_item(couldron)
+			if not couldron.visible:
+				hands.set_item(couldron)
+			else:
+				if hands.curret_carry is Pot:
+					couldron.heat = hands.curret_carry.heat
+				hands.remove_item()
 		if couldron is Ingredient:
 			if hands.curret_carry == couldron:
 				hands.remove_item()
-	elif couldron == null:
-		hands.remove_item()
 
 
 func _on_ingredient_interacted(ingredient) -> void:

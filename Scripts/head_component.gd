@@ -61,7 +61,7 @@ var headBobVector: Vector2 = Vector2.ZERO
 var headBobIndex: float = 0
 var headBobCurrentIntensity: float = 0
 
-var currentHeadHeight = 0.6
+var currentHeadHeight = 0.75
 
 func _ready():
 	#camera.fov = defaultFov
