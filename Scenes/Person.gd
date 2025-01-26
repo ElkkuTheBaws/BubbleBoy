@@ -26,6 +26,9 @@ var can_dmg: bool = true
 var damage_shake: float = 0
 #var is_order_done: bool = false
 
+var nameList: Array = ["Gerb", "Nimbus", "Pickleford", "Herb", "Pinky", "Daryl", "Garlic Bread Person
+", "Snib", "Jorb", "Murkle", "Dinkus", "Crub", "Samuel Von Soup", "Gerald", "Mortimer", "Bartholomew", "Broth Er"]
+
 func enable_person():
 	visible = true
 	collisionShape.disabled = false
@@ -35,7 +38,11 @@ func hide_person():
 	collisionShape.disabled = true
 
 func complete():
-	await get_tree().create_timer(randf_range(30, 120)).timeout
+	print("Complete")
+	if is_pizza_girl:
+		await get_tree().create_timer(15).timeout
+	else:
+		await get_tree().create_timer(randf_range(30, 120)).timeout
 	hide_person()
 	order = null
 	can_serve = false
@@ -49,10 +56,11 @@ func _ready() -> void:
 func init():
 	pizza.visible = false
 	hide_person()
+	interactable_name = nameList.pick_random()
 	if is_pizza_girl:
+		interactable_name = "Abigail"
 		pizza.visible = true
 		customer.visible = false
-	
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	 #mesh.get_active_material(0)
 	material.albedo_texture = customer_textures.pick_random()

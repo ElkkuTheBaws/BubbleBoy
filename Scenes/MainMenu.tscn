@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtnnxbd0q7m1n"]
+[gd_scene load_steps=15 format=3 uid="uid://dtnnxbd0q7m1n"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_rqrn4"]
 [ext_resource type="Shader" path="res://Scenes/Game.gdshader" id="1_terbn"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://c81nv8lbyf1ok" path="res://Assets/Fonts/TypewriterBold.ttf" id="3_ktsl8"]
 [ext_resource type="AudioStream" uid="uid://cdu3a1vgq7aja" path="res://Assets/Sounds/Ambient/HVAC Loop 003.wav" id="4_5aoa1"]
 [ext_resource type="AudioStream" uid="uid://cgaaq2djgievi" path="res://Assets/Sounds/Ambient/Oven Hum Loop 001.wav" id="5_r7h77"]
+[ext_resource type="Texture2D" uid="uid://31cri8m65iws" path="res://Assets/Textures/boblboytext.png" id="7_5vfyq"]
+[ext_resource type="Shader" path="res://Assets/Shaders/shake_UI.gdshader" id="7_tnigu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_55sls"]
 shader = ExtResource("1_terbn")
@@ -41,6 +43,11 @@ adjustment_saturation = 0.75
 [sub_resource type="Theme" id="Theme_6b0s2"]
 default_font = ExtResource("3_ktsl8")
 default_font_size = 25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ug4r"]
+shader = ExtResource("7_tnigu")
+shader_parameter/shakeAmount = 100.0
+shader_parameter/frequency = 1.0
 
 [node name="Game" type="Node"]
 script = ExtResource("1_rqrn4")
@@ -182,14 +189,17 @@ size_flags_vertical = 4
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Label" type="Label" parent="UI/Control/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/Control/MarginContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_3ug4r")
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-text = "TITLE"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("7_5vfyq")
+expand_mode = 5
 
 [node name="Start" type="Button" parent="UI/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Start the game"
 
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

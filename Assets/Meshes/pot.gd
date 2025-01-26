@@ -85,6 +85,7 @@ func check_pour():
 		if person.can_serve:
 			#TODO: Problem with check_order
 			if person.order.check_order(ingredients):
+				person.order._complete.emit()
 				person.bowl_soup.visible = true
 				person.play_sentence(person.order.positive_sentence)
 				person.can_serve = false
