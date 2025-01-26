@@ -2,6 +2,7 @@ extends Node
 
 @export var paused: bool = false
 var current_person_area = null
+var current_dmg_person_area = null
 var gameManager: GameManager
 signal on_interaction_hover(item)
 signal on_inspect(image)

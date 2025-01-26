@@ -22,7 +22,10 @@ var current_interaction: Interactable:
 	set(object):
 		if object != null:
 			object.highlight(true)
-			Global.on_interaction_hover.emit(object.interactable_name)
+			if object is Couldron and hands.curret_carry != null and hands.curret_carry is Ingredient:
+					Global.on_interaction_hover.emit("Place ingredient")
+			else:
+				Global.on_interaction_hover.emit(object.interactable_name)
 		else:
 			if current_interaction != null:
 				current_interaction.highlight(false)

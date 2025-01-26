@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cklthnmeg4r8e"]
+[gd_scene load_steps=6 format=3 uid="uid://cklthnmeg4r8e"]
 
 [ext_resource type="Script" path="res://Scenes/ingredient.gd" id="1_epk8d"]
 [ext_resource type="PackedScene" uid="uid://rrf2pw5q6uge" path="res://Assets/Meshes/ingredients/soup-tomato.glb" id="2_sxr2v"]
+[ext_resource type="AudioStream" uid="uid://b6hat8fsgpp5b" path="res://Assets/Sounds/Interactions/Ingredient Pickup/Pick Up Organic A.wav" id="3_asdat"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ly8sr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ejgk0"]
 
-[node name="Ingredient" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+[node name="Ingredient" type="StaticBody3D" node_paths=PackedStringArray("audio", "mesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 3.16631)
 collision_layer = 9
 script = ExtResource("1_epk8d")
 hand_mesh = ExtResource("2_sxr2v")
+audio = NodePath("AudioStreamPlayer3D")
 mesh = NodePath("MeshInstance3D")
 interactable_name = "Tomato"
 
@@ -20,3 +22,10 @@ shape = SubResource("BoxShape3D_ly8sr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ejgk0")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_asdat")
+volume_db = -10.0
+unit_size = 3.0
+max_distance = 20.0
+bus = &"R"

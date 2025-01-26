@@ -4,6 +4,7 @@ class_name Couldron extends Interactable
 @export var pot: Node3D
 @export var audio: AudioStreamPlayer3D
 @export var boilingAudio: AudioStreamPlayer3D
+@export var bubble_particles: CPUParticles3D
 @export_category("Sounds")
 @export var splash_sounds: Array[AudioStreamWAV]
 @export var pick_up_sound: AudioStreamWAV
@@ -15,6 +16,7 @@ var heat: float = 0:
 		heat = clamp(value, 30, 100)
 		var normalized = normalize(heat, 30, 100)
 		boilingAudio.volume_db = linear_to_db(normalized * 0.4)
+		bubble_particles.lifetime = clampf(normalized, 0.5, 1)
 		liquid.material_override.set_shader_parameter("Displacement_Intensity",snappedf(normalized, 0.2))
 		liquid.material_override.set_shader_parameter("Texture_Speed", snappedf(normalized, 0.2))
 
@@ -24,12 +26,14 @@ func reset():
 	ingredients = []
 	amount = 1
 	heat = 0
+	bubble_particles.lifetime = 0
 
 func interact(item):
 	if item is Couldron:
 		visible = true
 		interactable_name = "Take pot"
 		reset()
+		bubble_particles.lifetime = 0
 		interacted.emit(self)
 		boilingAudio.play()
 		play_audio(pick_up_sound)
@@ -38,6 +42,7 @@ func interact(item):
 		add_to_pot(item)
 		interacted.emit(item)
 	elif item == null:
+		interactable_name = "Place pot"
 		visible = false
 		interacted.emit(self)
 		boilingAudio.stop()

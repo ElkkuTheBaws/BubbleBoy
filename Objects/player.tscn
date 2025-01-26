@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dlxndqcjrl1gc"]
+[gd_scene load_steps=32 format=3 uid="uid://dlxndqcjrl1gc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3tb4l"]
 [ext_resource type="Script" path="res://Scripts/head_component.gd" id="2_3s470"]
@@ -12,12 +12,15 @@
 [ext_resource type="Script" path="res://Assets/Meshes/pot.gd" id="8_j737t"]
 [ext_resource type="AudioStream" uid="uid://b5jyl65m5r3q" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium A.wav" id="8_yg0et"]
 [ext_resource type="AudioStream" uid="uid://df1cekb407d4l" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium B.wav" id="9_diynt"]
+[ext_resource type="AudioStream" uid="uid://byoki6s3pprtp" path="res://Assets/Sounds/Water/63739__robinhood76__00620-pouring-out-water-bucket-1.wav" id="9_xqgmv"]
 [ext_resource type="Shader" uid="uid://di4aexa1t6g5y" path="res://Assets/Shaders/potwater.tres" id="9_ysiq5"]
 [ext_resource type="Texture2D" uid="uid://cbe828l1gj3ls" path="res://Assets/Textures/Objects/potwatersheet.png" id="10_7jumk"]
 [ext_resource type="AudioStream" uid="uid://c37hb8ggp11sf" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium C.wav" id="10_hmtq5"]
+[ext_resource type="AudioStream" uid="uid://c24erpy41u8mo" path="res://Assets/Sounds/Water/421184__inspectorj__water-pouring-a.wav" id="10_k22hw"]
 [ext_resource type="AudioStream" uid="uid://5gex5loues77" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium D.wav" id="11_6bhh5"]
 [ext_resource type="AudioStream" uid="uid://drr4lvtutvh6q" path="res://Assets/Sounds/Water/Boiling water_3.wav" id="11_gn065"]
 [ext_resource type="AudioStream" uid="uid://cre1qs0h2x1bh" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium E.wav" id="12_6ueyt"]
+[ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/buble.png" id="14_hkcdr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mhdyx"]
 
@@ -47,6 +50,27 @@ size = 1.0
 frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e10q"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("14_hkcdr")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_djdrd"]
+material = SubResource("StandardMaterial3D_8e10q")
+
+[sub_resource type="Curve" id="Curve_ur40s"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.513274, 0.758242), 0.0, 0.0, 0, 0, Vector2(1, 0.280782), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_4ogp7"]
+offsets = PackedFloat32Array(0, 0.325472, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.392157, 1, 1, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hg66j"]
 render_priority = 0
@@ -110,14 +134,36 @@ swayAngle = 50.0
 pot = NodePath("POT")
 hand = NodePath("Hand")
 
-[node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid", "audio") instance=ExtResource("7_ugdtp")]
+[node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid", "audio", "effectAudio", "bubble_particles") instance=ExtResource("7_ugdtp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 script = ExtResource("8_j737t")
 liquid = NodePath("liquid")
 audio = NodePath("AudioStreamPlayer3D")
+effectAudio = NodePath("Effect")
+pour_sounds = Array[AudioStreamWAV]([ExtResource("9_xqgmv"), ExtResource("10_k22hw")])
+bubble_particles = NodePath("pot/CPUParticles3D")
 
 [node name="pot" parent="HeadComponent/Eyes/Hands/POT" index="0"]
 layers = 524288
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00680865, 0)
+layers = 524289
+lifetime = 0.9
+randomness = 0.33
+visibility_aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+mesh = SubResource("QuadMesh_djdrd")
+emission_shape = 1
+emission_sphere_radius = 0.15
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 0.5, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+angle_min = -46.9
+angle_max = 46.8
+scale_amount_curve = SubResource("Curve_ur40s")
+color_ramp = SubResource("Gradient_4ogp7")
 
 [node name="liquid" parent="HeadComponent/Eyes/Hands/POT" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332751, 0)
@@ -126,6 +172,12 @@ material_override = SubResource("ShaderMaterial_hg66j")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="HeadComponent/Eyes/Hands/POT"]
 stream = ExtResource("11_gn065")
+unit_size = 3.0
+max_distance = 5.0
+bus = &"R"
+
+[node name="Effect" type="AudioStreamPlayer3D" parent="HeadComponent/Eyes/Hands/POT"]
+volume_db = -10.0
 unit_size = 3.0
 max_distance = 5.0
 bus = &"R"

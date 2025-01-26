@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://33pkcg3sb66g"]
+[gd_scene load_steps=18 format=3 uid="uid://33pkcg3sb66g"]
 
 [ext_resource type="Script" path="res://Scenes/couldron.gd" id="1_ff61u"]
 [ext_resource type="AudioStream" uid="uid://b54b8n3k82uai" path="res://Assets/Sounds/Water/Splash Large 1_2.wav" id="2_fgnes"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://jkhy8xstvw4m" path="res://Assets/Sounds/Interactions/Cauldron Pickup/Pick Up Metal F.wav" id="5_dl817"]
 [ext_resource type="AudioStream" uid="uid://fhvvvspocu04" path="res://Assets/Sounds/Interactions/Cauldron Pickup/Pick Up Metal E.wav" id="5_k8rcy"]
 [ext_resource type="AudioStream" uid="uid://drr4lvtutvh6q" path="res://Assets/Sounds/Water/Boiling water_3.wav" id="6_focmq"]
+[ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/buble.png" id="11_w7y13"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_av2e5"]
 size = Vector3(1, 0.469604, 0.641541)
@@ -21,7 +22,28 @@ shader_parameter/Displacement_Intensity = 1.0
 shader_parameter/Texture_Speed = 0.145
 shader_parameter/Texture2DParameter = ExtResource("4_2iurf")
 
-[node name="Couldron" type="StaticBody3D" node_paths=PackedStringArray("liquid", "pot", "audio", "boilingAudio", "spawn_pos", "mesh")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cgeu"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_w7y13")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_vyuyv"]
+material = SubResource("StandardMaterial3D_3cgeu")
+
+[sub_resource type="Curve" id="Curve_ujhja"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504425, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.280782), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_p0c33"]
+offsets = PackedFloat32Array(0, 0.325472, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.631373, 1, 1, 1, 0)
+
+[node name="Couldron" type="StaticBody3D" node_paths=PackedStringArray("liquid", "pot", "audio", "boilingAudio", "bubble_particles", "spawn_pos", "mesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.946551, 1.61157)
 collision_layer = 9
 script = ExtResource("1_ff61u")
@@ -29,10 +51,12 @@ liquid = NodePath("POT/liquid")
 pot = NodePath("POT")
 audio = NodePath("AudioStreamPlayer3D")
 boilingAudio = NodePath("Boiling")
+bubble_particles = NodePath("CPUParticles3D")
 splash_sounds = Array[AudioStreamWAV]([ExtResource("2_fgnes"), ExtResource("3_1ar45"), ExtResource("4_dwx8l")])
 pick_up_sound = ExtResource("5_dl817")
 spawn_pos = NodePath("SpawnPosition")
 mesh = NodePath("POT/pot")
+interactable_name = "Take pot"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265198, 0.00430298)
@@ -59,5 +83,19 @@ unit_size = 3.0
 autoplay = true
 max_distance = 10.0
 bus = &"R"
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0115252, 0)
+lifetime = 0.9
+randomness = 0.33
+visibility_aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+mesh = SubResource("QuadMesh_vyuyv")
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 0, 0)
+spread = 51.1
+gravity = Vector3(0, 2, 0)
+scale_amount_curve = SubResource("Curve_ujhja")
+color_ramp = SubResource("Gradient_p0c33")
 
 [editable path="POT"]

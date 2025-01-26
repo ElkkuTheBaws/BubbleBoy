@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=37 format=3 uid="uid://cpxc77235lfv2"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
@@ -20,11 +20,13 @@
 [ext_resource type="PackedScene" uid="uid://bs6d8f0ukk0y3" path="res://Assets/Meshes/ingredients/soup-beans.glb" id="15_tcmmr"]
 [ext_resource type="PackedScene" uid="uid://oh10fn0vs6ec" path="res://Assets/Meshes/ingredients/soup-beer.glb" id="16_ktsx5"]
 [ext_resource type="PackedScene" uid="uid://b5y33ip2hb1uw" path="res://Assets/Meshes/ingredients/pile-sandal.glb" id="17_s3duv"]
+[ext_resource type="AudioStream" uid="uid://bt585660efh32" path="res://Assets/Sounds/Interactions/Paper Pickup/Pick Up Paper A.wav" id="17_x6qky"]
 [ext_resource type="PackedScene" uid="uid://b6cts8qbff4di" path="res://Assets/Meshes/ingredients/pile-shroom.glb" id="19_b3wc2"]
 [ext_resource type="PackedScene" uid="uid://dafm6spwnlgtu" path="res://Assets/Meshes/ingredients/pile-beans.glb" id="21_bh5a0"]
 [ext_resource type="PackedScene" uid="uid://clp77li7716l7" path="res://Assets/Meshes/ingredients/pile-beer.glb" id="23_rktbv"]
 [ext_resource type="AudioStream" uid="uid://cdu3a1vgq7aja" path="res://Assets/Sounds/Ambient/HVAC Loop 003.wav" id="24_4j1h4"]
 [ext_resource type="PackedScene" uid="uid://cnuequa1eesr8" path="res://Assets/Meshes/ingredients/soup-burger.glb" id="24_klcak"]
+[ext_resource type="AudioStream" uid="uid://4ro4jor5k73d" path="res://Assets/Sounds/Interactions/Bottle Pickup/Pick Up Bottle D.wav" id="24_ybixk"]
 [ext_resource type="AudioStream" uid="uid://cgaaq2djgievi" path="res://Assets/Sounds/Ambient/Oven Hum Loop 001.wav" id="25_4jp4b"]
 [ext_resource type="PackedScene" uid="uid://c3c2vmxvo34t5" path="res://Assets/Meshes/ingredients/pile-burger.glb" id="25_k3nxh"]
 [ext_resource type="PackedScene" uid="uid://blvvq7ydmsnrv" path="res://Assets/Meshes/ingredients/soup-fish.glb" id="26_1r11v"]
@@ -33,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bq82way3ojt5j" path="res://Assets/Meshes/ingredients/pile-nails.glb" id="29_o711n"]
 [ext_resource type="PackedScene" uid="uid://d32mttwk8go8" path="res://Assets/Meshes/ingredients/soup-potato.glb" id="30_3tny0"]
 [ext_resource type="PackedScene" uid="uid://d4ema65po868h" path="res://Assets/Meshes/ingredients/pile-potato.glb" id="31_4wkdk"]
+[ext_resource type="AudioStream" uid="uid://bn4hxcujy2q27" path="res://Assets/Sounds/Interactions/Nail Box Pickup/Pick Up Jewlery A.wav" id="31_d5fob"]
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("persons", "order_papers")]
 script = ExtResource("1_a2221")
@@ -148,6 +151,9 @@ interactable_name = "Sandal"
 [node name="MeshInstance3D" parent="Ingredients/Sandals" index="1"]
 visible = false
 
+[node name="AudioStreamPlayer3D" parent="Ingredients/Sandals" index="2"]
+stream = ExtResource("17_x6qky")
+
 [node name="pile-sandal2" parent="Ingredients/Sandals" instance=ExtResource("17_s3duv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104789, -0.459494, 0)
 
@@ -187,6 +193,9 @@ interactable_name = "Beer"
 [node name="MeshInstance3D" parent="Ingredients/Beer" index="1"]
 visible = false
 
+[node name="AudioStreamPlayer3D" parent="Ingredients/Beer" index="2"]
+stream = ExtResource("24_ybixk")
+
 [node name="pile-beer2" parent="Ingredients/Beer" instance=ExtResource("23_rktbv")]
 transform = Transform3D(-0.998721, 0, 0.0505581, 0, 1, 0, -0.0505581, 0, -0.998721, 0, -0.441999, 0)
 
@@ -225,6 +234,10 @@ interactable_name = "Nails"
 
 [node name="MeshInstance3D" parent="Ingredients/Nails" index="1"]
 visible = false
+
+[node name="AudioStreamPlayer3D" parent="Ingredients/Nails" index="2"]
+stream = ExtResource("31_d5fob")
+volume_db = -5.0
 
 [node name="pile-nails2" parent="Ingredients/Nails" instance=ExtResource("29_o711n")]
 

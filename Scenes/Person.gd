@@ -1,5 +1,6 @@
 class_name Person extends Interactable
 
+@export var audio_player: AudioStreamPlayer3D
 
 # Accept order
 # Refuse order
@@ -8,6 +9,7 @@ class_name Person extends Interactable
 @onready var area: Area3D
 var order: Order
 var can_serve: bool = true
+var can_dmg: bool = true
 #var is_order_done: bool = false
 
 func enable_person():
@@ -22,6 +24,12 @@ func hide_person():
 func _ready() -> void:
 	hide_person()
 
+func damaged() -> void:
+	if can_dmg:
+		print("Damaged")
+		can_dmg = false
+		await get_tree().create_timer(2).timeout
+		can_dmg = true
 #func order_done():
 	#is_order_done = true
 
@@ -34,12 +42,21 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if self ==  Global.current_person_area:
 		Global.current_person_area = null
 
-#func play_sentence(dialog: Sentence):
-	#audio_player.stream = dialog.audio
+func play_sentence(dialog: Sentence):
+	audio_player.stream = dialog.audio
 	#audio_player.volume_db = -20
-	#audio_player.play()
-	#print(dialog.audio)
-	#Global.start_dialog.emit(dialog.text, dialog.audio.get_length())
-	#await audio_player.finished
+	audio_player.play()
+	Global.start_dialog.emit(dialog.text, dialog.audio.get_length())
+	await audio_player.finished
 	#await get_tree().create_timer(2).timeout
 	#Global.end_dialog.emit()
+
+
+func _on_damage_area_body_entered(body: Node3D) -> void:
+	if body is Player:
+		Global.current_dmg_person_area = self
+
+
+func _on_damage_area_body_exited(body: Node3D) -> void:
+	if self ==  Global.current_dmg_person_area:
+		Global.current_dmg_person_area = null
