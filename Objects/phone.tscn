@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://l8676x48oxks"]
+
+[ext_resource type="Script" path="res://Scenes/phone.gd" id="1_acdrn"]
+[ext_resource type="PackedScene" uid="uid://cmr3ftyyj3orq" path="res://Assets/Meshes/phone.glb" id="2_tj0g1"]
+[ext_resource type="AudioStream" uid="uid://cyplaw7gtnsqt" path="res://Assets/Sounds/Ambient/phonering.wav" id="3_rwhs4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2upt4"]
+
+[node name="Phone" type="StaticBody3D" node_paths=PackedStringArray("audio", "phone_node", "mesh")]
+script = ExtResource("1_acdrn")
+audio = NodePath("AudioStreamPlayer3D")
+phone_node = NodePath("phone")
+mesh = NodePath("phone/fone")
+interactable_name = "Phone"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2upt4")
+
+[node name="phone" parent="." instance=ExtResource("2_tj0g1")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_rwhs4")
+unit_size = 3.0
+max_distance = 20.0
+bus = &"R"
+
+[editable path="phone"]
