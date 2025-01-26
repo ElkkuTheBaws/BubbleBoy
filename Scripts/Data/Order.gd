@@ -2,7 +2,7 @@ extends Resource
 class_name Order
 
 @export var girl: bool = false
-
+@export var final_order: bool = false
 @export var small_image: CompressedTexture2D
 @export var detailed_image: CompressedTexture2D
 
@@ -17,15 +17,14 @@ signal _complete()
 
 var completed: bool = false
 
+
 #TODO: Fix this BIG TIME
 func check_order(ingredient_list) -> bool:
+	if final_order:
+		return true
 	if len(ingredient_list) != len(requirements):
-		print("yesyes")
 		return false
 	# Sort the lists and compare
 	ingredient_list.sort()
 	requirements.sort()
-	print(ingredient_list)
-	print(requirements)
-	print(ingredient_list == requirements)
 	return ingredient_list == requirements
