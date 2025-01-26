@@ -41,10 +41,37 @@
 [ext_resource type="PackedScene" uid="uid://re3vps5up8ga" path="res://Assets/Meshes/runningkid.glb" id="39_k2277"]
 [ext_resource type="Script" path="res://Scenes/running_kid.gd" id="39_vmxso"]
 [ext_resource type="Texture2D" uid="uid://8lfu7mg13bp4" path="res://Assets/Meshes/customer_guy4.png" id="40_lw001"]
-[ext_resource type="PackedScene" uid="uid://l8676x48oxks" path="res://Objects/phone.tscn" id="42_tm0oi"]
+[ext_resource type="PackedScene" path="res://Objects/phone.tscn" id="42_tm0oi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50hg5"]
 albedo_texture = ExtResource("40_lw001")
+
+[sub_resource type="Animation" id="Animation_y6pi2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("runningkid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("runningkid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_mb7wv"]
 resource_name = "run"
@@ -73,33 +100,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.70772, 0), Vector3(0, -3.15556, 0), Vector3(0, -4.71239, 0), Vector3(0, -6.28319, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_y6pi2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("runningkid:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("runningkid:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bm1bp"]
@@ -186,35 +186,24 @@ transform = Transform3D(-0.418216, 0, -0.908348, 0, 1, 0, 0.908348, 0, -0.418216
 [node name="Skeleton3D" parent="People/Person/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
-bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
-bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
-bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
-bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
-bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Person" index="7"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105988, -0.220467, 0.631)
@@ -225,35 +214,24 @@ transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 
 [node name="Skeleton3D" parent="People/Person4/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
-bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
-bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
-bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
-bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
-bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Person4" index="7"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.96046e-09, -0.20985, 0.957564)
@@ -276,35 +254,24 @@ transform = Transform3D(0.992476, 0, 0.122441, 0, 1, 0, -0.122441, 0, 0.992476, 
 [node name="Skeleton3D" parent="People/Girl/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
-bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
-bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
-bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
-bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
-bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Girl" index="7"]
 visible = false
@@ -319,7 +286,7 @@ mesh = NodePath("pile-tomato2/pile-tomato")
 visible = false
 
 [node name="pile-tomato2" parent="Ingredients/Tomatos" instance=ExtResource("13_04vpi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186656, -0.469278, 0)
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -3.2146, -0.469278, 0.601067)
 
 [node name="Onions" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 0.267833, 3.16631)
@@ -332,7 +299,7 @@ interactable_name = "Onion"
 visible = false
 
 [node name="pile-onion2" parent="Ingredients/Onions" instance=ExtResource("15_md083")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.162367, -0.084707, -0.220611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137531, 0.747233, 0.121631)
 
 [node name="Sandals" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33713, 1.48507, 0.778789)
@@ -348,7 +315,7 @@ visible = false
 stream = ExtResource("17_x6qky")
 
 [node name="pile-sandal2" parent="Ingredients/Sandals" instance=ExtResource("17_s3duv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104789, -0.459494, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104789, -1.4727, -1.12343)
 
 [node name="Shrooms" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, -1.05697)
@@ -361,7 +328,7 @@ interactable_name = "Mushrooms"
 visible = false
 
 [node name="pile-shroom2" parent="Ingredients/Shrooms" instance=ExtResource("19_b3wc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.486942, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37014, -0.486942, 5.55878)
 
 [node name="Beans" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67451, 1.48507, -3.84872)
@@ -374,7 +341,10 @@ interactable_name = "Beans"
 visible = false
 
 [node name="pile-beans2" parent="Ingredients/Beans" instance=ExtResource("21_bh5a0")]
-transform = Transform3D(0.314688, 0, 0.949195, 0, 1, 0, -0.949195, 0, 0.314688, -0.00201499, -0.48551, -0.289742)
+transform = Transform3D(0.314688, 0, 0.949195, 0, 1, 0, -0.949195, 0, 0.314688, -2.73799, -1.28842, 6.71706)
+
+[node name="pile-beans" parent="Ingredients/Beans/pile-beans2" index="0"]
+transform = Transform3D(-0.190154, 0, -0.777073, 0, 0.8, 0, 0.777073, 0, -0.190154, 0.0298502, 0, 0.058892)
 
 [node name="Beer" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 2.97809)
@@ -390,7 +360,7 @@ visible = false
 stream = ExtResource("24_ybixk")
 
 [node name="pile-beer2" parent="Ingredients/Beer" instance=ExtResource("23_rktbv")]
-transform = Transform3D(-0.998721, 0, 0.0505581, 0, 1, 0, -0.0505581, 0, -0.998721, 0, -0.441999, 0)
+transform = Transform3D(0.966061, 0, 0.258313, 0, 1, 0, -0.258313, 0, 0.966061, 2.75186, -0.441999, -7.11882)
 
 [node name="Burger" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395115, 1.47545, 4.2617)
@@ -403,7 +373,7 @@ interactable_name = "Burger"
 visible = false
 
 [node name="pile-burger2" parent="Ingredients/Burger" instance=ExtResource("25_k3nxh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.503909, 0)
+transform = Transform3D(-0.767109, 0, 0.641517, 0, 1, 0, -0.641517, 0, -0.767109, 2.57266, -0.503909, -1.21968)
 
 [node name="Fish" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48902, 1.47545, 4.2617)
@@ -416,7 +386,7 @@ interactable_name = "Fish"
 visible = false
 
 [node name="pile-fish2" parent="Ingredients/Fish" instance=ExtResource("26_jvs3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(-0.900698, 0, 0.434445, 0, 1, 0, -0.434445, 0, -0.900698, -2.69051, -0.25, -5.32893)
 
 [node name="Nails" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11018, -0.0163431, -0.551283)
@@ -433,6 +403,7 @@ stream = ExtResource("31_d5fob")
 volume_db = -5.0
 
 [node name="pile-nails2" parent="Ingredients/Nails" instance=ExtResource("29_o711n")]
+transform = Transform3D(0.286642, 0, 0.958038, 0, 1, 0, -0.958038, 0, 0.286642, 0.0752203, 1.01168, 1.37004)
 
 [node name="Potates" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16184, 0.995736, 2.35972)
@@ -445,6 +416,7 @@ interactable_name = "Potatoes"
 visible = false
 
 [node name="pile-potato2" parent="Ingredients/Potates" instance=ExtResource("31_4wkdk")]
+transform = Transform3D(-0.775661, 0, -0.63115, 0, 1, 0, 0.63115, 0, -0.775661, -3.44964, 0, 1.92757)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25256, 2.94968, 6.01068)
@@ -471,7 +443,6 @@ animation = NodePath("runningkid/AnimationPlayer")
 animation2 = NodePath("AnimationPlayer")
 
 [node name="runningkid" parent="RunningKid" instance=ExtResource("39_k2277")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Armature_001" parent="RunningKid/runningkid" index="0"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
