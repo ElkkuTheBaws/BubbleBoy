@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://56clpoie1l0w"]
+
+[ext_resource type="Shader" uid="uid://dhh7sab0nwlq2" path="res://Assets/Shaders/burnvictim.tres" id="1_gcvtp"]
+[ext_resource type="Texture2D" uid="uid://cpr68s8f16oid" path="res://Assets/Textures/Characters/handmask.png" id="2_pgabj"]
+[ext_resource type="Texture2D" uid="uid://dcsmdy61p8350" path="res://Assets/Textures/Characters/bublehandburnt.png" id="3_ytbvi"]
+[ext_resource type="Texture2D" uid="uid://dlau4vxo8em7l" path="res://Assets/Textures/Characters/bublehand.png" id="4_7jpy8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gcvtp")
+shader_parameter/BurnLevel = 1.41
+shader_parameter/GoodHand = ExtResource("4_7jpy8")
+shader_parameter/BurntHand = ExtResource("3_ytbvi")
+shader_parameter/BurnMask = ExtResource("2_pgabj")
