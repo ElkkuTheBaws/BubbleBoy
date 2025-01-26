@@ -13,11 +13,14 @@ class_name Order
 
 var completed: bool = false
 
-#TODO: Fix this
-func check_order(ingredient_list: Array) -> bool:
-	for requirement in requirements:
-		if not ingredient_list.has(requirement):
-			return false
-		var filtered = ingredient_list.filter(func(x): x != requirement)
-		print(filtered)
-	return true
+#TODO: Fix this BIG TIME
+func check_order(ingredient_list) -> bool:
+	if ingredient_list != null:
+		for requirement in requirements:
+			if not ingredient_list.has(requirement):
+				return false
+			var filtered = ingredient_list.filter(func(x): x != requirement)
+			print(filtered)
+		return true
+	else:
+		return true

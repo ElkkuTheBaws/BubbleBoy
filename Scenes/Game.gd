@@ -13,12 +13,12 @@ func _ready() -> void:
 
 func person_appear():
 	#var filtered_list = persons.filter(func(x): return x if current_persons.has(x))
-	var person: Person = persons.pick_random()
+	var order = orders[current_order]
+	var person: Person = persons.pick_random() as Person
+	person.set_order(order)
+	order_papers[current_order].set_order(order)
 	persons.erase(person)
 	person.enable_person()
-	var order = orders[current_order]
-	order_papers[current_order].set_order(order)
-	person.order = order
 	current_person = person
 
 func order_done(order: Order):

@@ -109,12 +109,22 @@ omni_attenuation = 0.4
 [node name="People" type="Node3D" parent="."]
 
 [node name="Person" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(-0.418216, 0, -0.908348, 0, 1, 0, 0.908348, 0, -0.418216, -8.82284, 0.983569, 2.06789)
+
+[node name="Person4" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -10.9126, 0.983329, 1.7674)
 
 [node name="Person2" parent="People" instance=ExtResource("11_1hmru")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96834, 0.996547, 2)
+transform = Transform3D(0.465568, 0, -0.885012, 0, 1, 0, 0.885012, 0, 0.465568, -4.47036, 1.00254, 2)
+
+[node name="Person5" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(0.0393122, 0, 0.999227, 0, 1, 0, -0.999227, 0, 0.0393122, -5.87333, 1.0115, 2.51098)
 
 [node name="Person3" parent="People" instance=ExtResource("11_1hmru")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96834, 0.996547, -3)
+transform = Transform3D(0.943147, 0, -0.332375, 0, 1, 0, 0.332375, 0, 0.943147, -9.13763, 0.983885, -3.71573)
+
+[node name="Person6" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(-0.990348, 0, 0.138603, 0, 1, 0, -0.138603, 0, -0.990348, -9.63274, 0.952897, -1.70986)
 
 [node name="Ingredients" type="Node3D" parent="."]
 
