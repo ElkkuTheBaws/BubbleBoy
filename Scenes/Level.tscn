@@ -201,7 +201,7 @@ transform = Transform3D(0.314688, 0, 0.949195, 0, 1, 0, -0.949195, 0, 0.314688, 
 
 [node name="Beer" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 2.97809)
-type = 6
+type = 5
 hand_mesh = ExtResource("16_ktsx5")
 mesh = NodePath("pile-beer2/pile-beer")
 interactable_name = "Beer"
@@ -230,7 +230,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.503909, 0)
 
 [node name="Fish" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48902, 1.47545, 4.2617)
-type = 6
+type = 7
 hand_mesh = ExtResource("26_1r11v")
 mesh = NodePath("pile-fish2/pile-fish")
 interactable_name = "Fish"
@@ -243,7 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 
 [node name="Nails" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11018, -0.0163431, -0.551283)
-type = 6
+type = 8
 hand_mesh = ExtResource("28_ev31a")
 mesh = NodePath("pile-nails2/pile-nails")
 interactable_name = "Nails"
@@ -259,7 +259,7 @@ volume_db = -5.0
 
 [node name="Potates" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16184, 0.995736, 2.35972)
-type = 6
+type = 9
 hand_mesh = ExtResource("30_3tny0")
 mesh = NodePath("pile-potato2/pile-potato")
 interactable_name = "Potatoes"
