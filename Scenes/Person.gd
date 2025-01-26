@@ -109,11 +109,11 @@ func play_sentence(dialog: Sentence):
 	if audio_player.playing:
 		return
 	audio_player.stop()
-	audio_player.stream = dialog.audio
-	#audio_player.volume_db = -20
-	audio_player.play()
-	Global.start_dialog.emit(dialog.text, dialog.audio.get_length())
-	await audio_player.finished
+	if dialog.audio != null:
+		audio_player.stream = dialog.audio
+		audio_player.play()
+		Global.start_dialog.emit(dialog.text, dialog.audio.get_length())
+		await audio_player.finished
 	#await get_tree().create_timer(2).timeout
 	#Global.end_dialog.emit()
 
