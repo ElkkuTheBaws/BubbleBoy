@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cluhk8wd1hc3f"
+path="res://.godot/imported/8approve - in the midst of chaos there is also opportunity.wav-2db7a6dbf877e84938774fce7feda9b8.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/8approve - in the midst of chaos there is also opportunity.wav"
+dest_files=["res://.godot/imported/8approve - in the midst of chaos there is also opportunity.wav-2db7a6dbf877e84938774fce7feda9b8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

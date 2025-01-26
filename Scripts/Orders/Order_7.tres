@@ -1,12 +1,41 @@
-[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://1naxvmpq6uc7"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://1naxvmpq6uc7"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_1vmo2"]
 [ext_resource type="Texture2D" uid="uid://b3xbdur8pyt13" path="res://Assets/Textures/Orders/happy-meal-high.jpg" id="1_s4xk0"]
+[ext_resource type="AudioStream" uid="uid://bm8u4m1hyvf5m" path="res://Assets/Sounds/Dialogue/newvoices/4hurt - ow.wav" id="2_tdrem"]
 [ext_resource type="Texture2D" uid="uid://dr1yaoutch081" path="res://Assets/Textures/Orders/happy-meal.jpg" id="3_m1yqq"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_whd5s"]
+[ext_resource type="AudioStream" uid="uid://b07kld5k6olag" path="res://Assets/Sounds/Dialogue/newvoices/4greeting - i will have onenumbernine.wav" id="4_w6kj7"]
+[ext_resource type="AudioStream" uid="uid://d3gcywk08vdk3" path="res://Assets/Sounds/Dialogue/newvoices/4refuse - allyouhadtodowassoup.wav" id="5_rws44"]
+[ext_resource type="AudioStream" uid="uid://djbokarkwp6id" path="res://Assets/Sounds/Dialogue/newvoices/4accept - herewegoagain.wav" id="6_5sed1"]
+
+[sub_resource type="Resource" id="Resource_yx3lf"]
+script = ExtResource("3_whd5s")
+text = "Ow"
+audio = ExtResource("2_tdrem")
+
+[sub_resource type="Resource" id="Resource_iclag"]
+script = ExtResource("3_whd5s")
+text = "I will have one number nine"
+audio = ExtResource("4_w6kj7")
+
+[sub_resource type="Resource" id="Resource_xewdn"]
+script = ExtResource("3_whd5s")
+text = "All you had to do was soup"
+audio = ExtResource("5_rws44")
+
+[sub_resource type="Resource" id="Resource_ispwn"]
+script = ExtResource("3_whd5s")
+text = "Here we go again"
+audio = ExtResource("6_5sed1")
 
 [resource]
 script = ExtResource("1_1vmo2")
 girl = false
 small_image = ExtResource("3_m1yqq")
 detailed_image = ExtResource("1_s4xk0")
-requirements = Array[int]([])
+requirements = Array[int]([6, 9, 5])
+idle_sentence = SubResource("Resource_iclag")
+positive_sentence = SubResource("Resource_ispwn")
+negative_sentence = SubResource("Resource_xewdn")
+hurt_sentence = SubResource("Resource_yx3lf")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cda0lr30me2um"
+path="res://.godot/imported/1accept - we dont have soup at home.wav-06cf9256427c1867655037d0b05b02b9.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/1accept - we dont have soup at home.wav"
+dest_files=["res://.godot/imported/1accept - we dont have soup at home.wav-06cf9256427c1867655037d0b05b02b9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ke6r8cy2xww8"
+path="res://.godot/imported/6refuse - i dont think this is what i ordered.wav-459aa23b61f0778ef7ae6e94717523ec.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/6refuse - i dont think this is what i ordered.wav"
+dest_files=["res://.godot/imported/6refuse - i dont think this is what i ordered.wav-459aa23b61f0778ef7ae6e94717523ec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

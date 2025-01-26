@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djbokarkwp6id"
+path="res://.godot/imported/4accept - herewegoagain.wav-f62e074fc8761d6946d57bc997754609.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/4accept - herewegoagain.wav"
+dest_files=["res://.godot/imported/4accept - herewegoagain.wav-f62e074fc8761d6946d57bc997754609.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

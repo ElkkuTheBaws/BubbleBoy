@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://di4g7wl0jwgm1"
+path="res://.godot/imported/1greeting - mysonhasadhd1.wav-e8c2fb34fffe078a362c46c0325a5179.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/1greeting - mysonhasadhd1.wav"
+dest_files=["res://.godot/imported/1greeting - mysonhasadhd1.wav-e8c2fb34fffe078a362c46c0325a5179.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,40 +1,40 @@
 [gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://crxvf548n2kat"]
 
-[ext_resource type="Texture2D" uid="uid://dptn40i0qf8gc" path="res://Assets/Textures/Orders/beansoup-high.jpg" id="1_oyguw"]
-[ext_resource type="AudioStream" uid="uid://cwt3yfmrkpajq" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2pain.wav" id="2_a46gv"]
+[ext_resource type="Texture2D" uid="uid://dd5jap7pg6tol" path="res://Assets/Textures/Orders/tomatpsoup-high.jpg" id="1_5lpky"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="2_f66mn"]
+[ext_resource type="AudioStream" uid="uid://bdg4biklhj6uq" path="res://Assets/Sounds/Dialogue/newvoices/9hurt - woahmommy my shins.wav" id="2_ivtpv"]
 [ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_33fy3"]
-[ext_resource type="AudioStream" uid="uid://ctibdngrqiqe8" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2interaction.wav" id="4_0hwxc"]
-[ext_resource type="AudioStream" uid="uid://b2hrcsoh60lcg" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2incorrect.wav" id="5_fy0j8"]
-[ext_resource type="AudioStream" uid="uid://bi3sjtr27guxn" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2correct.wav" id="6_f4lm3"]
-[ext_resource type="Texture2D" uid="uid://qb1odsiq2kxd" path="res://Assets/Textures/Orders/beansoup.jpg" id="8_ddfko"]
+[ext_resource type="AudioStream" uid="uid://doj5giiwcdqju" path="res://Assets/Sounds/Dialogue/newvoices/9idle - beggarscantbechoosers.wav" id="4_j5ljf"]
+[ext_resource type="AudioStream" uid="uid://b540kmj3dlvua" path="res://Assets/Sounds/Dialogue/newvoices/9refuse - thisisnothowmommadeit.wav" id="5_n63f1"]
+[ext_resource type="AudioStream" uid="uid://cuecn16dbg5v0" path="res://Assets/Sounds/Dialogue/newvoices/9accept - justhowmymommadeit.wav" id="6_m55iy"]
+[ext_resource type="Texture2D" uid="uid://clud2y1g1gh8r" path="res://Assets/Textures/Orders/tomatpsoup.jpg" id="8_dggnx"]
 
 [sub_resource type="Resource" id="Resource_h7av2"]
 script = ExtResource("3_33fy3")
-text = "Oh my god it burns"
-audio = ExtResource("2_a46gv")
+text = "Woah mommy my shins"
+audio = ExtResource("2_ivtpv")
 
 [sub_resource type="Resource" id="Resource_18gc2"]
 script = ExtResource("3_33fy3")
-text = "I'll have the usual please"
-audio = ExtResource("4_0hwxc")
+text = "Beggars can't be choosers"
+audio = ExtResource("4_j5ljf")
 
 [sub_resource type="Resource" id="Resource_k214t"]
 script = ExtResource("3_33fy3")
-text = "Wrong soup"
-audio = ExtResource("5_fy0j8")
+text = "This is not how mom made it"
+audio = ExtResource("5_n63f1")
 
 [sub_resource type="Resource" id="Resource_svxfd"]
 script = ExtResource("3_33fy3")
-text = "Thank you for the soup sir"
-audio = ExtResource("6_f4lm3")
+text = "Just how my mom made it"
+audio = ExtResource("6_m55iy")
 
 [resource]
 script = ExtResource("2_f66mn")
 girl = false
-small_image = ExtResource("8_ddfko")
-detailed_image = ExtResource("1_oyguw")
-requirements = Array[int]([5, 4, 9])
+small_image = ExtResource("8_dggnx")
+detailed_image = ExtResource("1_5lpky")
+requirements = Array[int]([0, 3, 1])
 idle_sentence = SubResource("Resource_18gc2")
 positive_sentence = SubResource("Resource_svxfd")
 negative_sentence = SubResource("Resource_k214t")

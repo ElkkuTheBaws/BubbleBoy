@@ -1,12 +1,41 @@
-[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://hqh5x8sw6ila"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://hqh5x8sw6ila"]
 
 [ext_resource type="Texture2D" uid="uid://c4yb63n3and6o" path="res://Assets/Textures/Orders/exoticfishsoup-high.jpg" id="1_1ahoo"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_gomfg"]
+[ext_resource type="AudioStream" uid="uid://dy5h265atf8if" path="res://Assets/Sounds/Dialogue/newvoices/7hurt - aaaaaah.wav" id="2_a1dqx"]
 [ext_resource type="Texture2D" uid="uid://pvvqhsilgdfl" path="res://Assets/Textures/Orders/exoticfishsoup.jpg" id="3_2qlga"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_ljeiy"]
+[ext_resource type="AudioStream" uid="uid://7ohysjnmn5kv" path="res://Assets/Sounds/Dialogue/newvoices/7idle - theworldisyouroyster.wav" id="4_4m2xb"]
+[ext_resource type="AudioStream" uid="uid://bkm4o4ar5pcgn" path="res://Assets/Sounds/Dialogue/newvoices/7refuse - iwannatalktothemanager.wav" id="5_qw4sn"]
+[ext_resource type="AudioStream" uid="uid://closwe2hvwlw7" path="res://Assets/Sounds/Dialogue/newvoices/7approve - just the way i like it.wav" id="6_ccf5b"]
+
+[sub_resource type="Resource" id="Resource_r82lc"]
+script = ExtResource("3_ljeiy")
+text = "Aaaaah"
+audio = ExtResource("2_a1dqx")
+
+[sub_resource type="Resource" id="Resource_vfkel"]
+script = ExtResource("3_ljeiy")
+text = "The world is your oyster"
+audio = ExtResource("4_4m2xb")
+
+[sub_resource type="Resource" id="Resource_bn0x0"]
+script = ExtResource("3_ljeiy")
+text = "I wanna talk to the manager"
+audio = ExtResource("5_qw4sn")
+
+[sub_resource type="Resource" id="Resource_kl0it"]
+script = ExtResource("3_ljeiy")
+text = "Just the way I like it"
+audio = ExtResource("6_ccf5b")
 
 [resource]
 script = ExtResource("1_gomfg")
 girl = false
 small_image = ExtResource("3_2qlga")
 detailed_image = ExtResource("1_1ahoo")
-requirements = Array[int]([])
+requirements = Array[int]([7])
+idle_sentence = SubResource("Resource_vfkel")
+positive_sentence = SubResource("Resource_kl0it")
+negative_sentence = SubResource("Resource_bn0x0")
+hurt_sentence = SubResource("Resource_r82lc")

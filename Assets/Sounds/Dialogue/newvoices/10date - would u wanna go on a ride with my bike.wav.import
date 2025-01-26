@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bm0wijbwss48"
+path="res://.godot/imported/10date - would u wanna go on a ride with my bike.wav-28a3b824feb3e4ea3586457721a5631a.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/10date - would u wanna go on a ride with my bike.wav"
+dest_files=["res://.godot/imported/10date - would u wanna go on a ride with my bike.wav-28a3b824feb3e4ea3586457721a5631a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

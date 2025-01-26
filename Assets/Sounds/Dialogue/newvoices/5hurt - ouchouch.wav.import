@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://midaryvkehr4"
+path="res://.godot/imported/5hurt - ouchouch.wav-62b16cd6f80fad89da5896becf11a882.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/5hurt - ouchouch.wav"
+dest_files=["res://.godot/imported/5hurt - ouchouch.wav-62b16cd6f80fad89da5896becf11a882.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

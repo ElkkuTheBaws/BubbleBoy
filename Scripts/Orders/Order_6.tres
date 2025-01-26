@@ -1,12 +1,39 @@
-[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://dofa8dee0untp"]
+[gd_resource type="Resource" script_class="Order" load_steps=12 format=3 uid="uid://dofa8dee0untp"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_5iutm"]
 [ext_resource type="Texture2D" uid="uid://bh1tvrglr4aqa" path="res://Assets/Textures/Orders/simplesoup-high.jpg" id="1_m0gi3"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="2_rgi5w"]
+[ext_resource type="AudioStream" uid="uid://d04tn174h6p4c" path="res://Assets/Sounds/Dialogue/newvoices/6greeting - hi i heard good things about your simple soups.wav" id="3_hqu3v"]
 [ext_resource type="Texture2D" uid="uid://bvp4ixjdsrw23" path="res://Assets/Textures/Orders/simplesoup.jpg" id="3_rwjy0"]
+[ext_resource type="AudioStream" uid="uid://ke6r8cy2xww8" path="res://Assets/Sounds/Dialogue/newvoices/6refuse - i dont think this is what i ordered.wav" id="4_hw2k7"]
+[ext_resource type="AudioStream" uid="uid://cyna0u18vnqu7" path="res://Assets/Sounds/Dialogue/newvoices/6accept - wow this smells amazing.wav" id="5_sogvx"]
+
+[sub_resource type="Resource" id="Resource_3sgqd"]
+script = ExtResource("2_rgi5w")
+text = ""
+
+[sub_resource type="Resource" id="Resource_4vph2"]
+script = ExtResource("2_rgi5w")
+text = "Hi I heard good things about your simple soups"
+audio = ExtResource("3_hqu3v")
+
+[sub_resource type="Resource" id="Resource_2yo1k"]
+script = ExtResource("2_rgi5w")
+text = "I don't think this is what I ordered"
+audio = ExtResource("4_hw2k7")
+
+[sub_resource type="Resource" id="Resource_vhbu2"]
+script = ExtResource("2_rgi5w")
+text = "Wow this smells amazing"
+audio = ExtResource("5_sogvx")
 
 [resource]
 script = ExtResource("1_5iutm")
 girl = true
 small_image = ExtResource("3_rwjy0")
 detailed_image = ExtResource("1_m0gi3")
-requirements = Array[int]([])
+requirements = Array[int]([9, 1])
+idle_sentence = SubResource("Resource_4vph2")
+positive_sentence = SubResource("Resource_vhbu2")
+negative_sentence = SubResource("Resource_2yo1k")
+hurt_sentence = SubResource("Resource_3sgqd")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpw1yolobkwwe"
+path="res://.godot/imported/8idle - mayihaveasoupplease.wav-8fc5681ee157607c7b02164fa42175fd.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/8idle - mayihaveasoupplease.wav"
+dest_files=["res://.godot/imported/8idle - mayihaveasoupplease.wav-8fc5681ee157607c7b02164fa42175fd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

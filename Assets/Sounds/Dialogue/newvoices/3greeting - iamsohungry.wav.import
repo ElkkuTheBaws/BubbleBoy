@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lqnpmot52gwj"
+path="res://.godot/imported/3greeting - iamsohungry.wav-922b3d866b6c329c48e57e51434aaf57.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/3greeting - iamsohungry.wav"
+dest_files=["res://.godot/imported/3greeting - iamsohungry.wav-922b3d866b6c329c48e57e51434aaf57.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

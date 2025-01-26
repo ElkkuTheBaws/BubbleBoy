@@ -1,23 +1,23 @@
 [gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://cbtnbe7gol6s1"]
 
+[ext_resource type="Texture2D" uid="uid://cu4yuaviapx5k" path="res://Assets/Textures/Orders/burgersoup-high.jpg" id="1_cjpts"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_pquei"]
-[ext_resource type="Texture2D" uid="uid://kvnuf5sa7sc5" path="res://Assets/Textures/Orders/happyhour-high.jpg" id="1_vacua"]
-[ext_resource type="AudioStream" uid="uid://fbp7n4dmm1lw" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5pain.wav" id="2_b5fy3"]
+[ext_resource type="AudioStream" uid="uid://midaryvkehr4" path="res://Assets/Sounds/Dialogue/newvoices/5hurt - ouchouch.wav" id="2_5y5ki"]
 [ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_djwr0"]
-[ext_resource type="AudioStream" uid="uid://kgqy1iywempg" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5interaction.wav" id="4_k4fff"]
+[ext_resource type="AudioStream" uid="uid://brqvo6gfmkwbx" path="res://Assets/Sounds/Dialogue/newvoices/5idle - onesoupaday.wav" id="4_kc8ul"]
 [ext_resource type="AudioStream" uid="uid://khklogr7jwy0" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5incorrect.wav" id="5_8p61p"]
-[ext_resource type="AudioStream" uid="uid://cld25otlf2vyt" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5correct.wav" id="6_fqf2b"]
-[ext_resource type="Texture2D" uid="uid://csj3kbyqp1y1d" path="res://Assets/Textures/Orders/happyhour.jpg" id="8_ggj74"]
+[ext_resource type="AudioStream" uid="uid://c8l2ex5oxeaqo" path="res://Assets/Sounds/Dialogue/newvoices/5accept - getalife.wav" id="6_c6jgy"]
+[ext_resource type="Texture2D" uid="uid://dl2slqlir4g4y" path="res://Assets/Textures/Orders/burgersoup.jpg" id="8_xwvbg"]
 
 [sub_resource type="Resource" id="Resource_xy447"]
 script = ExtResource("3_djwr0")
-text = "Make it stop"
-audio = ExtResource("2_b5fy3")
+text = "Ouch ouch ouch ouch"
+audio = ExtResource("2_5y5ki")
 
 [sub_resource type="Resource" id="Resource_gqfxd"]
 script = ExtResource("3_djwr0")
-text = "A soup a day keeps the doctor away"
-audio = ExtResource("4_k4fff")
+text = "One soup a day keeps the doctor away"
+audio = ExtResource("4_kc8ul")
 
 [sub_resource type="Resource" id="Resource_vd28j"]
 script = ExtResource("3_djwr0")
@@ -26,15 +26,15 @@ audio = ExtResource("5_8p61p")
 
 [sub_resource type="Resource" id="Resource_7ofyg"]
 script = ExtResource("3_djwr0")
-text = "I love soup"
-audio = ExtResource("6_fqf2b")
+text = "Get a life"
+audio = ExtResource("6_c6jgy")
 
 [resource]
 script = ExtResource("1_pquei")
 girl = false
-small_image = ExtResource("8_ggj74")
-detailed_image = ExtResource("1_vacua")
-requirements = Array[int]([5, 5, 5])
+small_image = ExtResource("8_xwvbg")
+detailed_image = ExtResource("1_cjpts")
+requirements = Array[int]([6])
 idle_sentence = SubResource("Resource_gqfxd")
 positive_sentence = SubResource("Resource_7ofyg")
 negative_sentence = SubResource("Resource_vd28j")

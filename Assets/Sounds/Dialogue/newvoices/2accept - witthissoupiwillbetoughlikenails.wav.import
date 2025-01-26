@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chu4a4jcr8sfo"
+path="res://.godot/imported/2accept - witthissoupiwillbetoughlikenails.wav-77a620417bfd1276ded3a21f364655a9.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/2accept - witthissoupiwillbetoughlikenails.wav"
+dest_files=["res://.godot/imported/2accept - witthissoupiwillbetoughlikenails.wav-77a620417bfd1276ded3a21f364655a9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

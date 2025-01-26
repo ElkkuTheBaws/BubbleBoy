@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cn4ep68pn8703"
+path="res://.godot/imported/10greeting - hi im back that was the best soup i ever had.wav-d49ea6ac4e157f0d43c065e3bd6e4f06.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/10greeting - hi im back that was the best soup i ever had.wav"
+dest_files=["res://.godot/imported/10greeting - hi im back that was the best soup i ever had.wav-d49ea6ac4e157f0d43c065e3bd6e4f06.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

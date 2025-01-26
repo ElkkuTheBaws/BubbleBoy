@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d04tn174h6p4c"
+path="res://.godot/imported/6greeting - hi i heard good things about your simple soups.wav-d2a70cfb5d70ef820bd94418a640f549.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/newvoices/6greeting - hi i heard good things about your simple soups.wav"
+dest_files=["res://.godot/imported/6greeting - hi i heard good things about your simple soups.wav-d2a70cfb5d70ef820bd94418a640f549.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

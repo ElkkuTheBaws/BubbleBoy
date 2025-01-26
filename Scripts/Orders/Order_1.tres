@@ -2,32 +2,32 @@
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_2ae2b"]
 [ext_resource type="Texture2D" uid="uid://bh1tvrglr4aqa" path="res://Assets/Textures/Orders/simplesoup-high.jpg" id="1_ox2q4"]
-[ext_resource type="AudioStream" uid="uid://brsoibbmpll15" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1pain.wav" id="2_3ffg0"]
+[ext_resource type="AudioStream" uid="uid://bod70ner2swts" path="res://Assets/Sounds/Dialogue/newvoices/1hurt - oof.wav" id="2_ku0ui"]
 [ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_xtfo8"]
-[ext_resource type="AudioStream" uid="uid://deiixhk422q0f" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1interaction.wav" id="4_b2t83"]
-[ext_resource type="AudioStream" uid="uid://001budeiknbg" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1incorrect.wav" id="5_m4r02"]
-[ext_resource type="AudioStream" uid="uid://c67nksqf78u5t" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1correct.wav" id="6_5ykol"]
+[ext_resource type="AudioStream" uid="uid://di4g7wl0jwgm1" path="res://Assets/Sounds/Dialogue/newvoices/1greeting - mysonhasadhd1.wav" id="4_xhqpa"]
+[ext_resource type="AudioStream" uid="uid://ba18pu6bacuqy" path="res://Assets/Sounds/Dialogue/newvoices/1refuse - thisisnothowmysonlikeshissoup.wav" id="5_lbpjd"]
+[ext_resource type="AudioStream" uid="uid://cda0lr30me2um" path="res://Assets/Sounds/Dialogue/newvoices/1accept - we dont have soup at home.wav" id="6_igusu"]
 [ext_resource type="Texture2D" uid="uid://bvp4ixjdsrw23" path="res://Assets/Textures/Orders/simplesoup.jpg" id="8_c4na6"]
 
 [sub_resource type="Resource" id="Resource_n7mlx"]
 script = ExtResource("3_xtfo8")
-text = "Owie"
-audio = ExtResource("2_3ffg0")
+text = "Oof"
+audio = ExtResource("2_ku0ui")
 
 [sub_resource type="Resource" id="Resource_d36oc"]
 script = ExtResource("3_xtfo8")
-text = "Simple soups..."
-audio = ExtResource("4_b2t83")
+text = "My son has ADHD"
+audio = ExtResource("4_xhqpa")
 
 [sub_resource type="Resource" id="Resource_dxg58"]
 script = ExtResource("3_xtfo8")
-text = "This is not what I ordered"
-audio = ExtResource("5_m4r02")
+text = "This is not how my son likes his soup"
+audio = ExtResource("5_lbpjd")
 
 [sub_resource type="Resource" id="Resource_uaded"]
 script = ExtResource("3_xtfo8")
-text = "It's soup time"
-audio = ExtResource("6_5ykol")
+text = "We don't have soup at home"
+audio = ExtResource("6_igusu")
 
 [resource]
 script = ExtResource("1_2ae2b")

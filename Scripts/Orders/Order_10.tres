@@ -1,8 +1,29 @@
-[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://bu2n4loai4mab"]
+[gd_resource type="Resource" script_class="Order" load_steps=11 format=3 uid="uid://bu2n4loai4mab"]
 
 [ext_resource type="Texture2D" uid="uid://dd6tynixeng7s" path="res://Assets/Textures/Orders/whoreletter-high.jpg" id="1_77p3u"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_ahfhm"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="2_jfjbo"]
+[ext_resource type="AudioStream" uid="uid://cn4ep68pn8703" path="res://Assets/Sounds/Dialogue/newvoices/10greeting - hi im back that was the best soup i ever had.wav" id="3_2xeop"]
 [ext_resource type="Texture2D" uid="uid://cdqcshi1vf6la" path="res://Assets/Textures/Orders/whoreletter.jpg" id="3_i2tox"]
+[ext_resource type="AudioStream" uid="uid://b0qs3y6pkb33f" path="res://Assets/Sounds/Dialogue/newvoices/10accept - omg this is the best soup ever.wav" id="4_jpqq8"]
+
+[sub_resource type="Resource" id="Resource_xxnry"]
+script = ExtResource("2_jfjbo")
+text = ""
+
+[sub_resource type="Resource" id="Resource_5eid0"]
+script = ExtResource("2_jfjbo")
+text = "Hi I'm back, that was the best soup I ever had"
+audio = ExtResource("3_2xeop")
+
+[sub_resource type="Resource" id="Resource_s2j3y"]
+script = ExtResource("2_jfjbo")
+text = ""
+
+[sub_resource type="Resource" id="Resource_fwo60"]
+script = ExtResource("2_jfjbo")
+text = "Oh my god this is the best soup ever"
+audio = ExtResource("4_jpqq8")
 
 [resource]
 script = ExtResource("1_ahfhm")
@@ -10,3 +31,7 @@ girl = true
 small_image = ExtResource("3_i2tox")
 detailed_image = ExtResource("1_77p3u")
 requirements = Array[int]([])
+idle_sentence = SubResource("Resource_5eid0")
+positive_sentence = SubResource("Resource_fwo60")
+negative_sentence = SubResource("Resource_s2j3y")
+hurt_sentence = SubResource("Resource_xxnry")

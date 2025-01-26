@@ -1,12 +1,41 @@
-[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://dsi7dtugn1sdq"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://dsi7dtugn1sdq"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_f746q"]
 [ext_resource type="Texture2D" uid="uid://c7vuqfk2pxuws" path="res://Assets/Textures/Orders/sampsonslastwishsoup-high.jpg" id="1_jrol4"]
+[ext_resource type="AudioStream" uid="uid://i2d4yklnhbq8" path="res://Assets/Sounds/Dialogue/newvoices/2hurt - ouchmyveins.wav" id="2_sfjg2"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_bd5bg"]
 [ext_resource type="Texture2D" uid="uid://dx0tjeotpiueq" path="res://Assets/Textures/Orders/sampsonslastwishsoup.jpg" id="3_m4wbo"]
+[ext_resource type="AudioStream" uid="uid://ch07e5rf1clet" path="res://Assets/Sounds/Dialogue/newvoices/2greeting - ihaveirondeficiency.wav" id="4_b8orx"]
+[ext_resource type="AudioStream" uid="uid://c51kio7etehbt" path="res://Assets/Sounds/Dialogue/newvoices/2idle - ireallyneedthatiron.wav" id="5_dcbur"]
+[ext_resource type="AudioStream" uid="uid://chu4a4jcr8sfo" path="res://Assets/Sounds/Dialogue/newvoices/2accept - witthissoupiwillbetoughlikenails.wav" id="6_f5fgx"]
+
+[sub_resource type="Resource" id="Resource_qd5nh"]
+script = ExtResource("3_bd5bg")
+text = "Ouch my veins"
+audio = ExtResource("2_sfjg2")
+
+[sub_resource type="Resource" id="Resource_msga3"]
+script = ExtResource("3_bd5bg")
+text = "I have iron deficiency"
+audio = ExtResource("4_b8orx")
+
+[sub_resource type="Resource" id="Resource_a0vhd"]
+script = ExtResource("3_bd5bg")
+text = "I really need that iron and this is not it"
+audio = ExtResource("5_dcbur")
+
+[sub_resource type="Resource" id="Resource_4jbpj"]
+script = ExtResource("3_bd5bg")
+text = "With this soup I will be tough as nails"
+audio = ExtResource("6_f5fgx")
 
 [resource]
 script = ExtResource("1_f746q")
 girl = false
 small_image = ExtResource("3_m4wbo")
 detailed_image = ExtResource("1_jrol4")
-requirements = Array[int]([])
+requirements = Array[int]([8])
+idle_sentence = SubResource("Resource_msga3")
+positive_sentence = SubResource("Resource_4jbpj")
+negative_sentence = SubResource("Resource_a0vhd")
+hurt_sentence = SubResource("Resource_qd5nh")
