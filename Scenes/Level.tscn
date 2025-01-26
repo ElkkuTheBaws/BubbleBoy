@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=51 format=3 uid="uid://cpxc77235lfv2"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
@@ -38,10 +38,34 @@
 [ext_resource type="PackedScene" uid="uid://d32mttwk8go8" path="res://Assets/Meshes/ingredients/soup-potato.glb" id="30_3tny0"]
 [ext_resource type="PackedScene" uid="uid://d4ema65po868h" path="res://Assets/Meshes/ingredients/pile-potato.glb" id="31_4wkdk"]
 [ext_resource type="AudioStream" uid="uid://bn4hxcujy2q27" path="res://Assets/Sounds/Interactions/Nail Box Pickup/Pick Up Jewlery A.wav" id="31_d5fob"]
+[ext_resource type="PackedScene" uid="uid://c8mk0e87mtvyh" path="res://Assets/Meshes/ingredients/pile-fish-bowl.glb" id="32_kukhp"]
 [ext_resource type="PackedScene" uid="uid://re3vps5up8ga" path="res://Assets/Meshes/runningkid.glb" id="39_k2277"]
 [ext_resource type="Script" path="res://Scenes/running_kid.gd" id="39_vmxso"]
 [ext_resource type="Texture2D" uid="uid://8lfu7mg13bp4" path="res://Assets/Meshes/customer_guy4.png" id="40_lw001"]
 [ext_resource type="PackedScene" path="res://Objects/phone.tscn" id="42_tm0oi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iwnsp"]
+
+[sub_resource type="Sky" id="Sky_ydb3l"]
+sky_material = SubResource("ProceduralSkyMaterial_iwnsp")
+
+[sub_resource type="Environment" id="Environment_2pxeu"]
+background_mode = 1
+background_color = Color(0.846504, 0.834817, 0.749238, 1)
+sky = SubResource("Sky_ydb3l")
+ambient_light_source = 2
+ambient_light_color = Color(0.217405, 0.251657, 0.355596, 1)
+ssao_enabled = true
+ssao_radius = 0.41
+ssao_intensity = 14.8
+fog_enabled = true
+fog_light_color = Color(0.482237, 0.562243, 0.626384, 1)
+fog_light_energy = 3.0
+fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.79
+adjustment_contrast = 1.25
+adjustment_saturation = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50hg5"]
 albedo_texture = ExtResource("40_lw001")
@@ -157,26 +181,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.792586, 1.15024)
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.914235, 1.98635, 1.19481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534362, 1.98635, 1.62187)
 layers = 524289
-light_color = Color(1, 1, 0.921569, 1)
-light_energy = 0.8
+light_color = Color(0.6435, 0.903375, 0.99, 1)
+light_energy = 2.4
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
-omni_range = 10.0
+omni_range = 4.353
+omni_attenuation = 2.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534362, 1.98635, -2.05494)
+layers = 524289
+light_color = Color(0.6435, 0.903375, 0.99, 1)
+light_energy = 2.4
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 4.353
 omni_attenuation = 2.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.327, 1.9123, 1.19481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99428, 1.47122, 0.393004)
 layers = 524289
-light_color = Color(1, 1, 0.921569, 1)
+light_color = Color(0.85248, 0.81747, 0.589081, 1)
 light_energy = 0.5
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
-omni_range = 30.0
-omni_attenuation = 0.4
+omni_range = 8.006
+omni_attenuation = 0.2
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23019, 1.82775, -0.0909096)
+layers = 524289
+light_color = Color(0.85248, 0.81747, 0.589081, 1)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 5.506
+omni_attenuation = 0.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lights"]
+environment = SubResource("Environment_2pxeu")
 
 [node name="People" type="Node3D" parent="."]
 
@@ -186,24 +235,35 @@ transform = Transform3D(-0.418216, 0, -0.908348, 0, 1, 0, 0.908348, 0, -0.418216
 [node name="Skeleton3D" parent="People/Person/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
+bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
+bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
+bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
+bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
+bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
+bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
+bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
+bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
+bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
+bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
+bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Person" index="7"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105988, -0.220467, 0.631)
@@ -214,24 +274,35 @@ transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 
 [node name="Skeleton3D" parent="People/Person4/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
+bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
+bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
+bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
+bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
+bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
+bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
+bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
+bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
+bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
+bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
+bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Person4" index="7"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.96046e-09, -0.20985, 0.957564)
@@ -254,24 +325,35 @@ transform = Transform3D(0.992476, 0, 0.122441, 0, 1, 0, -0.122441, 0, 0.992476, 
 [node name="Skeleton3D" parent="People/Girl/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
+bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
+bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
+bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
+bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
+bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
+bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
+bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
+bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
+bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
+bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
+bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Girl" index="7"]
 visible = false
@@ -286,7 +368,6 @@ mesh = NodePath("pile-tomato2/pile-tomato")
 visible = false
 
 [node name="pile-tomato2" parent="Ingredients/Tomatos" instance=ExtResource("13_04vpi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Onions" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 0.267833, 3.16631)
@@ -352,7 +433,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144668, 0.0607567, 0.0484
 visible = false
 
 [node name="pile-beans2" parent="Ingredients/Beans" instance=ExtResource("21_bh5a0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="pile-beans" parent="Ingredients/Beans/pile-beans2" index="0"]
 transform = Transform3D(-0.190154, 0, -0.777073, 0, 0.8, 0, 0.777073, 0, -0.190154, 0.0298502, 0, 0.058892)
@@ -374,7 +454,6 @@ visible = false
 stream = ExtResource("24_ybixk")
 
 [node name="pile-beer2" parent="Ingredients/Beer" instance=ExtResource("23_rktbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Burger" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(0.953848, 0, 0.30029, 0, 1, 0, -0.30029, 0, 0.953848, 2.47922, 0.981039, 3.1637)
@@ -402,6 +481,8 @@ interactable_name = "Fish"
 visible = false
 
 [node name="pile-fish2" parent="Ingredients/Fish" instance=ExtResource("26_jvs3r")]
+
+[node name="pile-fish-bowl2" parent="Ingredients/Fish" instance=ExtResource("32_kukhp")]
 
 [node name="Nails" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21808, 0.999655, 0.967509)
