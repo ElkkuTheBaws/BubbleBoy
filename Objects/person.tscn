@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv17e08oqxyvc"]
+[gd_scene load_steps=13 format=3 uid="uid://dv17e08oqxyvc"]
 
 [ext_resource type="Script" path="res://Scenes/Person.gd" id="1_1ngre"]
+[ext_resource type="PackedScene" uid="uid://3p8mxrf8qtyl" path="res://Assets/Meshes/customer.glb" id="2_gpc5u"]
+[ext_resource type="Texture2D" uid="uid://b70xgdmr2dnt7" path="res://Assets/Textures/Characters/guy2.png" id="2_uiywj"]
+[ext_resource type="Texture2D" uid="uid://xx3p06lh7vij" path="res://Assets/Textures/Characters/guy3.png" id="3_6s06d"]
+[ext_resource type="Texture2D" uid="uid://v8j1h0q5o6jy" path="res://Assets/Textures/Characters/guy4.png" id="4_7jsbc"]
+[ext_resource type="Texture2D" uid="uid://bsgv18gchcp52" path="res://Assets/Textures/Characters/guy.png" id="5_vtgp5"]
+[ext_resource type="Script" path="res://Objects/skeleton_ik_3d.gd" id="7_mbdw7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j85jj"]
-size = Vector3(1, 2, 1)
+size = Vector3(0.552856, 1.49231, 0.601318)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yj2sk"]
 size = Vector3(1, 2, 1)
@@ -12,27 +18,32 @@ size = Vector3(1, 2, 1)
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2lg1x"]
-size = Vector3(2.31079, 2.08975, 1.36838)
+size = Vector3(1.4776, 1.5981, 1.16668)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6rqs"]
-size = Vector3(1.85596, 2.08975, 1.08184)
+size = Vector3(1.18933, 1.67476, 0.786719)
 
-[node name="Person" type="StaticBody3D" node_paths=PackedStringArray("audio_player", "mesh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.96834, 0.996547, 0)
+[node name="Person" type="StaticBody3D" node_paths=PackedStringArray("audio_player", "animation", "target_node", "mesh")]
 collision_layer = 9
 script = ExtResource("1_1ngre")
 audio_player = NodePath("DialogPlayer")
-mesh = NodePath("MeshInstance3D")
+customer_textures = Array[CompressedTexture2D]([ExtResource("2_uiywj"), ExtResource("3_6s06d"), ExtResource("4_7jsbc"), ExtResource("5_vtgp5")])
+animation = NodePath("customer/AnimationPlayer")
+target_node = NodePath("customer/bubblecustomer/Skeleton3D/Cube_004/Target")
+mesh = NodePath("customer/bubblecustomer/Skeleton3D/Cube_004")
 interactable_name = "Person"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234985, -0.253845, 0.176147)
 shape = SubResource("BoxShape3D_j85jj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_yj2sk")
 
 [node name="Plate" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25597)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Plate"]
 mesh = SubResource("PlaneMesh_f5c40")
@@ -41,14 +52,14 @@ mesh = SubResource("PlaneMesh_f5c40")
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PourArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0996246, 1.19905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0834657, -0.146202, 1.04948)
 shape = SubResource("BoxShape3D_2lg1x")
 
 [node name="DamageArea" type="Area3D" parent="."]
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0543327, 0.0996246, -0.00488579)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0235104, -0.107872, 0.0670866)
 shape = SubResource("BoxShape3D_x6rqs")
 
 [node name="DialogPlayer" type="AudioStreamPlayer3D" parent="."]
@@ -56,7 +67,54 @@ unit_size = 3.0
 max_distance = 20.0
 bus = &"R"
 
+[node name="customer" parent="." instance=ExtResource("2_gpc5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Skeleton3D" parent="customer/bubblecustomer" index="0"]
+bones/0/position = Vector3(0.0313731, 0.722873, -0.104193)
+bones/0/rotation = Quaternion(0.0869279, 0.701743, 0.0869279, 0.701743)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(1.00016e-08, -6.15559e-08, 0.0976802, 0.995218)
+bones/2/rotation = Quaternion(-1.63544e-08, 4.0789e-08, 0.122884, 0.992421)
+bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
+bones/4/position = Vector3(-0.0532444, 0.105383, 0.181525)
+bones/4/rotation = Quaternion(0.852205, -0.496431, -0.0931099, 0.136504)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.782155, 0.129406, 0.272521, 0.545178)
+bones/6/rotation = Quaternion(0.229913, -0.0913999, -0.129876, 0.960166)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(-0.0535754, 0.110237, -0.179701)
+bones/7/rotation = Quaternion(0.85092, -0.493734, 0.10031, -0.148659)
+bones/7/scale = Vector3(1, 1, 0.999998)
+bones/8/rotation = Quaternion(-0.571341, -0.207832, 0.608945, 0.509472)
+bones/9/rotation = Quaternion(-0.323068, -0.163352, -0.00271535, 0.932167)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(0.115925, 0.549502, 0.00571686)
+bones/10/rotation = Quaternion(0.467688, -0.459694, -0.547867, 0.519414)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.155144, -0.126977, -0.76353, 0.613864)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.154633, 0.00953089, 0.469266, 0.86936)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/position = Vector3(-0.0536656, 0.549502, 0.00571684)
+bones/13/rotation = Quaternion(0.640252, -0.560815, -0.367242, 0.375096)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.162723, 0.0708962, -0.63806, 0.749249)
+bones/15/rotation = Quaternion(0.118925, -0.145852, 0.467568, 0.863692)
+bones/15/scale = Vector3(1, 1, 1)
+
+[node name="Target" type="Node3D" parent="customer/bubblecustomer/Skeleton3D/Cube_004" index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.20077, 0.106127)
+
+[node name="SkeletonIK3D" type="SkeletonIK3D" parent="customer/bubblecustomer/Skeleton3D" index="1"]
+root_bone = &"Bone.003"
+tip_bone = &"Bone.004"
+target_node = NodePath("../Cube_004/Target")
+script = ExtResource("7_mbdw7")
+
 [connection signal="body_entered" from="PourArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="PourArea" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
+
+[editable path="customer"]

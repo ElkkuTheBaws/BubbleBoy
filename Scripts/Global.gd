@@ -4,6 +4,7 @@ extends Node
 var current_person_area = null
 var current_dmg_person_area = null
 var gameManager: GameManager
+var player_position: Vector3 = Vector3.ZERO
 signal on_interaction_hover(item)
 signal on_inspect(image)
 signal end_inspect

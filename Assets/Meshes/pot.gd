@@ -13,7 +13,7 @@ var heat: float = 0:
 		heat = clamp(value, 30, 100)
 		var normalized = normalize(heat, 30, 100)
 		audio.volume_db = linear_to_db(normalized * 0.5)
-		bubble_particles.lifetime = clampf(normalized, 0, 1)
+		bubble_particles.lifetime = clampf(normalized, 0.1, 1)
 		liquid.material_override.set_shader_parameter("Displacement_Intensity",snappedf(normalized, 0.2))
 		liquid.material_override.set_shader_parameter("Texture_Speed", snappedf(normalized, 0.2))
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +23,7 @@ func _ready() -> void:
 func reset_pot() -> void:
 	liquid.visible = true
 	liquid.position.y = default_liquid_height
-	bubble_particles.lifetime = 0
+	bubble_particles.lifetime = 0.1
 
 func set_amount(amount):
 	var new_amount = amount * default_liquid_height
@@ -31,6 +31,8 @@ func set_amount(amount):
 	liquid.visible = true
 
 func _physics_process(delta: float) -> void:
+	if not visible:
+		return
 	liquid.global_rotation = lerp(liquid.global_rotation, Vector3.ZERO + (global_rotation * 0.5), delta*4)
 	var angle = normalize(liquid.position.y, 0, default_liquid_height) * 10
 	if abs(global_rotation_degrees.x) > (40 + angle) or abs(global_rotation_degrees.z) > (40 + angle):
@@ -40,7 +42,7 @@ func _physics_process(delta: float) -> void:
 			check_pour()
 			pour_sound()
 		else:
-			bubble_particles.lifetime = 0
+			bubble_particles.lifetime = 0.1
 			liquid.visible = false
 			audio.stop()
 			stop_pour()

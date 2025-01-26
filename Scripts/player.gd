@@ -54,6 +54,7 @@ func look(event: InputEvent):
 	headComponent.rotateHead(inputComponent.getYRotation(event))
 
 func _physics_process(delta: float) -> void:
+	Global.player_position = global_position
 	if hands.curret_carry is Couldron:
 		look_at_person(delta)
 	inputComponent.setMovementInput()
@@ -70,7 +71,8 @@ func look_at_person(delta: float):
 	if person != null:
 		var direction = (person.global_position - current_position).normalized()
 		direction.y = 0
-		rotation.y= lerp(rotation.y,atan2(-direction.x,-direction.z),.03)
+		var angle = atan2(-direction.x,-direction.z)
+		rotation.y= lerp_angle(rotation.y, angle,.03)
 		headComponent.rotation.x = lerp(headComponent.rotation.x, deg_to_rad(-20.0), delta)
 
 func ground_move(delta: float) -> void:

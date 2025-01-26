@@ -26,14 +26,14 @@ func reset():
 	ingredients = []
 	amount = 1
 	heat = 0
-	bubble_particles.lifetime = 0
+	bubble_particles.lifetime = 0.1
 
 func interact(item):
 	if item is Couldron:
 		visible = true
 		interactable_name = "Take pot"
 		reset()
-		bubble_particles.lifetime = 0
+		bubble_particles.lifetime = 0.1
 		interacted.emit(self)
 		boilingAudio.play()
 		play_audio(pick_up_sound)
