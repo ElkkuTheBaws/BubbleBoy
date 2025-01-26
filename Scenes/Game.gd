@@ -33,7 +33,7 @@ func order_done(order: Order):
 			person_appear()
 	else:
 		await get_tree().create_timer(1).timeout
-		SceneTransition.change_scene("")
+		SceneTransition.change_scene("res://Scenes/Outro.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

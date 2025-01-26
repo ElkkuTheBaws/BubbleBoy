@@ -49,6 +49,7 @@ mesh = SubResource("BoxMesh_yj2sk")
 
 [node name="PourArea" type="Area3D" parent="."]
 collision_mask = 16
+priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PourArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0834657, -0.146202, 1.04948)

@@ -149,7 +149,7 @@ func _physics_process(delta: float) -> void:
 		pizza.position.z = randf_range(-damage_shake, damage_shake)
 	if can_serve:
 		calculate_head_angle(delta)
-	if is_pizza_girl:
+	if is_pizza_girl and can_serve:
 		var node_forward = global_transform.basis.z.normalized()
 		var target_position = Vector3(0, 0, 0)
 		if Global.player_position != null:

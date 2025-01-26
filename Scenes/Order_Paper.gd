@@ -7,6 +7,7 @@ func set_order(_order: Order):
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	#var material = mesh.mesh.surface_get_material(0)
 	material.albedo_texture = order.small_image
+	material.uv1_scale = Vector3(3, 2, 3)
 	mesh.material_override = material
 	#mesh.mesh.surface_set_material(0, material)
 	set_collision_layer_value(4, true)
