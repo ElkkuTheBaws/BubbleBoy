@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpr68s8f16oid"
-path.s3tc="res://.godot/imported/handmask.png-9c6093b9e4f1d5098300d67021fb385f.s3tc.ctex"
+uid="uid://dlau4vxo8em7l"
+path.s3tc="res://.godot/imported/bublehand.png-bd8ca8150d49bf63941e58078cbd4e34.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Characters/handmask.png"
-dest_files=["res://.godot/imported/handmask.png-9c6093b9e4f1d5098300d67021fb385f.s3tc.ctex"]
+source_file="res://Assets/Textures/Characters/bublehand.png"
+dest_files=["res://.godot/imported/bublehand.png-bd8ca8150d49bf63941e58078cbd4e34.s3tc.ctex"]
 
 [params]
 
