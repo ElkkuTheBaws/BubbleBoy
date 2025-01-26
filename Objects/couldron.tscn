@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://jkhy8xstvw4m" path="res://Assets/Sounds/Interactions/Cauldron Pickup/Pick Up Metal F.wav" id="5_dl817"]
 [ext_resource type="AudioStream" uid="uid://fhvvvspocu04" path="res://Assets/Sounds/Interactions/Cauldron Pickup/Pick Up Metal E.wav" id="5_k8rcy"]
 [ext_resource type="AudioStream" uid="uid://drr4lvtutvh6q" path="res://Assets/Sounds/Water/Boiling water_3.wav" id="6_focmq"]
-[ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/buble.png" id="11_w7y13"]
+[ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/Gameplay/buble.png" id="11_w7y13"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_av2e5"]
 size = Vector3(1, 0.469604, 0.641541)

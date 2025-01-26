@@ -5,7 +5,8 @@ class_name Pot
 @export var audio: AudioStreamPlayer3D
 @export var effectAudio: AudioStreamPlayer3D
 @export var pour_sounds: Array[AudioStreamWAV]
-@export var bubble_particles: CPUParticles3D
+@export var bubble_particles: GPUParticles3D
+@export var pour_particle: GPUParticles3D
 var ingredients = null
 
 var heat: float = 0:
@@ -14,11 +15,16 @@ var heat: float = 0:
 		var normalized = normalize(heat, 30, 100)
 		audio.volume_db = linear_to_db(normalized * 0.5)
 		bubble_particles.lifetime = clampf(normalized, 0.1, 1)
+		if bubble_particles.lifetime < 0.4:
+			bubble_particles.emitting = false
+		else:
+			bubble_particles.emitting = true
 		liquid.material_override.set_shader_parameter("Displacement_Intensity",snappedf(normalized, 0.2))
 		liquid.material_override.set_shader_parameter("Texture_Speed", snappedf(normalized, 0.2))
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	liquid.position.y = default_liquid_height
+	pour_particle.emitting = false
 
 func reset_pot() -> void:
 	liquid.visible = true
@@ -29,6 +35,7 @@ func set_amount(amount):
 	var new_amount = amount * default_liquid_height
 	liquid.position.y = new_amount
 	liquid.visible = true
+	bubble_particles.emitting = true
 
 func _physics_process(delta: float) -> void:
 	if not visible:
@@ -39,10 +46,11 @@ func _physics_process(delta: float) -> void:
 		if liquid.position.y > 0.15:
 			liquid.position.y -= delta * 0.1
 			liquid.visible = true
+			pour_particle.emitting = true
 			check_pour()
 			pour_sound()
 		else:
-			bubble_particles.lifetime = 0.1
+			bubble_particles.emitting = false
 			liquid.visible = false
 			audio.stop()
 			stop_pour()
@@ -60,6 +68,7 @@ func pour_sound():
 		effectAudio.play()
 
 func stop_pour():
+	pour_particle.emitting = false
 	effectAudio.stop()
 
 func check_pour():

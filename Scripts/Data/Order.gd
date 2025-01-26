@@ -1,6 +1,8 @@
 extends Resource
 class_name Order
 
+@export var girl: bool = false
+
 @export var small_image: CompressedTexture2D
 @export var detailed_image: CompressedTexture2D
 

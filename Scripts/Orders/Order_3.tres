@@ -31,6 +31,7 @@ audio = ExtResource("6_w1e8d")
 
 [resource]
 script = ExtResource("2_67vho")
+girl = true
 small_image = ExtResource("8_kmu5k")
 detailed_image = ExtResource("1_crpqn")
 requirements = Array[int]([0, 3, 1])

@@ -32,6 +32,9 @@ func hide_person():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	init()
+
+func init():
 	pizza.visible = false
 	hide_person()
 	if is_pizza_girl:
@@ -73,6 +76,8 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 			Global.current_person_area = null
 
 func play_sentence(dialog: Sentence):
+	if audio_player.playing:
+		return
 	audio_player.stop()
 	audio_player.stream = dialog.audio
 	#audio_player.volume_db = -20
@@ -96,7 +101,6 @@ func _on_damage_area_body_exited(body: Node3D) -> void:
 func _physics_process(delta: float) -> void:
 	if can_serve:
 		calculate_head_angle(delta)
-		
 	if is_pizza_girl:
 		var node_forward = global_transform.basis.z.normalized()
 		var target_position = Vector3(0, 0, 0)
@@ -109,8 +113,8 @@ func _physics_process(delta: float) -> void:
 		var cross = node_forward.cross(direction)
 		if cross.y < 0:
 			angle_radians *= -1
-		angle_radians += deg_to_rad(90)
-		pizza.rotation.y = lerp_angle(pizza.rotation.y, clampf(angle_radians, deg_to_rad(-max_side_angle+90), deg_to_rad(max_side_angle+90)) , 6*delta)
+		#angle_radians += deg_to_rad(90)
+		pizza.rotation.y = lerp_angle(pizza.rotation.y, angle_radians, 6*delta)
 
 func calculate_head_angle(delta):
 	var node_forward = global_transform.basis.z.normalized()

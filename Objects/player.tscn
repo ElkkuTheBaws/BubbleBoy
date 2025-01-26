@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dlxndqcjrl1gc"]
+[gd_scene load_steps=40 format=3 uid="uid://dlxndqcjrl1gc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3tb4l"]
 [ext_resource type="Script" path="res://Scripts/head_component.gd" id="2_3s470"]
@@ -19,8 +19,9 @@
 [ext_resource type="AudioStream" uid="uid://c24erpy41u8mo" path="res://Assets/Sounds/Water/421184__inspectorj__water-pouring-a.wav" id="10_k22hw"]
 [ext_resource type="AudioStream" uid="uid://5gex5loues77" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium D.wav" id="11_6bhh5"]
 [ext_resource type="AudioStream" uid="uid://drr4lvtutvh6q" path="res://Assets/Sounds/Water/Boiling water_3.wav" id="11_gn065"]
+[ext_resource type="Texture2D" uid="uid://c4dglqg2mdkqc" path="res://Assets/Textures/Gameplay/Smoke_Particle_basecolor.png" id="12_5xds7"]
 [ext_resource type="AudioStream" uid="uid://cre1qs0h2x1bh" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium E.wav" id="12_6ueyt"]
-[ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/buble.png" id="14_hkcdr"]
+[ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/Gameplay/buble.png" id="14_hkcdr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mhdyx"]
 
@@ -51,6 +52,35 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 
+[sub_resource type="Gradient" id="Gradient_4ogp7"]
+offsets = PackedFloat32Array(0, 0.224599, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sd6rd"]
+gradient = SubResource("Gradient_4ogp7")
+
+[sub_resource type="Curve" id="Curve_nfray"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495025, 0.752852), 0.0, 0.0, 0, 0, Vector2(1, 0.280782), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dskua"]
+curve = SubResource("Curve_nfray")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nu7o4"]
+emission_shape = 1
+emission_sphere_radius = 0.15
+angle_min = -46.9
+angle_max = 46.8
+inherit_velocity_ratio = 0.595
+direction = Vector3(0, 2, 0)
+spread = 10.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 2, 0)
+scale_curve = SubResource("CurveTexture_dskua")
+color_ramp = SubResource("GradientTexture1D_sd6rd")
+collision_mode = 2
+collision_use_scale = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e10q"]
 transparency = 1
 shading_mode = 0
@@ -64,13 +94,54 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_djdrd"]
 material = SubResource("StandardMaterial3D_8e10q")
 
-[sub_resource type="Curve" id="Curve_ur40s"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.513274, 0.758242), 0.0, 0.0, 0, 0, Vector2(1, 0.280782), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5awlx"]
+emission_shape = 1
+emission_sphere_radius = 0.15
+angle_min = -46.9
+angle_max = 46.8
+inherit_velocity_ratio = 0.2
+direction = Vector3(0, 10, 0)
+spread = 15.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 1, 0)
+scale_curve = SubResource("CurveTexture_dskua")
+color = Color(0.778715, 0.893483, 0.996313, 1)
+color_ramp = SubResource("GradientTexture1D_sd6rd")
+collision_mode = 2
+collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 3
+sub_emitter_keep_velocity = true
 
-[sub_resource type="Gradient" id="Gradient_4ogp7"]
-offsets = PackedFloat32Array(0, 0.325472, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.392157, 1, 1, 1, 0)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcol5"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("12_5xds7")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_svune"]
+material = SubResource("StandardMaterial3D_vcol5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0sewk"]
+emission_shape = 1
+emission_sphere_radius = 0.15
+angle_min = -46.9
+angle_max = 46.8
+inherit_velocity_ratio = 0.595
+direction = Vector3(0, 5, 0)
+spread = 20.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 1, 0)
+scale_curve = SubResource("CurveTexture_dskua")
+color_ramp = SubResource("GradientTexture1D_sd6rd")
+collision_mode = 2
+collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hg66j"]
 render_priority = 0
@@ -134,36 +205,47 @@ swayAngle = 50.0
 pot = NodePath("POT")
 hand = NodePath("Hand")
 
-[node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid", "audio", "effectAudio", "bubble_particles") instance=ExtResource("7_ugdtp")]
+[node name="POT" parent="HeadComponent/Eyes/Hands" node_paths=PackedStringArray("liquid", "audio", "effectAudio", "bubble_particles", "pour_particle") instance=ExtResource("7_ugdtp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 script = ExtResource("8_j737t")
 liquid = NodePath("liquid")
 audio = NodePath("AudioStreamPlayer3D")
 effectAudio = NodePath("Effect")
 pour_sounds = Array[AudioStreamWAV]([ExtResource("9_xqgmv"), ExtResource("10_k22hw")])
-bubble_particles = NodePath("pot/CPUParticles3D")
+bubble_particles = NodePath("pot/GPU")
+pour_particle = NodePath("pot/Pour")
 
 [node name="pot" parent="HeadComponent/Eyes/Hands/POT" index="0"]
 layers = 524288
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00680865, 0)
+[node name="GPU" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262451, 0)
 layers = 524289
-lifetime = 0.9
 randomness = 0.33
-visibility_aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
-mesh = SubResource("QuadMesh_djdrd")
-emission_shape = 1
-emission_sphere_radius = 0.15
-direction = Vector3(0, 1, 0)
-spread = 10.0
-gravity = Vector3(0, 0.5, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 2.0
-angle_min = -46.9
-angle_max = 46.8
-scale_amount_curve = SubResource("Curve_ur40s")
-color_ramp = SubResource("Gradient_4ogp7")
+visibility_aabb = AABB(-1.32948, -1.03963, -1.29148, 2.6373, 4.36978, 2.59059)
+process_material = SubResource("ParticleProcessMaterial_nu7o4")
+draw_pass_1 = SubResource("QuadMesh_djdrd")
+
+[node name="Pour" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316618, 0)
+layers = 524289
+amount = 15
+sub_emitter = NodePath("../PourEmitter")
+lifetime = 0.8
+randomness = 0.33
+visibility_aabb = AABB(-1.32948, -1.03963, -1.29148, 2.6373, 4.36978, 2.59059)
+process_material = SubResource("ParticleProcessMaterial_5awlx")
+draw_pass_1 = SubResource("QuadMesh_svune")
+
+[node name="PourEmitter" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316618, 0)
+layers = 524289
+amount = 10
+randomness = 0.33
+visibility_aabb = AABB(-1.32948, -1.03963, -1.29148, 2.6373, 4.36978, 2.59059)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0sewk")
+draw_pass_1 = SubResource("QuadMesh_svune")
 
 [node name="liquid" parent="HeadComponent/Eyes/Hands/POT" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332751, 0)

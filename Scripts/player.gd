@@ -72,8 +72,8 @@ func look_at_person(delta: float):
 		var direction = (person.global_position - current_position).normalized()
 		direction.y = 0
 		var angle = atan2(-direction.x,-direction.z)
-		rotation.y= lerp_angle(rotation.y, angle,.03)
-		headComponent.rotation.x = lerp(headComponent.rotation.x, deg_to_rad(-20.0), delta)
+		rotation.y= lerp_angle(rotation.y, angle, delta * 0.5)
+		headComponent.rotation.x = lerp(headComponent.rotation.x, deg_to_rad(-20.0), delta * 0.5)
 
 func ground_move(delta: float) -> void:
 	var direction: Vector3 = (global_transform.basis.x * inputComponent.input_dir.x + global_transform.basis.z * inputComponent.input_dir.y).normalized()

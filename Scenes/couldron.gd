@@ -17,6 +17,10 @@ var heat: float = 0:
 		var normalized = normalize(heat, 30, 100)
 		boilingAudio.volume_db = linear_to_db(normalized * 0.4)
 		bubble_particles.lifetime = clampf(normalized, 0.5, 1)
+		if bubble_particles.lifetime < 0.3:
+			bubble_particles.emitting = false
+		else:
+			bubble_particles.emitting = true
 		liquid.material_override.set_shader_parameter("Displacement_Intensity",snappedf(normalized, 0.2))
 		liquid.material_override.set_shader_parameter("Texture_Speed", snappedf(normalized, 0.2))
 
@@ -27,6 +31,7 @@ func reset():
 	amount = 1
 	heat = 0
 	bubble_particles.lifetime = 0.1
+	bubble_particles.emitting = false
 
 func interact(item):
 	if item is Couldron:

@@ -1,6 +1,7 @@
 extends Node3D
 class_name GameManager
 @export var persons: Array[Person]
+@export var girl: Person
 @export var orders: Array[Order]
 @export var order_papers: Array[OrderPapers]
 var current_order: int = 0
@@ -15,9 +16,13 @@ func person_appear():
 	#var filtered_list = persons.filter(func(x): return x if current_persons.has(x))
 	var order = orders[current_order]
 	var person: Person = persons.pick_random() as Person
+	if order.girl:
+		person = girl
+		person.is_pizza_girl = order.girl
 	person.set_order(order)
 	order_papers[current_order].set_order(order)
 	persons.erase(person)
+	person.init()
 	person.enable_person()
 	current_person = person
 
