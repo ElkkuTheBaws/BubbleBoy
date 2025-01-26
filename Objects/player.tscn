@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dlxndqcjrl1gc"]
+[gd_scene load_steps=46 format=3 uid="uid://dlxndqcjrl1gc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3tb4l"]
 [ext_resource type="Script" path="res://Scripts/head_component.gd" id="2_3s470"]
@@ -25,6 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://c4dglqg2mdkqc" path="res://Assets/Textures/Gameplay/Smoke_Particle_basecolor.png" id="12_5xds7"]
 [ext_resource type="AudioStream" uid="uid://cre1qs0h2x1bh" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium E.wav" id="12_6ueyt"]
 [ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/Gameplay/buble.png" id="14_hkcdr"]
+[ext_resource type="Script" path="res://Objects/ambient.gd" id="26_e3bmq"]
+[ext_resource type="AudioStream" uid="uid://pxa6637e8v2q" path="res://Assets/Sounds/Stingers/hellskitchen.ogg" id="27_jq5ly"]
+[ext_resource type="AudioStream" uid="uid://83q4y24sg7kc" path="res://Assets/Sounds/Interactions/Cauldron Drop/Cauldron drop.ogg" id="28_ytar0"]
+[ext_resource type="AudioStream" uid="uid://bdpn1eaiihpak" path="res://Assets/Sounds/Interactions/Cauldron Drop/Metal pipe falling - sound (HD) original.ogg" id="29_x1djn"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mhdyx"]
 
@@ -302,6 +306,15 @@ render_target_update_mode = 4
 
 [node name="SubviewportCamera" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 cull_mask = 524288
+
+[node name="Ambient" type="AudioStreamPlayer3D" parent="."]
+top_level = true
+volume_db = -10.0
+unit_size = 2.0
+max_distance = 30.0
+bus = &"R"
+script = ExtResource("26_e3bmq")
+sounds = Array[AudioStream]([ExtResource("27_jq5ly"), ExtResource("28_ytar0"), ExtResource("29_x1djn"), ExtResource("9_xqgmv")])
 
 [connection signal="on_step" from="HeadComponent" to="FootstepManager" method="_on_head_component_on_step"]
 
