@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Global="*res://Scripts/Global.gd"
+SceneTransition="*res://Scenes/SceneTransition.tscn"
 
 [editor_plugins]
 

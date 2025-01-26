@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=55 format=3 uid="uid://cpxc77235lfv2"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
@@ -46,6 +46,7 @@
 [ext_resource type="Script" path="res://Scenes/music.gd" id="41_cxi4m"]
 [ext_resource type="AudioStream" uid="uid://du0egsgkhrw6m" path="res://Assets/Sounds/Music/wierd as song.ogg" id="42_4kfbk"]
 [ext_resource type="PackedScene" uid="uid://l8676x48oxks" path="res://Objects/phone.tscn" id="42_tm0oi"]
+[ext_resource type="AudioStream" uid="uid://bmvh73c3dtye" path="res://Assets/Sounds/Ambient/bathroom pains.ogg" id="47_ngap0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iwnsp"]
 
@@ -610,6 +611,15 @@ libraries = {
 [node name="Phone" parent="." instance=ExtResource("42_tm0oi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.81175, 1.37311, -0.713377)
 collision_layer = 9
+
+[node name="Toilet" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0197, 1.5282, 7.41249)
+stream = ExtResource("47_ngap0")
+volume_db = -10.0
+unit_size = 2.0
+autoplay = true
+max_distance = 15.0
+bus = &"R"
 
 [connection signal="interacted" from="Couldron" to="Player" method="_on_couldron_interacted"]
 [connection signal="interacted" from="Ingredients/Tomatos" to="Player" method="_on_ingredient_interacted"]

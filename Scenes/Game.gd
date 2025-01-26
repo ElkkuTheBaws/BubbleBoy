@@ -30,9 +30,10 @@ func order_done(order: Order):
 	order.completed = true
 	current_order += 1
 	if current_order < orders.size():
-		person_appear()
+			person_appear()
 	else:
-		print("Game end")
+		await get_tree().create_timer(1).timeout
+		SceneTransition.change_scene("")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

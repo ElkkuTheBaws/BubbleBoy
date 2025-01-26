@@ -85,11 +85,11 @@ func check_pour():
 		if person.can_serve:
 			#TODO: Problem with check_order
 			if person.order.check_order(ingredients):
-				Global.gameManager.order_done(person.order)
-				print("Order done")
 				person.bowl_soup.visible = true
 				person.play_sentence(person.order.positive_sentence)
 				person.can_serve = false
+				await get_tree().create_timer(2).timeout
+				Global.gameManager.order_done(person.order)
 			else:
 				print("Wrong order")
 				person.can_serve = false

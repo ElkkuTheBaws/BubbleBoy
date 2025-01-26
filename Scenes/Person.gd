@@ -88,7 +88,7 @@ func damaged() -> void:
 		if order != null:
 			play_sentence(order.hurt_sentence)
 		can_dmg = false
-		damage_shake = 0.02
+		damage_shake = 0.1
 		await get_tree().create_timer(2).timeout
 		can_dmg = true
 #func order_done():
