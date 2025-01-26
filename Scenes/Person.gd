@@ -11,6 +11,8 @@ class_name Person extends Interactable
 @export var customer: Node3D
 @export var pizza: Node3D
 
+@export var bowl_soup: Node3D
+
 var max_side_angle: float = 90
 # Accept order
 # Refuse order
@@ -40,10 +42,24 @@ func init():
 	if is_pizza_girl:
 		pizza.visible = true
 		customer.visible = false
-	mesh.get_active_material(0).albedo_texture = customer_textures.pick_random()
+	
+	var material: StandardMaterial3D = StandardMaterial3D.new()
+	 #mesh.get_active_material(0)
+	material.albedo_texture = customer_textures.pick_random()
+	mesh.material_override = material
+	#mesh.mesh.surface_set_material(0, material)
+	#mesh.get_active_material(0).albedo_texture = customer_textures.pick_random()
 	var animList = animation.get_animation_list()
 	var index = randi_range(0, animList.size()-1)
 	animation.current_animation = animList[index]
+
+#func check_girl():
+	#if is_pizza_girl:
+		#pizza.visible = true
+		#customer.visible = 
+	#pizza.visible = false
+	#hide_person()
+	
 
 func interact(item):
 	if not audio_player.playing:
@@ -53,6 +69,8 @@ func interact(item):
 func set_order(_order: Order):
 	order = null
 	order = _order
+	if not order.completed:
+		bowl_soup.visible = false
 
 func damaged() -> void:
 	if can_dmg:

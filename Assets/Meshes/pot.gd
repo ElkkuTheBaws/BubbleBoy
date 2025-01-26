@@ -83,6 +83,7 @@ func check_pour():
 			if person.order.check_order(ingredients):
 				Global.gameManager.order_done(person.order)
 				print("Order done")
+				person.bowl_soup.visible = true
 				person.play_sentence(person.order.positive_sentence)
 				person.can_serve = false
 			else:
