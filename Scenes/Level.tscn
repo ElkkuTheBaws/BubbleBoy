@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=39 format=3 uid="uid://cpxc77235lfv2"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://33pkcg3sb66g" path="res://Objects/couldron.tscn" id="4_183qa"]
 [ext_resource type="Resource" uid="uid://crxvf548n2kat" path="res://Scripts/Orders/Order_2.tres" id="4_t5jri"]
 [ext_resource type="Resource" uid="uid://btccmx0hslx74" path="res://Scripts/Orders/Order_3.tres" id="5_01hux"]
+[ext_resource type="Resource" uid="uid://cqggthdwk5f8u" path="res://Scripts/Orders/Order_4.tres" id="6_f4dos"]
+[ext_resource type="Resource" uid="uid://cbtnbe7gol6s1" path="res://Scripts/Orders/Order_5.tres" id="7_frx4q"]
 [ext_resource type="Resource" uid="uid://dfcsq1lxwyfmn" path="res://Scripts/Orders/Order_1.tres" id="8_fxx7n"]
 [ext_resource type="PackedScene" uid="uid://dv17e08oqxyvc" path="res://Objects/person.tscn" id="11_1hmru"]
 [ext_resource type="PackedScene" uid="uid://cklthnmeg4r8e" path="res://Objects/ingredient_pile.tscn" id="11_ykokl"]
@@ -39,8 +41,8 @@
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("persons", "order_papers")]
 script = ExtResource("1_a2221")
-persons = [NodePath("People/Person"), NodePath("People/Person2"), NodePath("People/Person3")]
-orders = Array[ExtResource("2_pvail")]([ExtResource("8_fxx7n"), ExtResource("4_t5jri"), ExtResource("5_01hux")])
+persons = [NodePath("People/Person"), NodePath("People/Person2"), NodePath("People/Person3"), NodePath("People/Person4"), NodePath("People/Person7")]
+orders = Array[ExtResource("2_pvail")]([ExtResource("8_fxx7n"), ExtResource("4_t5jri"), ExtResource("5_01hux"), ExtResource("6_f4dos"), ExtResource("7_frx4q")])
 order_papers = [NodePath("Orders/Order"), NodePath("Orders/Order2"), NodePath("Orders/Order3"), NodePath("Orders/Order4"), NodePath("Orders/Order5"), NodePath("Orders/Order6"), NodePath("Orders/Order7")]
 
 [node name="Orders" type="Node3D" parent="."]
@@ -125,6 +127,10 @@ transform = Transform3D(0.943147, 0, -0.332375, 0, 1, 0, 0.332375, 0, 0.943147, 
 
 [node name="Person6" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(-0.990348, 0, 0.138603, 0, 1, 0, -0.138603, 0, -0.990348, -9.63274, 0.952897, -1.70986)
+
+[node name="Person7" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(0.992476, 0, 0.122441, 0, 1, 0, -0.122441, 0, 0.992476, -6.85721, 1.39145, -3.89752)
+is_pizza_girl = true
 
 [node name="Ingredients" type="Node3D" parent="."]
 

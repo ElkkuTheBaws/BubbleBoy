@@ -111,5 +111,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialogTimer" type="Timer" parent="UI/Control"]
-wait_time = 6.0
+wait_time = 4.0
 one_shot = true

@@ -15,12 +15,9 @@ var completed: bool = false
 
 #TODO: Fix this BIG TIME
 func check_order(ingredient_list) -> bool:
-	if ingredient_list != null:
-		for requirement in requirements:
-			if not ingredient_list.has(requirement):
-				return false
-			var filtered = ingredient_list.filter(func(x): x != requirement)
-			print(filtered)
-		return true
-	else:
-		return true
+	if len(ingredient_list) != len(requirements):
+		return false
+	# Sort the lists and compare
+	ingredient_list.sort()
+	requirements.sort()
+	return ingredient_list == requirements

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv17e08oqxyvc"]
+[gd_scene load_steps=14 format=3 uid="uid://dv17e08oqxyvc"]
 
 [ext_resource type="Script" path="res://Scenes/Person.gd" id="1_1ngre"]
 [ext_resource type="PackedScene" uid="uid://3p8mxrf8qtyl" path="res://Assets/Meshes/customer.glb" id="2_gpc5u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xx3p06lh7vij" path="res://Assets/Textures/Characters/guy3.png" id="3_6s06d"]
 [ext_resource type="Texture2D" uid="uid://v8j1h0q5o6jy" path="res://Assets/Textures/Characters/guy4.png" id="4_7jsbc"]
 [ext_resource type="Texture2D" uid="uid://bsgv18gchcp52" path="res://Assets/Textures/Characters/guy.png" id="5_vtgp5"]
+[ext_resource type="PackedScene" uid="uid://bcq31kcmwbsqm" path="res://Assets/Meshes/pizzagirl.glb" id="6_l4vfu"]
 [ext_resource type="Script" path="res://Objects/skeleton_ik_3d.gd" id="7_mbdw7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j85jj"]
@@ -23,15 +24,21 @@ size = Vector3(1.4776, 1.5981, 1.16668)
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6rqs"]
 size = Vector3(1.18933, 1.67476, 0.786719)
 
-[node name="Person" type="StaticBody3D" node_paths=PackedStringArray("audio_player", "animation", "target_node", "mesh")]
+[node name="Person" type="StaticBody3D" node_paths=PackedStringArray("audio_player", "animation", "target_node", "pizza_mesh", "customer", "pizza", "mesh")]
 collision_layer = 9
 script = ExtResource("1_1ngre")
 audio_player = NodePath("DialogPlayer")
 customer_textures = Array[CompressedTexture2D]([ExtResource("2_uiywj"), ExtResource("3_6s06d"), ExtResource("4_7jsbc"), ExtResource("5_vtgp5")])
 animation = NodePath("customer/AnimationPlayer")
 target_node = NodePath("customer/bubblecustomer/Skeleton3D/Cube_004/Target")
+pizza_mesh = NodePath("pizzagirl/pizzagal")
+customer = NodePath("customer")
+pizza = NodePath("pizzagirl")
 mesh = NodePath("customer/bubblecustomer/Skeleton3D/Cube_004")
 interactable_name = "Person"
+
+[node name="pizzagirl" parent="." instance=ExtResource("6_l4vfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.37066, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234985, -0.253845, 0.176147)
@@ -117,4 +124,5 @@ script = ExtResource("7_mbdw7")
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
 
+[editable path="pizzagirl"]
 [editable path="customer"]

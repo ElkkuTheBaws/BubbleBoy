@@ -6,7 +6,7 @@ extends Control
 @export_category("Dialog")
 @export var dialog_label: Label
 @export var dialog_timer: Timer
-var current_dialog: String
+#var current_dialog: String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.on_interaction_hover.connect(show_interact)
@@ -33,14 +33,16 @@ func stop_inspecting():
 
 func add_text(_text: String, time: float):
 	dialog_timer.stop()
-	reset_dialog_stuff()
-	current_dialog = _text
-	var t: Tween = get_tree().create_tween()
+	dialog_label.text = _text
 	dialog_label.visible_ratio = 0
 	dialog_label.material.set_shader_parameter("shakeAmount", 100)
-	t.tween_property(dialog_label, "visible_ratio", 1, 3.0)
-	t.tween_callback(func(): dialog_timer.start())
+	var t: Tween = get_tree().create_tween()
+	t.tween_property(dialog_label, "visible_ratio", 1, time)
+	t.tween_callback(dialog_end)
 	dialog_label.material.set_shader_parameter("shakeAmount", 1)
+
+func dialog_end():
+	dialog_timer.start()
 
 func reset_dialog_stuff():
 	dialog_label.text = ""
