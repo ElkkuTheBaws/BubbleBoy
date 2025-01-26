@@ -279,14 +279,14 @@ visible = false
 [node name="Ingredients" type="Node3D" parent="."]
 
 [node name="Tomatos" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(0.92075, 0, -0.390153, 0, 1, 0, 0.390153, 0, 0.92075, 2.13649, 1.48507, 3.30866)
+transform = Transform3D(-0.881765, 0, -0.471689, 0, 1, 0, 0.471689, 0, -0.881765, -1.18191, 1.03419, 2.60451)
 mesh = NodePath("pile-tomato2/pile-tomato")
 
 [node name="MeshInstance3D" parent="Ingredients/Tomatos" index="1"]
 visible = false
 
 [node name="pile-tomato2" parent="Ingredients/Tomatos" instance=ExtResource("13_04vpi")]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -3.2146, -0.469278, 0.601067)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Onions" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 0.267833, 3.16631)
@@ -295,18 +295,24 @@ hand_mesh = ExtResource("12_216df")
 mesh = NodePath("pile-onion2/pile-onion")
 interactable_name = "Onion"
 
+[node name="CollisionShape3D" parent="Ingredients/Onions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.845639, 0.0396729)
+
 [node name="MeshInstance3D" parent="Ingredients/Onions" index="1"]
 visible = false
 
 [node name="pile-onion2" parent="Ingredients/Onions" instance=ExtResource("15_md083")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137531, 0.747233, 0.121631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.149047, 0.740919, 0.11575)
 
 [node name="Sandals" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33713, 1.48507, 0.778789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33713, 0.468973, -0.566838)
 type = 2
 hand_mesh = ExtResource("13_scl4j")
 mesh = NodePath("pile-sandal2/pile-sandal")
 interactable_name = "Sandal"
+
+[node name="CollisionShape3D" parent="Ingredients/Sandals" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19574, 0)
 
 [node name="MeshInstance3D" parent="Ingredients/Sandals" index="1"]
 visible = false
@@ -315,43 +321,51 @@ visible = false
 stream = ExtResource("17_x6qky")
 
 [node name="pile-sandal2" parent="Ingredients/Sandals" instance=ExtResource("17_s3duv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104789, -1.4727, -1.12343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45138, 0)
 
 [node name="Shrooms" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, -1.05697)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07887, 0.986735, 4.41903)
 type = 3
 hand_mesh = ExtResource("14_fy5k0")
 mesh = NodePath("pile-shroom2/pile-shroom")
 interactable_name = "Mushrooms"
 
+[node name="CollisionShape3D" parent="Ingredients/Shrooms" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0787811, 0)
+
 [node name="MeshInstance3D" parent="Ingredients/Shrooms" index="1"]
 visible = false
 
 [node name="pile-shroom2" parent="Ingredients/Shrooms" instance=ExtResource("19_b3wc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37014, -0.486942, 5.55878)
 
 [node name="Beans" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67451, 1.48507, -3.84872)
+transform = Transform3D(0.227246, 0, 0.973837, 0, 1, 0, -0.973837, 0, 0.227246, -1.05434, 0.201911, 2.91058)
 type = 4
 hand_mesh = ExtResource("15_tcmmr")
 mesh = NodePath("pile-beans2/pile-beans")
 interactable_name = "Beans"
 
+[node name="CollisionShape3D" parent="Ingredients/Beans" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144668, 0.0607567, 0.0484622)
+
 [node name="MeshInstance3D" parent="Ingredients/Beans" index="1"]
 visible = false
 
 [node name="pile-beans2" parent="Ingredients/Beans" instance=ExtResource("21_bh5a0")]
-transform = Transform3D(0.314688, 0, 0.949195, 0, 1, 0, -0.949195, 0, 0.314688, -2.73799, -1.28842, 6.71706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="pile-beans" parent="Ingredients/Beans/pile-beans2" index="0"]
 transform = Transform3D(-0.190154, 0, -0.777073, 0, 0.8, 0, 0.777073, 0, -0.190154, 0.0298502, 0, 0.058892)
 
 [node name="Beer" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22417, 1.48507, 2.97809)
+transform = Transform3D(0.358775, 0, 0.933424, 0, 1, 0, -0.933424, 0, 0.358775, 1.41749, 1.04272, -4.14782)
 type = 5
 hand_mesh = ExtResource("16_ktsx5")
 mesh = NodePath("pile-beer2/pile-beer")
 interactable_name = "Beer"
+
+[node name="CollisionShape3D" parent="Ingredients/Beer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0170908, 0.126762, 0.0128176)
 
 [node name="MeshInstance3D" parent="Ingredients/Beer" index="1"]
 visible = false
@@ -360,23 +374,25 @@ visible = false
 stream = ExtResource("24_ybixk")
 
 [node name="pile-beer2" parent="Ingredients/Beer" instance=ExtResource("23_rktbv")]
-transform = Transform3D(0.966061, 0, 0.258313, 0, 1, 0, -0.258313, 0, 0.966061, 2.75186, -0.441999, -7.11882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Burger" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395115, 1.47545, 4.2617)
+transform = Transform3D(0.953848, 0, 0.30029, 0, 1, 0, -0.30029, 0, 0.953848, 2.47922, 0.981039, 3.1637)
 type = 6
 hand_mesh = ExtResource("24_klcak")
 mesh = NodePath("pile-burger2/pile-burger")
 interactable_name = "Burger"
 
+[node name="CollisionShape3D" parent="Ingredients/Burger" index="0"]
+transform = Transform3D(1, 0, 2.98023e-07, 0, 1, 0, -2.98023e-07, 0, 1, 0, 0.0880847, 0)
+
 [node name="MeshInstance3D" parent="Ingredients/Burger" index="1"]
 visible = false
 
 [node name="pile-burger2" parent="Ingredients/Burger" instance=ExtResource("25_k3nxh")]
-transform = Transform3D(-0.767109, 0, 0.641517, 0, 1, 0, -0.641517, 0, -0.767109, 2.57266, -0.503909, -1.21968)
 
 [node name="Fish" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48902, 1.47545, 4.2617)
+transform = Transform3D(-0.927321, 0, -0.374267, 0, 1, 0, 0.374267, 0, -0.927321, -1.17268, 1.22274, -1.11542)
 type = 7
 hand_mesh = ExtResource("26_1r11v")
 mesh = NodePath("pile-fish2/pile-fish")
@@ -386,10 +402,9 @@ interactable_name = "Fish"
 visible = false
 
 [node name="pile-fish2" parent="Ingredients/Fish" instance=ExtResource("26_jvs3r")]
-transform = Transform3D(-0.900698, 0, 0.434445, 0, 1, 0, -0.434445, 0, -0.900698, -2.69051, -0.25, -5.32893)
 
 [node name="Nails" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11018, -0.0163431, -0.551283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21808, 0.999655, 0.967509)
 type = 8
 hand_mesh = ExtResource("28_ev31a")
 mesh = NodePath("pile-nails2/pile-nails")
@@ -403,10 +418,9 @@ stream = ExtResource("31_d5fob")
 volume_db = -5.0
 
 [node name="pile-nails2" parent="Ingredients/Nails" instance=ExtResource("29_o711n")]
-transform = Transform3D(0.286642, 0, 0.958038, 0, 1, 0, -0.958038, 0, 0.286642, 0.0752203, 1.01168, 1.37004)
 
 [node name="Potates" parent="Ingredients" node_paths=PackedStringArray("mesh") instance=ExtResource("11_ykokl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16184, 0.995736, 2.35972)
+transform = Transform3D(-0.723076, 0, -0.690769, 0, 1, 0, 0.690769, 0, -0.723076, -1.18221, 0.993121, 4.27366)
 type = 9
 hand_mesh = ExtResource("30_3tny0")
 mesh = NodePath("pile-potato2/pile-potato")
@@ -416,7 +430,6 @@ interactable_name = "Potatoes"
 visible = false
 
 [node name="pile-potato2" parent="Ingredients/Potates" instance=ExtResource("31_4wkdk")]
-transform = Transform3D(-0.775661, 0, -0.63115, 0, 1, 0, 0.63115, 0, -0.775661, -3.44964, 0, 1.92757)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25256, 2.94968, 6.01068)
