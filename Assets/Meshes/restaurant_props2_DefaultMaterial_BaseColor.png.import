@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://gf7erwufkdyx"
+path.s3tc="res://.godot/imported/restaurant_props2_DefaultMaterial_BaseColor.png-6646df53de36c5601836734287af397e.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "a06953c1c39e367600c13885d9a3ea4b"
+}
+
+[deps]
+
+source_file="res://Assets/Meshes/restaurant_props2_DefaultMaterial_BaseColor.png"
+dest_files=["res://.godot/imported/restaurant_props2_DefaultMaterial_BaseColor.png-6646df53de36c5601836734287af397e.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
