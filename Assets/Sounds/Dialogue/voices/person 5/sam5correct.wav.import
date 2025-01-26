@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cld25otlf2vyt"
+path="res://.godot/imported/sam5correct.wav-1da43062539cdb0ad46656618c0e4e9e.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/voices/person 5/sam5correct.wav"
+dest_files=["res://.godot/imported/sam5correct.wav-1da43062539cdb0ad46656618c0e4e9e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7uogsy67j8ks"
+path="res://.godot/imported/sam3correct.wav-197d0c2350ee9fc63eea19f0996ac05d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/voices/person 3/sam3correct.wav"
+dest_files=["res://.godot/imported/sam3correct.wav-197d0c2350ee9fc63eea19f0996ac05d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ek6ibnxlmwu"
+path="res://.godot/imported/sam3pain.wav-cacf158c1985af96ac7b44bbbcd6a22d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/voices/person 3/sam3pain.wav"
+dest_files=["res://.godot/imported/sam3pain.wav-cacf158c1985af96ac7b44bbbcd6a22d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

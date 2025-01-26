@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Order" load_steps=2 format=3 uid="uid://cqggthdwk5f8u"]
+
+[ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_kb5nj"]
+
+[resource]
+script = ExtResource("1_kb5nj")
+requirements = Array[int]([])

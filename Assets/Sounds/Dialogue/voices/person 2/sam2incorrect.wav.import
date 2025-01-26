@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2hrcsoh60lcg"
+path="res://.godot/imported/sam2incorrect.wav-91f836c2c801c6a79e636840bbe91eac.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Dialogue/voices/person 2/sam2incorrect.wav"
+dest_files=["res://.godot/imported/sam2incorrect.wav-91f836c2c801c6a79e636840bbe91eac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
