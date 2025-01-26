@@ -3,6 +3,10 @@ class_name Hands
 
 
 @export var input: PlayerInputComponent
+@export_category("Inverse kinematics")
+@export var hand_ik: SkeletonIK3D
+@export var pot_pos: Node3D
+@export var ingredient_pos: Node3D
 #@export var liquid: Node3D
 @export_category("Sway")
 @export var swaySpeed: float = 10
@@ -42,10 +46,12 @@ func set_item(item):
 			pot.set_amount(item.amount)
 			pot.ingredients = item.ingredients
 			pot.heat = item.heat
+			hand_ik.target_node = hand_ik.get_path_to(pot_pos)
 			var t: Tween = get_tree().create_tween()
 			t.tween_property(pot, "position", Vector3.ZERO, 0.2)
 		elif item is Ingredient:
 			hand.visible = true
+			hand_ik.target_node = hand_ik.get_path_to(ingredient_pos)
 			set_ingredient(item.hand_mesh)
 		curret_carry = item
 		rotation_degrees = Vector3.ZERO

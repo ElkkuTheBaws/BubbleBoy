@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dlxndqcjrl1gc"]
+[gd_scene load_steps=41 format=3 uid="uid://dlxndqcjrl1gc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3tb4l"]
 [ext_resource type="Script" path="res://Scripts/head_component.gd" id="2_3s470"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_jf2yf"]
 [ext_resource type="Script" path="res://Scripts/hands.gd" id="6_2qkwx"]
 [ext_resource type="Script" path="res://Scripts/footstep_manager.gd" id="7_owfbr"]
+[ext_resource type="PackedScene" uid="uid://g6phpih5gg1t" path="res://Assets/Meshes/playerhands.glb" id="7_pjyij"]
 [ext_resource type="PackedScene" uid="uid://dkjv434vl0d1p" path="res://Assets/Meshes/POT.glb" id="7_ugdtp"]
+[ext_resource type="Script" path="res://Objects/skeleton_ik_3d.gd" id="8_d7c15"]
 [ext_resource type="Script" path="res://Assets/Meshes/pot.gd" id="8_j737t"]
 [ext_resource type="AudioStream" uid="uid://b5jyl65m5r3q" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium A.wav" id="8_yg0et"]
 [ext_resource type="AudioStream" uid="uid://df1cekb407d4l" path="res://Assets/Sounds/Footsteps/Bare Step Stone Medium B.wav" id="9_diynt"]
@@ -126,23 +128,6 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_svune"]
 material = SubResource("StandardMaterial3D_vcol5")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0sewk"]
-emission_shape = 1
-emission_sphere_radius = 0.15
-angle_min = -46.9
-angle_max = 46.8
-inherit_velocity_ratio = 0.595
-direction = Vector3(0, 5, 0)
-spread = 20.0
-initial_velocity_max = 2.0
-gravity = Vector3(0, 1, 0)
-scale_curve = SubResource("CurveTexture_dskua")
-color_ramp = SubResource("GradientTexture1D_sd6rd")
-collision_mode = 2
-collision_use_scale = true
-sub_emitter_mode = 3
-sub_emitter_amount_at_collision = 3
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hg66j"]
 render_priority = 0
 shader = ExtResource("9_ysiq5")
@@ -162,6 +147,22 @@ hands = NodePath("HeadComponent/Eyes/Hands")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_mhdyx")
+
+[node name="playerhands" parent="." instance=ExtResource("7_pjyij")]
+transform = Transform3D(-3.49691e-08, 0.8, -3.49691e-08, 0, -3.49691e-08, -0.8, -0.8, -3.49691e-08, 1.52855e-15, 0.527517, 0.852975, -0.401417)
+
+[node name="Hand-Right" parent="playerhands" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -8.35187e-23, 1, -0.54375, 0.242657, 1.09893)
+
+[node name="Cube_002" parent="playerhands/Hand-Right/Skeleton3D" index="0"]
+layers = 524288
+
+[node name="SkeletonIK3D" type="SkeletonIK3D" parent="playerhands/Hand-Right/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -8.35187e-23, 1, 0, 0, 0)
+root_bone = &"Bone"
+tip_bone = &"Bone.003"
+target_node = NodePath("../../../../HeadComponent/Eyes/Hands/Hand")
+script = ExtResource("8_d7c15")
 
 [node name="HeadComponent" type="Area3D" parent="." node_paths=PackedStringArray("camera", "sub_cam", "eyes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -196,10 +197,13 @@ current = true
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 8
 
-[node name="Hands" type="Node3D" parent="HeadComponent/Eyes" node_paths=PackedStringArray("input", "pot", "hand")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.589224, -0.911479)
+[node name="Hands" type="Node3D" parent="HeadComponent/Eyes" node_paths=PackedStringArray("input", "hand_ik", "pot_pos", "ingredient_pos", "pot", "hand")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.589224, -1.23317)
 script = ExtResource("6_2qkwx")
 input = NodePath("../../../PlayerInputComponent")
+hand_ik = NodePath("../../../playerhands/Hand-Right/Skeleton3D/SkeletonIK3D")
+pot_pos = NodePath("POT/pot/target_node")
+ingredient_pos = NodePath("Hand")
 swaySpeed = 0.25
 swayAngle = 50.0
 pot = NodePath("POT")
@@ -218,7 +222,10 @@ pour_particle = NodePath("pot/Pour")
 [node name="pot" parent="HeadComponent/Eyes/Hands/POT" index="0"]
 layers = 524288
 
-[node name="GPU" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="0"]
+[node name="target_node" type="Node3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="0"]
+transform = Transform3D(-0.523325, -0.0183329, -0.851936, -0.0428764, 0.999069, 0.00483891, 0.851054, 0.0390603, -0.523624, 0.383795, 0.127632, 0.0533578)
+
+[node name="GPU" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262451, 0)
 layers = 524289
 randomness = 0.33
@@ -226,25 +233,14 @@ visibility_aabb = AABB(-1.32948, -1.03963, -1.29148, 2.6373, 4.36978, 2.59059)
 process_material = SubResource("ParticleProcessMaterial_nu7o4")
 draw_pass_1 = SubResource("QuadMesh_djdrd")
 
-[node name="Pour" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="1"]
+[node name="Pour" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316618, 0)
 layers = 524289
 amount = 15
-sub_emitter = NodePath("../PourEmitter")
 lifetime = 0.8
 randomness = 0.33
 visibility_aabb = AABB(-1.32948, -1.03963, -1.29148, 2.6373, 4.36978, 2.59059)
 process_material = SubResource("ParticleProcessMaterial_5awlx")
-draw_pass_1 = SubResource("QuadMesh_svune")
-
-[node name="PourEmitter" type="GPUParticles3D" parent="HeadComponent/Eyes/Hands/POT/pot" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316618, 0)
-layers = 524289
-amount = 10
-randomness = 0.33
-visibility_aabb = AABB(-1.32948, -1.03963, -1.29148, 2.6373, 4.36978, 2.59059)
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_0sewk")
 draw_pass_1 = SubResource("QuadMesh_svune")
 
 [node name="liquid" parent="HeadComponent/Eyes/Hands/POT" index="1"]
@@ -265,6 +261,7 @@ max_distance = 5.0
 bus = &"R"
 
 [node name="Hand" type="Node3D" parent="HeadComponent/Eyes/Hands"]
+transform = Transform3D(-0.957482, 0.0454292, 0.284896, -0.0392604, 0.957818, -0.28468, -0.285811, -0.283761, -0.91531, 0.366385, -0.180044, -0.187592)
 
 [node name="PlayerInputComponent" type="Node" parent="."]
 script = ExtResource("5_gw77a")
@@ -300,4 +297,5 @@ cull_mask = 524288
 
 [connection signal="on_step" from="HeadComponent" to="FootstepManager" method="_on_head_component_on_step"]
 
+[editable path="playerhands"]
 [editable path="HeadComponent/Eyes/Hands/POT"]

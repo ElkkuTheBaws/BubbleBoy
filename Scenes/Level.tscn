@@ -182,23 +182,32 @@ omni_attenuation = 0.4
 [node name="Person" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(-0.418216, 0, -0.908348, 0, 1, 0, 0.908348, 0, -0.418216, -8.82284, 0.983569, 2.06789)
 
+[node name="soupbowl" parent="People/Person" index="7"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105988, -0.220467, 0.631)
+
 [node name="Person4" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -10.9126, 0.983329, 1.7674)
+
+[node name="soupbowl" parent="People/Person4" index="7"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.96046e-09, -0.20985, 0.957564)
 
 [node name="Person2" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(0.465568, 0, -0.885012, 0, 1, 0, 0.885012, 0, 0.465568, -4.47036, 1.00254, 2)
 
 [node name="Person5" parent="People" instance=ExtResource("11_1hmru")]
-transform = Transform3D(0.0393122, 0, 0.999227, 0, 1, 0, -0.999227, 0, 0.0393122, -5.87333, 1.0115, 2.51098)
+transform = Transform3D(-0.28266, 0, 0.95922, 0, 1, 0, -0.95922, 0, -0.28266, -5.91525, 1.0115, 2.51445)
 
 [node name="Person3" parent="People" instance=ExtResource("11_1hmru")]
-transform = Transform3D(0.943147, 0, -0.332375, 0, 1, 0, 0.332375, 0, 0.943147, -9.13763, 0.983885, -3.71573)
+transform = Transform3D(0.953312, 0, -0.301987, 0, 1, 0, 0.301987, 0, 0.953312, -9.1964, 1.00231, -3.54897)
 
 [node name="Person6" parent="People" instance=ExtResource("11_1hmru")]
-transform = Transform3D(-0.990348, 0, 0.138603, 0, 1, 0, -0.138603, 0, -0.990348, -9.63274, 0.952897, -1.70986)
+transform = Transform3D(-0.990348, 0, 0.138603, 0, 1, 0, -0.138603, 0, -0.990348, -9.63274, 1.03613, -1.70986)
 
 [node name="Girl" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(0.992476, 0, 0.122441, 0, 1, 0, -0.122441, 0, 0.992476, -6.85721, 1.39145, -3.89752)
+
+[node name="soupbowl" parent="People/Girl" index="7"]
+visible = false
 
 [node name="Ingredients" type="Node3D" parent="."]
 
@@ -408,6 +417,18 @@ libraries = {
 [connection signal="interacted" from="Ingredients/Potates" to="Player" method="_on_ingredient_interacted"]
 
 [editable path="restaurant"]
+[editable path="People/Person"]
+[editable path="People/Person/pizzagirl"]
+[editable path="People/Person/customer"]
+[editable path="People/Person/soupbowl"]
+[editable path="People/Person4"]
+[editable path="People/Person4/pizzagirl"]
+[editable path="People/Person4/customer"]
+[editable path="People/Person4/soupbowl"]
+[editable path="People/Girl"]
+[editable path="People/Girl/pizzagirl"]
+[editable path="People/Girl/customer"]
+[editable path="People/Girl/soupbowl"]
 [editable path="Ingredients/Tomatos"]
 [editable path="Ingredients/Tomatos/pile-tomato2"]
 [editable path="Ingredients/Onions"]

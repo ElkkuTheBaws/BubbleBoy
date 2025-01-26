@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsgv18gchcp52" path="res://Assets/Textures/Characters/guy.png" id="5_vtgp5"]
 [ext_resource type="PackedScene" uid="uid://bcq31kcmwbsqm" path="res://Assets/Meshes/pizzagirl.glb" id="6_l4vfu"]
 [ext_resource type="Script" path="res://Objects/skeleton_ik_3d.gd" id="7_mbdw7"]
+[ext_resource type="PackedScene" uid="uid://c6428hsl1bdxt" path="res://Assets/Meshes/soupbowl.glb" id="9_fbxu1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j85jj"]
 size = Vector3(0.552856, 1.49231, 0.601318)
@@ -15,16 +16,13 @@ size = Vector3(0.552856, 1.49231, 0.601318)
 [sub_resource type="BoxMesh" id="BoxMesh_yj2sk"]
 size = Vector3(1, 2, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_f5c40"]
-size = Vector2(0.5, 0.5)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_2lg1x"]
 size = Vector3(1.4776, 1.5981, 1.16668)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6rqs"]
 size = Vector3(1.18933, 1.67476, 0.786719)
 
-[node name="Person" type="StaticBody3D" node_paths=PackedStringArray("audio_player", "animation", "target_node", "pizza_mesh", "customer", "pizza", "mesh")]
+[node name="Person" type="StaticBody3D" node_paths=PackedStringArray("audio_player", "animation", "target_node", "pizza_mesh", "customer", "pizza", "bowl_soup", "mesh")]
 collision_layer = 9
 script = ExtResource("1_1ngre")
 audio_player = NodePath("DialogPlayer")
@@ -34,6 +32,7 @@ target_node = NodePath("customer/bubblecustomer/Skeleton3D/Cube_004/Target")
 pizza_mesh = NodePath("pizzagirl/pizzagal")
 customer = NodePath("customer")
 pizza = NodePath("pizzagirl")
+bowl_soup = NodePath("soupbowl/BowlSoup")
 mesh = NodePath("customer/bubblecustomer/Skeleton3D/Cube_004")
 interactable_name = "Person"
 
@@ -47,13 +46,6 @@ shape = SubResource("BoxShape3D_j85jj")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("BoxMesh_yj2sk")
-
-[node name="Plate" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25597)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plate"]
-mesh = SubResource("PlaneMesh_f5c40")
 
 [node name="PourArea" type="Area3D" parent="."]
 collision_mask = 16
@@ -119,6 +111,12 @@ tip_bone = &"Bone.004"
 target_node = NodePath("../Cube_004/Target")
 script = ExtResource("7_mbdw7")
 
+[node name="soupbowl" parent="." instance=ExtResource("9_fbxu1")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.24, 0.631)
+
+[node name="BowlSoup" parent="soupbowl" index="0"]
+visible = false
+
 [connection signal="body_entered" from="PourArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="PourArea" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
@@ -126,3 +124,4 @@ script = ExtResource("7_mbdw7")
 
 [editable path="pizzagirl"]
 [editable path="customer"]
+[editable path="soupbowl"]
