@@ -87,7 +87,7 @@ func check_pour():
 			if person.order.check_order(ingredients):
 				person.order._complete.emit()
 				person.bowl_soup.visible = true
-				person	.play_sentence(person.order.positive_sentence)
+				person.play_sentence(person.order.positive_sentence)
 				person.can_serve = false
 				await get_tree().create_timer(2).timeout
 				Global.gameManager.order_done(person.order)
@@ -95,7 +95,7 @@ func check_pour():
 				print("Wrong order")
 				person.can_serve = false
 				person.play_sentence(person.order.negative_sentence)
-				await get_tree().create_timer(3).timeout
+				await get_tree().create_timer(2).timeout
 				person.can_serve = true
 
 func normalize(value, min, max) -> float:

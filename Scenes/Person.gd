@@ -50,7 +50,6 @@ func complete():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	init()
 
 func init():
@@ -61,6 +60,8 @@ func init():
 		interactable_name = "Abigail"
 		pizza.visible = true
 		customer.visible = false
+	can_serve = true
+	can_dmg = true
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	 #mesh.get_active_material(0)
 	material.albedo_texture = customer_textures.pick_random()
@@ -88,7 +89,9 @@ func set_order(_order: Order):
 	order = null
 	order = _order
 	order._complete.connect(complete)
+	can_dmg = true
 	if not order.completed:
+		can_serve = true
 		bowl_soup.visible = false
 
 func damaged() -> void:
@@ -105,6 +108,7 @@ func damaged() -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if visible:
 		if body is Player:
+			print("Hello")
 			Global.current_person_area = self
 
 
