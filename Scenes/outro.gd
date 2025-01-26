@@ -3,13 +3,13 @@ extends Node
 @export var tex: TextureRect
 @export_category("Scenes")
 @export_group("First")
-@export var images_1: Array[Texture2D]
+@export var images_1: Array[CompressedTexture2D]
 @export_group("Second")
-@export var images_2: Array[Texture2D]
+@export var images_2: Array[CompressedTexture2D]
 @export_group("Third")
-@export var images_3: Array[Texture2D]
+@export var images_3: Array[CompressedTexture2D]
 @export_group("Fourth")
-@export var images_4: Array[Texture2D]
+@export var images_4: Array[CompressedTexture2D]
 
 var current_scene: int = 0
 
@@ -34,9 +34,9 @@ func _process(delta: float) -> void:
 	var new_images = get_current_scene_images()
 	freq_time += delta
 	if freq_time > frequency:
-		tex = new_images.pick_random()
+		tex.texture = new_images.pick_random()
 
-func get_current_scene_images() -> Array[Texture2D]:
+func get_current_scene_images() -> Array[CompressedTexture2D]:
 	match current_scene:
 		0:
 			return images_1
