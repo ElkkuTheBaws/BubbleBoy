@@ -1,10 +1,113 @@
-[gd_resource type="VisualShader" format=3 uid="uid://dobnnvvmlvsou"]
+[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://dhh7sab0nwlq2"]
+
+[ext_resource type="Texture2D" uid="uid://dlau4vxo8em7l" path="res://Assets/Textures/Characters/bublehand.png" id="1_rqtw1"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_dhpv4"]
+parameter_name = "HandTexture"
+texture_filter = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_816k8"]
+output_port_for_preview = 0
+source = 5
+texture = ExtResource("1_rqtw1")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_agmwj"]
+output_port_for_preview = 0
+texture = ExtResource("1_rqtw1")
+
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_i138s"]
+output_port_for_preview = 0
+operator = 7
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_mkc76"]
+constant = Color(0.67, 0, 0, 1)
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_28our"]
+output_port_for_preview = 0
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_ovlaj"]
+parameter_name = "BurnLevel"
+default_value_enabled = true
 
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
+uniform sampler2D HandTexture : filter_nearest;
+uniform float BurnLevel = 0;
 
 
+
+void fragment() {
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(HandTexture, UV);
+
+
+// ColorConstant:6
+	vec4 n_out6p0 = vec4(0.670000, 0.000000, 0.000000, 1.000000);
+
+
+	vec3 n_out5p0;
+// ColorOp:5
+	{
+		float base = vec3(n_out3p0.xyz).x;
+		float blend = vec3(n_out6p0.xyz).x;
+		if (base < 0.5) {
+			n_out5p0.x = (base * (blend + 0.5));
+		} else {
+			n_out5p0.x = (1.0 - (1.0 - base) * (1.0 - (blend - 0.5)));
+		}
+	}
+	{
+		float base = vec3(n_out3p0.xyz).y;
+		float blend = vec3(n_out6p0.xyz).y;
+		if (base < 0.5) {
+			n_out5p0.y = (base * (blend + 0.5));
+		} else {
+			n_out5p0.y = (1.0 - (1.0 - base) * (1.0 - (blend - 0.5)));
+		}
+	}
+	{
+		float base = vec3(n_out3p0.xyz).z;
+		float blend = vec3(n_out6p0.xyz).z;
+		if (base < 0.5) {
+			n_out5p0.z = (base * (blend + 0.5));
+		} else {
+			n_out5p0.z = (1.0 - (1.0 - base) * (1.0 - (blend - 0.5)));
+		}
+	}
+
+
+// FloatParameter:8
+	float n_out8p0 = BurnLevel;
+
+
+// Mix:7
+	vec3 n_out7p0 = mix(vec3(n_out3p0.xyz), n_out5p0, vec3(n_out8p0));
+
+
+// Output:0
+	ALBEDO = n_out7p0;
+
+
+}
 "
-graph_offset = Vector2(-215.309, -1.25838)
+graph_offset = Vector2(-1017.33, -132.391)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_dhpv4")
+nodes/fragment/2/position = Vector2(-1900, 320)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_816k8")
+nodes/fragment/3/position = Vector2(-1440, 340)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_agmwj")
+nodes/fragment/4/position = Vector2(-1440, -120)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorOp_i138s")
+nodes/fragment/5/position = Vector2(-840, 480)
+nodes/fragment/6/node = SubResource("VisualShaderNodeColorConstant_mkc76")
+nodes/fragment/6/position = Vector2(-1100, 660)
+nodes/fragment/7/node = SubResource("VisualShaderNodeMix_28our")
+nodes/fragment/7/position = Vector2(-260, -80)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_ovlaj")
+nodes/fragment/8/position = Vector2(-620, 660)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 6, 0, 5, 1, 8, 0, 7, 2, 5, 0, 7, 1, 7, 0, 0, 0, 3, 0, 5, 0, 3, 0, 7, 0)
