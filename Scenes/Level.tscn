@@ -61,6 +61,7 @@ ssao_intensity = 14.8
 fog_enabled = true
 fog_light_color = Color(0.482237, 0.562243, 0.626384, 1)
 fog_light_energy = 3.0
+fog_density = 0.018
 fog_sky_affect = 0.0
 adjustment_enabled = true
 adjustment_brightness = 0.79
@@ -235,35 +236,24 @@ transform = Transform3D(-0.418216, 0, -0.908348, 0, 1, 0, 0.908348, 0, -0.418216
 [node name="Skeleton3D" parent="People/Person/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
-bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
-bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
-bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
-bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
-bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Person" index="7"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105988, -0.220467, 0.631)
@@ -274,35 +264,24 @@ transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 
 [node name="Skeleton3D" parent="People/Person4/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
-bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
-bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
-bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
-bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
-bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Person4" index="7"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.96046e-09, -0.20985, 0.957564)
@@ -325,35 +304,24 @@ transform = Transform3D(0.992476, 0, 0.122441, 0, 1, 0, -0.122441, 0, 0.992476, 
 [node name="Skeleton3D" parent="People/Girl/customer/bubblecustomer" index="0"]
 bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
 bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
 bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
-bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
 bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
 bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
 bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
-bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
 bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
-bones/7/scale = Vector3(1, 1, 0.999998)
 bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
 bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
 bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
-bones/11/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
 bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
 bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
-bones/15/scale = Vector3(1, 1, 1)
 
 [node name="soupbowl" parent="People/Girl" index="7"]
 visible = false
@@ -576,7 +544,7 @@ libraries = {
 }
 
 [node name="Phone" parent="." instance=ExtResource("42_tm0oi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.91997, 1.60735, -0.958808)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.81175, 1.37311, -0.713377)
 collision_layer = 9
 
 [connection signal="interacted" from="Couldron" to="Player" method="_on_couldron_interacted"]
