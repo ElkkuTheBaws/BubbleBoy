@@ -56,6 +56,15 @@ var c_old_trauma: float = 0
 @export var hurt: AudioStreamWAV
 #@export var headAnimation: AnimationPlayer
 
+@export_category("Hand mesh")
+@export var hand: MeshInstance3D
+var health: float = 0:
+	set(value):
+		health = clampf(value, 0.0, 3.0)
+		print("Health: " + str(health))
+		#hand.material_override
+		hand.get_material_override().set_shader_parameter("BurnLevel", health)
+
 signal on_step
 var stepped: bool = false
 
@@ -169,6 +178,7 @@ func damage():
 	if not player_sound.playing:
 		player_sound.stream = hurt
 		player_sound.play()
+		health += 0.25
 
 func add_trauma(trauma_amount: float):
 	trauma = clamp(trauma + trauma_amount, 0.0, 1.0)
