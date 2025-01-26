@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://33pkcg3sb66g"]
+[gd_scene load_steps=17 format=3 uid="uid://33pkcg3sb66g"]
 
 [ext_resource type="Script" path="res://Scenes/couldron.gd" id="1_ff61u"]
 [ext_resource type="AudioStream" uid="uid://b54b8n3k82uai" path="res://Assets/Sounds/Water/Splash Large 1_2.wav" id="2_fgnes"]
@@ -7,8 +7,7 @@
 [ext_resource type="Shader" uid="uid://di4aexa1t6g5y" path="res://Assets/Shaders/potwater.tres" id="3_a3rt7"]
 [ext_resource type="Texture2D" uid="uid://cbe828l1gj3ls" path="res://Assets/Textures/Objects/potwatersheet.png" id="4_2iurf"]
 [ext_resource type="AudioStream" uid="uid://cau3462n0pamb" path="res://Assets/Sounds/Water/Splash Large 3_1.wav" id="4_dwx8l"]
-[ext_resource type="AudioStream" uid="uid://jkhy8xstvw4m" path="res://Assets/Sounds/Interactions/Cauldron Pickup/Pick Up Metal F.wav" id="5_dl817"]
-[ext_resource type="AudioStream" uid="uid://fhvvvspocu04" path="res://Assets/Sounds/Interactions/Cauldron Pickup/Pick Up Metal E.wav" id="5_k8rcy"]
+[ext_resource type="AudioStream" uid="uid://hoqx7hm7jp5o" path="res://Assets/Sounds/Interactions_2/Close Container Metal C.wav" id="5_6vc3h"]
 [ext_resource type="AudioStream" uid="uid://drr4lvtutvh6q" path="res://Assets/Sounds/Water/Boiling water_3.wav" id="6_focmq"]
 [ext_resource type="Texture2D" uid="uid://3vhwy2pie2hy" path="res://Assets/Textures/Gameplay/buble.png" id="11_w7y13"]
 
@@ -53,7 +52,7 @@ audio = NodePath("AudioStreamPlayer3D")
 boilingAudio = NodePath("Boiling")
 bubble_particles = NodePath("CPUParticles3D")
 splash_sounds = Array[AudioStreamWAV]([ExtResource("2_fgnes"), ExtResource("3_1ar45"), ExtResource("4_dwx8l")])
-pick_up_sound = ExtResource("5_dl817")
+pick_up_sound = ExtResource("5_6vc3h")
 spawn_pos = NodePath("SpawnPosition")
 mesh = NodePath("POT/pot")
 interactable_name = "Take pot"
@@ -71,7 +70,7 @@ material_override = SubResource("ShaderMaterial_qbntn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_k8rcy")
+stream = ExtResource("5_6vc3h")
 volume_db = -10.0
 unit_size = 3.0
 max_distance = 20.0

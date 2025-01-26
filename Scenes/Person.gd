@@ -22,6 +22,8 @@ var max_side_angle: float = 90
 var order: Order
 var can_serve: bool = true
 var can_dmg: bool = true
+
+var damage_shake: float = 0
 #var is_order_done: bool = false
 
 func enable_person():
@@ -32,8 +34,16 @@ func hide_person():
 	visible = false
 	collisionShape.disabled = true
 
+func complete():
+	await get_tree().create_timer(randf_range(30, 120)).timeout
+	hide_person()
+	order = null
+	can_serve = false
+	Global.gameManager.persons.append(self)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	init()
 
 func init():
@@ -69,6 +79,7 @@ func interact(item):
 func set_order(_order: Order):
 	order = null
 	order = _order
+	order._complete.connect(complete)
 	if not order.completed:
 		bowl_soup.visible = false
 
@@ -77,6 +88,7 @@ func damaged() -> void:
 		if order != null:
 			play_sentence(order.hurt_sentence)
 		can_dmg = false
+		damage_shake = 0.02
 		await get_tree().create_timer(2).timeout
 		can_dmg = true
 #func order_done():
@@ -117,6 +129,12 @@ func _on_damage_area_body_exited(body: Node3D) -> void:
 			Global.current_dmg_person_area = null
 
 func _physics_process(delta: float) -> void:
+	if damage_shake > 0:
+		damage_shake -= delta * 0.2
+		customer.position.x = randf_range(-damage_shake, damage_shake)
+		customer.position.z = randf_range(-damage_shake, damage_shake)
+		pizza.position.x = randf_range(-damage_shake, damage_shake)
+		pizza.position.z = randf_range(-damage_shake, damage_shake)
 	if can_serve:
 		calculate_head_angle(delta)
 	if is_pizza_girl:

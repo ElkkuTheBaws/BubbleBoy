@@ -50,6 +50,10 @@ var c_old_trauma: float = 0
 @export var camera: PhantomCamera3D
 @export var sub_cam: Camera3D
 @export var eyes: Node3D
+
+@export_category("Sound effects")
+@export var player_sound: AudioStreamPlayer3D
+@export var hurt: AudioStreamWAV
 #@export var headAnimation: AnimationPlayer
 
 signal on_step
@@ -67,6 +71,7 @@ func _ready():
 	#camera.fov = defaultFov
 	camera.set_fov(defaultFov)
 	local_initial_camera_rotation = eyes.rotation_degrees as Vector3
+	Global.damage.connect(damage)	
 
 func _process(delta):
 	shake_time += delta
@@ -159,10 +164,16 @@ func applyHeadBob(direction: Vector2,  delta: float):
 func applyGroundHeadBob(dir: Vector3, delta: float):
 	headBobWalk(Vector2(dir.x, dir.z), delta)
 
+func damage():
+	add_trauma(0.8)
+	if not player_sound.playing:
+		player_sound.stream = hurt
+		player_sound.play()
+
 func add_trauma(trauma_amount: float):
 	trauma = clamp(trauma + trauma_amount, 0.0, 1.0)
 	if trauma_amount > 0.7:
-		camera.set_fov(85) 
+		camera.set_fov(60) 
 
 func add_constant_trauma(trauma_amount: float):
 	c_old_trauma = c_trauma if trauma_amount <= 0 else 0

@@ -13,6 +13,8 @@ class_name Order
 @export var negative_sentence: Sentence
 @export var hurt_sentence: Sentence
 
+signal _complete()
+
 var completed: bool = false
 
 #TODO: Fix this BIG TIME

@@ -2,6 +2,7 @@ extends Interactable
 
 @export var audio: AudioStreamPlayer3D
 @export var phone_node: Node3D
+@export var close_sound: AudioStreamPlayer3D
 var calling: bool = false
 var time: float = 0
 # Called when the node enters the scene tree for the first time.
@@ -25,3 +26,4 @@ func start_call():
 func interact(item):
 	calling = false
 	audio.stop()
+	close_sound.play()

@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 		return
 	liquid.global_rotation = lerp(liquid.global_rotation, Vector3.ZERO + (global_rotation * 0.5), delta*4)
 	var angle = normalize(liquid.position.y, 0, default_liquid_height) * 10
+	print(global_rotation_degrees.x)
 	if abs(global_rotation_degrees.x) > (40 + angle) or abs(global_rotation_degrees.z) > (40 + angle):
 		if liquid.position.y > 0.15:
 			liquid.position.y -= delta * 0.1
@@ -49,6 +50,9 @@ func _physics_process(delta: float) -> void:
 			pour_particle.emitting = true
 			check_pour()
 			pour_sound()
+			if global_rotation_degrees.x > 0 and global_rotation_degrees.z < 0:
+				if heat > 60:
+					Global.damage.emit()
 		else:
 			bubble_particles.emitting = false
 			liquid.visible = false

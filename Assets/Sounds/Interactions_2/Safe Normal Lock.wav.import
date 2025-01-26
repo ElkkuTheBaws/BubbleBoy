@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://daqphhddhs4ni"
+path="res://.godot/imported/Safe Normal Lock.wav-30cb53bcd3c1c23b95f9a03b6fb45914.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Interactions_2/Safe Normal Lock.wav"
+dest_files=["res://.godot/imported/Safe Normal Lock.wav-30cb53bcd3c1c23b95f9a03b6fb45914.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

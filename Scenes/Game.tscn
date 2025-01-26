@@ -106,7 +106,6 @@ alignment = 2
 material = SubResource("ShaderMaterial_vmuwq")
 layout_mode = 2
 size_flags_horizontal = 4
-text = "WOw yummers!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

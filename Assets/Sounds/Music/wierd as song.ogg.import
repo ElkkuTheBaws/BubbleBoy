@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://du0egsgkhrw6m"
+path="res://.godot/imported/wierd as song.ogg-7ed0e86c5a0f5a4727fb71c8bd69e84b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Music/wierd as song.ogg"
+dest_files=["res://.godot/imported/wierd as song.ogg-7ed0e86c5a0f5a4727fb71c8bd69e84b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

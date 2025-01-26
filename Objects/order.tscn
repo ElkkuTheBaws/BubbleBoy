@@ -3,13 +3,15 @@
 [ext_resource type="Script" path="res://Scenes/Order_Paper.gd" id="1_w46vt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3m2ih"]
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8ln5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_r62ny"]
 material = SubResource("StandardMaterial3D_s8ln5")
-size = Vector2(0.2, 0.2)
+size = Vector2(0.3, 0.3)
+subdivide_width = 2
+subdivide_depth = 2
 
 [node name="Order" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.72828, 1.90485, 1.38943)

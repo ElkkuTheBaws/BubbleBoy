@@ -29,7 +29,10 @@ func person_appear():
 func order_done(order: Order):
 	order.completed = true
 	current_order += 1
-	person_appear()
+	if current_order < orders.size():
+		person_appear()
+	else:
+		print("Game end")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,9 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://cpxc77235lfv2"]
+[gd_scene load_steps=54 format=3 uid="uid://cpxc77235lfv2"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_a2221"]
 [ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="1_uosr1"]
 [ext_resource type="PackedScene" uid="uid://dlxndqcjrl1gc" path="res://Objects/player.tscn" id="1_xr3mm"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_m5g53"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="2_pvail"]
 [ext_resource type="PackedScene" uid="uid://p3usgunbyy0k" path="res://Objects/order.tscn" id="4_8k5u3"]
 [ext_resource type="PackedScene" uid="uid://33pkcg3sb66g" path="res://Objects/couldron.tscn" id="4_183qa"]
@@ -13,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cbtnbe7gol6s1" path="res://Scripts/Orders/Order_5.tres" id="7_frx4q"]
 [ext_resource type="Resource" uid="uid://dfcsq1lxwyfmn" path="res://Scripts/Orders/Order_1.tres" id="8_fxx7n"]
 [ext_resource type="PackedScene" uid="uid://dv17e08oqxyvc" path="res://Objects/person.tscn" id="11_1hmru"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_wp7he"]
 [ext_resource type="PackedScene" uid="uid://cklthnmeg4r8e" path="res://Objects/ingredient_pile.tscn" id="11_ykokl"]
 [ext_resource type="PackedScene" uid="uid://vckw43bwo4tn" path="res://Assets/Meshes/ingredients/soup-onion.glb" id="12_216df"]
 [ext_resource type="PackedScene" uid="uid://dflu3mm2pgqog" path="res://Assets/Meshes/ingredients/pile-tomato.glb" id="13_04vpi"]
@@ -41,8 +41,11 @@
 [ext_resource type="PackedScene" uid="uid://c8mk0e87mtvyh" path="res://Assets/Meshes/ingredients/pile-fish-bowl.glb" id="32_kukhp"]
 [ext_resource type="PackedScene" uid="uid://re3vps5up8ga" path="res://Assets/Meshes/runningkid.glb" id="39_k2277"]
 [ext_resource type="Script" path="res://Scenes/running_kid.gd" id="39_vmxso"]
+[ext_resource type="AudioStream" uid="uid://cwtpt1f1qwyll" path="res://Assets/Sounds/Music/Ocarine.ogg" id="40_2pyta"]
 [ext_resource type="Texture2D" uid="uid://8lfu7mg13bp4" path="res://Assets/Meshes/customer_guy4.png" id="40_lw001"]
-[ext_resource type="PackedScene" path="res://Objects/phone.tscn" id="42_tm0oi"]
+[ext_resource type="Script" path="res://Scenes/music.gd" id="41_cxi4m"]
+[ext_resource type="AudioStream" uid="uid://du0egsgkhrw6m" path="res://Assets/Sounds/Music/wierd as song.ogg" id="42_4kfbk"]
+[ext_resource type="PackedScene" uid="uid://l8676x48oxks" path="res://Objects/phone.tscn" id="42_tm0oi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iwnsp"]
 
@@ -135,7 +138,7 @@ _data = {
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("persons", "girl", "order_papers")]
 script = ExtResource("1_a2221")
-persons = [NodePath("People/Person"), NodePath("People/Person2"), NodePath("People/Person3"), NodePath("People/Person4"), NodePath("People/Person5"), NodePath("People/Person6")]
+persons = [NodePath("People/Person"), NodePath("People/Person7"), NodePath("People/Person4"), NodePath("People/Person2"), NodePath("People/Person10"), NodePath("People/Person5"), NodePath("People/Person3"), NodePath("People/Person8"), NodePath("People/Person9"), NodePath("People/Person6")]
 girl = NodePath("People/Girl")
 orders = Array[ExtResource("2_pvail")]([ExtResource("8_fxx7n"), ExtResource("4_t5jri"), ExtResource("5_01hux"), ExtResource("6_f4dos"), ExtResource("7_frx4q")])
 order_papers = [NodePath("Orders/Order"), NodePath("Orders/Order2"), NodePath("Orders/Order3"), NodePath("Orders/Order4"), NodePath("Orders/Order5"), NodePath("Orders/Order6"), NodePath("Orders/Order7")]
@@ -143,24 +146,34 @@ order_papers = [NodePath("Orders/Order"), NodePath("Orders/Order2"), NodePath("O
 [node name="Orders" type="Node3D" parent="."]
 
 [node name="Order" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.72828, 1.82621, 1.8879)
 
 [node name="Order2" parent="Orders" instance=ExtResource("4_8k5u3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0.07611, 0.997099, 3.32687e-09, -0.997099, 0.07611, -4.35846e-08, -1.72828, 1.90485, 1.13556)
+transform = Transform3D(-4.37114e-08, 0, 1, 0.07611, 0.997099, 3.32687e-09, -0.997099, 0.07611, -4.35846e-08, -1.72828, 1.82621, 1.56343)
 
 [node name="Order3" parent="Orders" instance=ExtResource("4_8k5u3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0.07611, 0.997099, 3.32687e-09, -0.997099, 0.07611, -4.35846e-08, -1.72828, 1.90485, 0.894813)
+transform = Transform3D(-4.37114e-08, 0, 1, 0.07611, 0.997099, 3.32687e-09, -0.997099, 0.07611, -4.35846e-08, -1.72828, 1.83049, 1.24679)
 
 [node name="Order4" parent="Orders" instance=ExtResource("4_8k5u3")]
-transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 0.639872)
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.82437, 0.917568)
 
 [node name="Order5" parent="Orders" instance=ExtResource("4_8k5u3")]
-transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 0.417339)
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.82277, 0.576905)
 
 [node name="Order6" parent="Orders" instance=ExtResource("4_8k5u3")]
-transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 0.158539)
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72642, 1.85001, 0.258157)
 
 [node name="Order7" parent="Orders" instance=ExtResource("4_8k5u3")]
-transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.90485, 1.80575)
+transform = Transform3D(-4.37114e-08, 5.55045e-17, 1, -0.0889639, 0.996035, -3.88874e-09, -0.996035, -0.0889639, -4.35381e-08, -1.72828, 1.84739, -0.0547562)
+
+[node name="Order8" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 5.55045e-17, 1, -0.0809122, 0.996721, -3.53679e-09, -0.996721, -0.0809122, -4.35681e-08, -1.72828, 1.53493, -0.0547562)
+
+[node name="Order9" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.0154805, 0.99988, -6.76672e-10, -0.99988, -0.0154805, -4.37062e-08, -1.72828, 1.23779, -0.0547562)
+
+[node name="Order10" parent="Orders" instance=ExtResource("4_8k5u3")]
+transform = Transform3D(0.0154676, -0.99905, 0.0407422, -0.000630753, 0.0407373, 0.99917, -0.99988, -0.0154805, -4.37062e-08, -0.886648, 0.859951, 0.286415)
 
 [node name="restaurant" parent="." instance=ExtResource("1_uosr1")]
 
@@ -174,7 +187,7 @@ cull_mask = 524287
 [node name="PhantomCameraHost" type="Node" parent="MainCamera"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("2_m5g53")
+script = ExtResource("11_wp7he")
 
 [node name="Couldron" parent="." instance=ExtResource("4_183qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28478, 0.792586, 1.15024)
@@ -234,28 +247,58 @@ environment = SubResource("Environment_2pxeu")
 transform = Transform3D(-0.418216, 0, -0.908348, 0, 1, 0, 0.908348, 0, -0.418216, -8.82284, 0.983569, 2.06789)
 
 [node name="Skeleton3D" parent="People/Person/customer/bubblecustomer" index="0"]
-bones/0/position = Vector3(-3.17357e-09, 1.0581, -0.0445275)
-bones/0/rotation = Quaternion(-4.21468e-08, 0.707107, -4.18834e-08, 0.707107)
-bones/1/rotation = Quaternion(2.24554e-09, -6.45557e-08, -0.0204969, 0.99979)
-bones/2/rotation = Quaternion(-1.6034e-08, 4.06355e-08, 0.113469, 0.993542)
-bones/4/position = Vector3(-0.012364, 0.0531766, 0.180422)
-bones/4/rotation = Quaternion(0.992169, 0.0382597, -0.000592051, 0.118899)
-bones/5/rotation = Quaternion(0.107068, -0.00560139, 0.0958944, 0.989601)
-bones/6/rotation = Quaternion(0.0913664, -0.0158364, 0.0144669, 0.995586)
-bones/7/position = Vector3(-0.0123641, 0.053177, -0.180422)
-bones/7/rotation = Quaternion(0.992137, 0.0392789, -0.00792517, -0.118566)
-bones/8/rotation = Quaternion(-0.106596, 0.0177367, 0.0964183, 0.989458)
-bones/9/rotation = Quaternion(-0.0909494, -0.0179739, 0.0168917, 0.99555)
-bones/10/position = Vector3(0.0845518, 0.812299, -0.0490944)
-bones/10/rotation = Quaternion(0.706928, -0.0538397, -0.700088, 0.0850354)
-bones/11/rotation = Quaternion(0.0426474, -0.00408619, -0.156546, 0.986741)
-bones/12/rotation = Quaternion(-0.0082567, -1.42076e-08, 0.63772, 0.770224)
-bones/13/position = Vector3(-0.0850386, 0.812299, -0.0490944)
-bones/13/rotation = Quaternion(0.707926, -0.08443, -0.699079, 0.0547844)
-bones/14/rotation = Quaternion(-0.0400703, -0.00170754, -0.157225, 0.986748)
-bones/15/rotation = Quaternion(0.0228415, -0.0257445, 0.637364, 0.769794)
+bones/0/position = Vector3(0.0313731, 0.722873, -0.104193)
+bones/0/rotation = Quaternion(0.0869279, 0.701743, 0.0869279, 0.701743)
+bones/1/rotation = Quaternion(1.00016e-08, -6.15559e-08, 0.0976802, 0.995218)
+bones/2/rotation = Quaternion(-1.63544e-08, 4.0789e-08, 0.122884, 0.992421)
+bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
+bones/4/position = Vector3(-0.0532444, 0.105383, 0.181525)
+bones/4/rotation = Quaternion(0.852205, -0.496431, -0.0931099, 0.136504)
+bones/5/rotation = Quaternion(0.782155, 0.129406, 0.272521, 0.545178)
+bones/6/rotation = Quaternion(0.229913, -0.0913999, -0.129876, 0.960166)
+bones/7/position = Vector3(-0.0535754, 0.110237, -0.179701)
+bones/7/rotation = Quaternion(0.85092, -0.493734, 0.10031, -0.148659)
+bones/8/rotation = Quaternion(-0.571341, -0.207832, 0.608945, 0.509472)
+bones/9/rotation = Quaternion(-0.323068, -0.163352, -0.00271535, 0.932167)
+bones/10/position = Vector3(0.115925, 0.549502, 0.00571686)
+bones/10/rotation = Quaternion(0.467688, -0.459694, -0.547867, 0.519414)
+bones/11/rotation = Quaternion(0.155144, -0.126977, -0.76353, 0.613864)
+bones/12/rotation = Quaternion(0.154633, 0.00953089, 0.469266, 0.86936)
+bones/13/position = Vector3(-0.0536656, 0.549502, 0.00571684)
+bones/13/rotation = Quaternion(0.640252, -0.560815, -0.367242, 0.375096)
+bones/14/rotation = Quaternion(-0.162723, 0.0708962, -0.63806, 0.749249)
+bones/15/rotation = Quaternion(0.118925, -0.145852, 0.467568, 0.863692)
 
 [node name="soupbowl" parent="People/Person" index="7"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105988, -0.220467, 0.631)
+
+[node name="Person7" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(0.938022, 0, 0.346576, 0, 1, 0, -0.346576, 0, 0.938022, -10.0152, 1.00135, 0.571811)
+
+[node name="Skeleton3D" parent="People/Person7/customer/bubblecustomer" index="0"]
+bones/0/position = Vector3(0.0313731, 0.722873, -0.104193)
+bones/0/rotation = Quaternion(0.0869279, 0.701743, 0.0869279, 0.701743)
+bones/1/rotation = Quaternion(1.00016e-08, -6.15559e-08, 0.0976802, 0.995218)
+bones/2/rotation = Quaternion(-1.63544e-08, 4.0789e-08, 0.122884, 0.992421)
+bones/3/rotation = Quaternion(6.70772e-09, -2.50341e-08, -0.0856108, 0.996329)
+bones/4/position = Vector3(-0.0532444, 0.105383, 0.181525)
+bones/4/rotation = Quaternion(0.852205, -0.496431, -0.0931099, 0.136504)
+bones/5/rotation = Quaternion(0.782155, 0.129406, 0.272521, 0.545178)
+bones/6/rotation = Quaternion(0.229913, -0.0913999, -0.129876, 0.960166)
+bones/7/position = Vector3(-0.0535754, 0.110237, -0.179701)
+bones/7/rotation = Quaternion(0.85092, -0.493734, 0.10031, -0.148659)
+bones/8/rotation = Quaternion(-0.571341, -0.207832, 0.608945, 0.509472)
+bones/9/rotation = Quaternion(-0.323068, -0.163352, -0.00271535, 0.932167)
+bones/10/position = Vector3(0.115925, 0.549502, 0.00571686)
+bones/10/rotation = Quaternion(0.467688, -0.459694, -0.547867, 0.519414)
+bones/11/rotation = Quaternion(0.155144, -0.126977, -0.76353, 0.613864)
+bones/12/rotation = Quaternion(0.154633, 0.00953089, 0.469266, 0.86936)
+bones/13/position = Vector3(-0.0536656, 0.549502, 0.00571684)
+bones/13/rotation = Quaternion(0.640252, -0.560815, -0.367242, 0.375096)
+bones/14/rotation = Quaternion(-0.162723, 0.0708962, -0.63806, 0.749249)
+bones/15/rotation = Quaternion(0.118925, -0.145852, 0.467568, 0.863692)
+
+[node name="soupbowl" parent="People/Person7" index="7"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105988, -0.220467, 0.631)
 
 [node name="Person4" parent="People" instance=ExtResource("11_1hmru")]
@@ -289,11 +332,20 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.96046e-09, -0.20985,
 [node name="Person2" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(0.465568, 0, -0.885012, 0, 1, 0, 0.885012, 0, 0.465568, -4.47036, 1.00254, 2)
 
+[node name="Person10" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(-0.99954, 0, 0.0303118, 0, 1, 0, -0.0303118, 0, -0.99954, -5.51251, 1.00254, 3.69341)
+
 [node name="Person5" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(-0.28266, 0, 0.95922, 0, 1, 0, -0.95922, 0, -0.28266, -5.91525, 1.0115, 2.51445)
 
 [node name="Person3" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(0.953312, 0, -0.301987, 0, 1, 0, 0.301987, 0, 0.953312, -9.1964, 1.00231, -3.54897)
+
+[node name="Person8" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(0.215127, 0, -0.976586, 0, 1, 0, 0.976586, 0, 0.215127, -8.35397, 1.00231, -2.78327)
+
+[node name="Person9" parent="People" instance=ExtResource("11_1hmru")]
+transform = Transform3D(0.987108, 0, 0.160054, 0, 1, 0, -0.160054, 0, 0.987108, -9.9913, 1.00231, -3.56434)
 
 [node name="Person6" parent="People" instance=ExtResource("11_1hmru")]
 transform = Transform3D(-0.990348, 0, 0.138603, 0, 1, 0, -0.138603, 0, -0.990348, -9.63274, 1.03613, -1.70986)
@@ -498,6 +550,18 @@ autoplay = true
 max_distance = 30.0
 bus = &"R"
 
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.420399, 2.70754, 0.782244)
+stream = ExtResource("40_2pyta")
+volume_db = -15.0
+unit_size = 2.0
+autoplay = true
+max_distance = 12.0
+panning_strength = 0.1
+bus = &"R"
+script = ExtResource("41_cxi4m")
+musics = Array[AudioStreamOggVorbis]([ExtResource("40_2pyta"), ExtResource("42_4kfbk")])
+
 [node name="RunningKid" type="Node3D" parent="." node_paths=PackedStringArray("animation", "animation2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.05021, 0, 2.1158)
 script = ExtResource("39_vmxso")
@@ -564,6 +628,10 @@ collision_layer = 9
 [editable path="People/Person/pizzagirl"]
 [editable path="People/Person/customer"]
 [editable path="People/Person/soupbowl"]
+[editable path="People/Person7"]
+[editable path="People/Person7/pizzagirl"]
+[editable path="People/Person7/customer"]
+[editable path="People/Person7/soupbowl"]
 [editable path="People/Person4"]
 [editable path="People/Person4/pizzagirl"]
 [editable path="People/Person4/customer"]

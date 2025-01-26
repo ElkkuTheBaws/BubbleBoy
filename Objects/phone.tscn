@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://l8676x48oxks"]
+[gd_scene load_steps=6 format=3 uid="uid://l8676x48oxks"]
 
 [ext_resource type="Script" path="res://Scenes/phone.gd" id="1_acdrn"]
 [ext_resource type="PackedScene" uid="uid://cmr3ftyyj3orq" path="res://Assets/Meshes/phone.glb" id="2_tj0g1"]
 [ext_resource type="AudioStream" uid="uid://cyplaw7gtnsqt" path="res://Assets/Sounds/Ambient/phonering.wav" id="3_rwhs4"]
+[ext_resource type="AudioStream" uid="uid://daqphhddhs4ni" path="res://Assets/Sounds/Interactions_2/Safe Normal Lock.wav" id="4_j21au"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2upt4"]
 
-[node name="Phone" type="StaticBody3D" node_paths=PackedStringArray("audio", "phone_node", "mesh")]
+[node name="Phone" type="StaticBody3D" node_paths=PackedStringArray("audio", "phone_node", "close_sound", "mesh")]
 script = ExtResource("1_acdrn")
 audio = NodePath("AudioStreamPlayer3D")
 phone_node = NodePath("phone")
+close_sound = NodePath("CloseSound")
 mesh = NodePath("phone/fone")
 interactable_name = "Phone"
 
@@ -20,6 +22,14 @@ shape = SubResource("BoxShape3D_2upt4")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_rwhs4")
+volume_db = -10.0
+unit_size = 3.0
+max_distance = 20.0
+bus = &"R"
+
+[node name="CloseSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_j21au")
+volume_db = -5.0
 unit_size = 3.0
 max_distance = 20.0
 bus = &"R"
