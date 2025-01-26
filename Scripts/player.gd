@@ -101,6 +101,7 @@ func check_interaction():
 			current_interaction = collider
 
 func interact():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if inspecting:
 		Global.end_inspect.emit()
 		inspecting = false
