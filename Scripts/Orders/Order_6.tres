@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://dofa8dee0untp"]
+
+[ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_5iutm"]
+[ext_resource type="Texture2D" uid="uid://bh1tvrglr4aqa" path="res://Assets/Textures/Orders/simplesoup-high.jpg" id="1_m0gi3"]
+[ext_resource type="Texture2D" uid="uid://bvp4ixjdsrw23" path="res://Assets/Textures/Orders/simplesoup.jpg" id="3_rwjy0"]
+
+[resource]
+script = ExtResource("1_5iutm")
+girl = true
+small_image = ExtResource("3_rwjy0")
+detailed_image = ExtResource("1_m0gi3")
+requirements = Array[int]([])

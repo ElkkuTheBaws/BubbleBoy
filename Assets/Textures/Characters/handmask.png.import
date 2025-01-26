@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh1tvrglr4aqa"
-path.s3tc="res://.godot/imported/simplesoup-high.jpg-e7f04549c3dace84dae0dd195fa4d7eb.s3tc.ctex"
+uid="uid://cpr68s8f16oid"
+path="res://.godot/imported/handmask.png-9c6093b9e4f1d5098300d67021fb385f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Orders/simplesoup-high.jpg"
-dest_files=["res://.godot/imported/simplesoup-high.jpg-e7f04549c3dace84dae0dd195fa4d7eb.s3tc.ctex"]
+source_file="res://Assets/Textures/Characters/handmask.png"
+dest_files=["res://.godot/imported/handmask.png-9c6093b9e4f1d5098300d67021fb385f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

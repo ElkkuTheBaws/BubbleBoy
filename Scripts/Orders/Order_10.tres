@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://bu2n4loai4mab"]
+
+[ext_resource type="Texture2D" uid="uid://dd6tynixeng7s" path="res://Assets/Textures/Orders/whoreletter-high.jpg" id="1_77p3u"]
+[ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_ahfhm"]
+[ext_resource type="Texture2D" uid="uid://cdqcshi1vf6la" path="res://Assets/Textures/Orders/whoreletter.jpg" id="3_i2tox"]
+
+[resource]
+script = ExtResource("1_ahfhm")
+girl = true
+small_image = ExtResource("3_i2tox")
+detailed_image = ExtResource("1_77p3u")
+requirements = Array[int]([])
