@@ -61,8 +61,6 @@ var c_old_trauma: float = 0
 var health: float = 0:
 	set(value):
 		health = clampf(value, 0.0, 3.0)
-		print("Health: " + str(health))
-		#hand.material_override
 		hand.get_material_override().set_shader_parameter("BurnLevel", health)
 
 signal on_step

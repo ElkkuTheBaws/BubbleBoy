@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		return
 	liquid.global_rotation = lerp(liquid.global_rotation, Vector3.ZERO + (global_rotation * 0.5), delta*4)
 	var angle = normalize(liquid.position.y, 0, default_liquid_height) * 10
-	print(global_rotation_degrees.x)
+	#print(global_rotation_degrees.x)
 	if abs(global_rotation_degrees.x) > (40 + angle) or abs(global_rotation_degrees.z) > (40 + angle):
 		if liquid.position.y > 0.15:
 			liquid.position.y -= delta * 0.1
@@ -95,8 +95,9 @@ func check_pour():
 				print("Wrong order")
 				person.can_serve = false
 				person.play_sentence(person.order.negative_sentence)
-				await get_tree().create_timer(2).timeout
-				person.can_serve = true
+				person.start_serve_delay()
+				# await get_tree().create_timer(2).timeout
+				# person.can_serve = true
 
 func normalize(value, min, max) -> float:
 	return (value - min) / (max - min)

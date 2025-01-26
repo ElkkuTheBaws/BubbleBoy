@@ -178,3 +178,10 @@ func calculate_head_angle(delta):
 		angle_radians *= -1
 	angle_radians += deg_to_rad(90)
 	target_node.rotation.y = lerp_angle(target_node.rotation.y, clampf(angle_radians, deg_to_rad(-max_side_angle+90), deg_to_rad(max_side_angle+90)) , 6*delta)
+
+func start_serve_delay():
+	await get_tree().create_timer(1).timeout
+	if order != null and not order.completed:
+		if not can_serve:
+			can_serve = true
+			print("Delay waited and now can serve for: " + interactable_name)
