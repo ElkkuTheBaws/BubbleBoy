@@ -1,11 +1,40 @@
-[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://btccmx0hslx74"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://btccmx0hslx74"]
 
-[ext_resource type="Texture2D" uid="uid://6t8ekg3vjjie" path="res://Assets/Textures/Environment/Boyle_Order_Soup.png" id="1_7bdct"]
+[ext_resource type="Texture2D" uid="uid://dd5jap7pg6tol" path="res://Assets/Textures/Orders/tomatpsoup-high.jpg" id="1_crpqn"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="2_67vho"]
-[ext_resource type="Texture2D" uid="uid://cxnxvvqh6v0i" path="res://Assets/Textures/Environment/Boyle_Order_BoiledWater.png" id="3_f81fj"]
+[ext_resource type="AudioStream" uid="uid://ek6ibnxlmwu" path="res://Assets/Sounds/Dialogue/voices/person 3/sam3pain.wav" id="2_n1kkc"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_j7dhr"]
+[ext_resource type="AudioStream" uid="uid://chmot65lcf6y0" path="res://Assets/Sounds/Dialogue/voices/person 3/sam3interaction.wav" id="4_c4nkg"]
+[ext_resource type="AudioStream" uid="uid://c8eocd805fvf8" path="res://Assets/Sounds/Dialogue/voices/person 3/sam3incorrect.wav" id="5_kd0rv"]
+[ext_resource type="AudioStream" uid="uid://b7uogsy67j8ks" path="res://Assets/Sounds/Dialogue/voices/person 3/sam3correct.wav" id="6_w1e8d"]
+[ext_resource type="Texture2D" uid="uid://clud2y1g1gh8r" path="res://Assets/Textures/Orders/tomatpsoup.jpg" id="8_kmu5k"]
+
+[sub_resource type="Resource" id="Resource_m0t4e"]
+script = ExtResource("3_j7dhr")
+text = "Ouhie ouchie ow"
+audio = ExtResource("2_n1kkc")
+
+[sub_resource type="Resource" id="Resource_yy4vo"]
+script = ExtResource("3_j7dhr")
+text = "Where am I?"
+audio = ExtResource("4_c4nkg")
+
+[sub_resource type="Resource" id="Resource_36oh6"]
+script = ExtResource("3_j7dhr")
+text = "I cant believe you've done this"
+audio = ExtResource("5_kd0rv")
+
+[sub_resource type="Resource" id="Resource_hokp1"]
+script = ExtResource("3_j7dhr")
+text = "Just how my mother made it"
+audio = ExtResource("6_w1e8d")
 
 [resource]
 script = ExtResource("2_67vho")
-small_image = ExtResource("3_f81fj")
-detailed_image = ExtResource("1_7bdct")
-requirements = Array[int]([1, 0])
+small_image = ExtResource("8_kmu5k")
+detailed_image = ExtResource("1_crpqn")
+requirements = Array[int]([0, 3, 1])
+idle_sentence = SubResource("Resource_yy4vo")
+positive_sentence = SubResource("Resource_hokp1")
+negative_sentence = SubResource("Resource_36oh6")
+hurt_sentence = SubResource("Resource_m0t4e")

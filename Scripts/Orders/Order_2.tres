@@ -1,11 +1,40 @@
-[gd_resource type="Resource" script_class="Order" load_steps=4 format=3 uid="uid://crxvf548n2kat"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://crxvf548n2kat"]
 
-[ext_resource type="Texture2D" uid="uid://6t8ekg3vjjie" path="res://Assets/Textures/Environment/Boyle_Order_Soup.png" id="1_s433i"]
+[ext_resource type="Texture2D" uid="uid://dptn40i0qf8gc" path="res://Assets/Textures/Orders/beansoup-high.jpg" id="1_oyguw"]
+[ext_resource type="AudioStream" uid="uid://cwt3yfmrkpajq" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2pain.wav" id="2_a46gv"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="2_f66mn"]
-[ext_resource type="Texture2D" uid="uid://cxnxvvqh6v0i" path="res://Assets/Textures/Environment/Boyle_Order_BoiledWater.png" id="3_11fy0"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_33fy3"]
+[ext_resource type="AudioStream" uid="uid://ctibdngrqiqe8" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2interaction.wav" id="4_0hwxc"]
+[ext_resource type="AudioStream" uid="uid://b2hrcsoh60lcg" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2incorrect.wav" id="5_fy0j8"]
+[ext_resource type="AudioStream" uid="uid://bi3sjtr27guxn" path="res://Assets/Sounds/Dialogue/voices/person 2/sam2correct.wav" id="6_f4lm3"]
+[ext_resource type="Texture2D" uid="uid://qb1odsiq2kxd" path="res://Assets/Textures/Orders/beansoup.jpg" id="8_ddfko"]
+
+[sub_resource type="Resource" id="Resource_h7av2"]
+script = ExtResource("3_33fy3")
+text = "Oh my god it burns"
+audio = ExtResource("2_a46gv")
+
+[sub_resource type="Resource" id="Resource_18gc2"]
+script = ExtResource("3_33fy3")
+text = "I'll have the usual please"
+audio = ExtResource("4_0hwxc")
+
+[sub_resource type="Resource" id="Resource_k214t"]
+script = ExtResource("3_33fy3")
+text = "Wrong soup"
+audio = ExtResource("5_fy0j8")
+
+[sub_resource type="Resource" id="Resource_svxfd"]
+script = ExtResource("3_33fy3")
+text = "Thank you for the soup sir"
+audio = ExtResource("6_f4lm3")
 
 [resource]
 script = ExtResource("2_f66mn")
-small_image = ExtResource("3_11fy0")
-detailed_image = ExtResource("1_s433i")
-requirements = Array[int]([1, 0])
+small_image = ExtResource("8_ddfko")
+detailed_image = ExtResource("1_oyguw")
+requirements = Array[int]([5, 4, 9])
+idle_sentence = SubResource("Resource_18gc2")
+positive_sentence = SubResource("Resource_svxfd")
+negative_sentence = SubResource("Resource_k214t")
+hurt_sentence = SubResource("Resource_h7av2")

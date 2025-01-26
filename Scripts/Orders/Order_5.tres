@@ -1,7 +1,40 @@
-[gd_resource type="Resource" script_class="Order" load_steps=2 format=3 uid="uid://cbtnbe7gol6s1"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://cbtnbe7gol6s1"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_pquei"]
+[ext_resource type="Texture2D" uid="uid://kvnuf5sa7sc5" path="res://Assets/Textures/Orders/happyhour-high.jpg" id="1_vacua"]
+[ext_resource type="AudioStream" uid="uid://fbp7n4dmm1lw" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5pain.wav" id="2_b5fy3"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_djwr0"]
+[ext_resource type="AudioStream" uid="uid://kgqy1iywempg" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5interaction.wav" id="4_k4fff"]
+[ext_resource type="AudioStream" uid="uid://khklogr7jwy0" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5incorrect.wav" id="5_8p61p"]
+[ext_resource type="AudioStream" uid="uid://cld25otlf2vyt" path="res://Assets/Sounds/Dialogue/voices/person 5/sam5correct.wav" id="6_fqf2b"]
+[ext_resource type="Texture2D" uid="uid://csj3kbyqp1y1d" path="res://Assets/Textures/Orders/happyhour.jpg" id="8_ggj74"]
+
+[sub_resource type="Resource" id="Resource_xy447"]
+script = ExtResource("3_djwr0")
+text = "Make it stop"
+audio = ExtResource("2_b5fy3")
+
+[sub_resource type="Resource" id="Resource_gqfxd"]
+script = ExtResource("3_djwr0")
+text = "A soup a day keeps the doctor away"
+audio = ExtResource("4_k4fff")
+
+[sub_resource type="Resource" id="Resource_vd28j"]
+script = ExtResource("3_djwr0")
+text = "This ain't it, pal"
+audio = ExtResource("5_8p61p")
+
+[sub_resource type="Resource" id="Resource_7ofyg"]
+script = ExtResource("3_djwr0")
+text = "I love soup"
+audio = ExtResource("6_fqf2b")
 
 [resource]
 script = ExtResource("1_pquei")
-requirements = Array[int]([])
+small_image = ExtResource("8_ggj74")
+detailed_image = ExtResource("1_vacua")
+requirements = Array[int]([5, 5, 5])
+idle_sentence = SubResource("Resource_gqfxd")
+positive_sentence = SubResource("Resource_7ofyg")
+negative_sentence = SubResource("Resource_vd28j")
+hurt_sentence = SubResource("Resource_xy447")

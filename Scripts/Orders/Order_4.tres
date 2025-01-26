@@ -1,7 +1,40 @@
-[gd_resource type="Resource" script_class="Order" load_steps=2 format=3 uid="uid://cqggthdwk5f8u"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://cqggthdwk5f8u"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_kb5nj"]
+[ext_resource type="Texture2D" uid="uid://c4yb63n3and6o" path="res://Assets/Textures/Orders/exoticfishsoup-high.jpg" id="1_r7msx"]
+[ext_resource type="AudioStream" uid="uid://dbsqj3ry4lndr" path="res://Assets/Sounds/Dialogue/voices/person 4/sam4pain.wav" id="2_g34rw"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_wr7w3"]
+[ext_resource type="AudioStream" uid="uid://cdlcgdgxeeu2q" path="res://Assets/Sounds/Dialogue/voices/person 4/sam4interaction.wav" id="4_3mbhk"]
+[ext_resource type="AudioStream" uid="uid://cp5vcv2bqdou7" path="res://Assets/Sounds/Dialogue/voices/person 4/sam4incorrect.wav" id="5_ryw4r"]
+[ext_resource type="AudioStream" uid="uid://com1i7314qp0k" path="res://Assets/Sounds/Dialogue/voices/person 4/sam4correct.wav" id="6_m7h65"]
+[ext_resource type="Texture2D" uid="uid://pvvqhsilgdfl" path="res://Assets/Textures/Orders/exoticfishsoup.jpg" id="8_q06xf"]
+
+[sub_resource type="Resource" id="Resource_e2tf1"]
+script = ExtResource("3_wr7w3")
+text = "AAAAAA"
+audio = ExtResource("2_g34rw")
+
+[sub_resource type="Resource" id="Resource_riqgf"]
+script = ExtResource("3_wr7w3")
+text = "Beggars cant be choosers"
+audio = ExtResource("4_3mbhk")
+
+[sub_resource type="Resource" id="Resource_jbh6y"]
+script = ExtResource("3_wr7w3")
+text = "I want to speak to the manager"
+audio = ExtResource("5_ryw4r")
+
+[sub_resource type="Resource" id="Resource_braob"]
+script = ExtResource("3_wr7w3")
+text = "Gobble gobble"
+audio = ExtResource("6_m7h65")
 
 [resource]
 script = ExtResource("1_kb5nj")
-requirements = Array[int]([])
+small_image = ExtResource("8_q06xf")
+detailed_image = ExtResource("1_r7msx")
+requirements = Array[int]([7])
+idle_sentence = SubResource("Resource_riqgf")
+positive_sentence = SubResource("Resource_braob")
+negative_sentence = SubResource("Resource_jbh6y")
+hurt_sentence = SubResource("Resource_e2tf1")

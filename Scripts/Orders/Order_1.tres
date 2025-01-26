@@ -1,10 +1,40 @@
-[gd_resource type="Resource" script_class="Order" load_steps=3 format=3 uid="uid://dfcsq1lxwyfmn"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://dfcsq1lxwyfmn"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_2ae2b"]
-[ext_resource type="Texture2D" uid="uid://6t8ekg3vjjie" path="res://Assets/Textures/Environment/Boyle_Order_Soup.png" id="1_4bpyq"]
+[ext_resource type="Texture2D" uid="uid://bh1tvrglr4aqa" path="res://Assets/Textures/Orders/simplesoup-high.jpg" id="1_ox2q4"]
+[ext_resource type="AudioStream" uid="uid://brsoibbmpll15" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1pain.wav" id="2_3ffg0"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Sentence.gd" id="3_xtfo8"]
+[ext_resource type="AudioStream" uid="uid://deiixhk422q0f" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1interaction.wav" id="4_b2t83"]
+[ext_resource type="AudioStream" uid="uid://001budeiknbg" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1incorrect.wav" id="5_m4r02"]
+[ext_resource type="AudioStream" uid="uid://c67nksqf78u5t" path="res://Assets/Sounds/Dialogue/voices/person 1/sam1correct.wav" id="6_5ykol"]
+[ext_resource type="Texture2D" uid="uid://bvp4ixjdsrw23" path="res://Assets/Textures/Orders/simplesoup.jpg" id="8_c4na6"]
+
+[sub_resource type="Resource" id="Resource_n7mlx"]
+script = ExtResource("3_xtfo8")
+text = "Owie"
+audio = ExtResource("2_3ffg0")
+
+[sub_resource type="Resource" id="Resource_d36oc"]
+script = ExtResource("3_xtfo8")
+text = "Simple soups..."
+audio = ExtResource("4_b2t83")
+
+[sub_resource type="Resource" id="Resource_dxg58"]
+script = ExtResource("3_xtfo8")
+text = "This is not what I ordered"
+audio = ExtResource("5_m4r02")
+
+[sub_resource type="Resource" id="Resource_uaded"]
+script = ExtResource("3_xtfo8")
+text = "It's soup time"
+audio = ExtResource("6_5ykol")
 
 [resource]
 script = ExtResource("1_2ae2b")
-small_image = ExtResource("1_4bpyq")
-detailed_image = ExtResource("1_4bpyq")
-requirements = Array[int]([1, 0])
+small_image = ExtResource("8_c4na6")
+detailed_image = ExtResource("1_ox2q4")
+requirements = Array[int]([9, 1])
+idle_sentence = SubResource("Resource_d36oc")
+positive_sentence = SubResource("Resource_uaded")
+negative_sentence = SubResource("Resource_dxg58")
+hurt_sentence = SubResource("Resource_n7mlx")
