@@ -39,8 +39,9 @@ _data = {
 "fade_in": SubResource("Animation_vulkr")
 }
 
-[node name="SceneTransition" type="Node"]
+[node name="SceneTransition" type="Node" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_apaiv")
+animation_player = NodePath("CanvasLayer/AnimationPlayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10

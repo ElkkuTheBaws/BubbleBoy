@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://1naxvmpq6uc7"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://btnejygox1ofr"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_1vmo2"]
 [ext_resource type="Texture2D" uid="uid://b3xbdur8pyt13" path="res://Assets/Textures/Orders/happy-meal-high.jpg" id="1_s4xk0"]

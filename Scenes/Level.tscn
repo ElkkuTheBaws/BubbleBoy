@@ -10,16 +10,16 @@
 [ext_resource type="Resource" uid="uid://btccmx0hslx74" path="res://Scripts/Orders/Order_3.tres" id="5_01hux"]
 [ext_resource type="Resource" uid="uid://cqggthdwk5f8u" path="res://Scripts/Orders/Order_4.tres" id="6_f4dos"]
 [ext_resource type="Resource" uid="uid://cbtnbe7gol6s1" path="res://Scripts/Orders/Order_5.tres" id="7_frx4q"]
-[ext_resource type="Resource" uid="uid://dofa8dee0untp" path="res://Scripts/Orders/Order_6.tres" id="8_b5414"]
+[ext_resource type="Resource" uid="uid://rit0r3n6y1hn" path="res://Scripts/Orders/Order_6.tres" id="8_b5414"]
 [ext_resource type="Resource" uid="uid://dfcsq1lxwyfmn" path="res://Scripts/Orders/Order_1.tres" id="8_fxx7n"]
-[ext_resource type="Resource" uid="uid://1naxvmpq6uc7" path="res://Scripts/Orders/Order_7.tres" id="9_ymin2"]
-[ext_resource type="Resource" uid="uid://hqh5x8sw6ila" path="res://Scripts/Orders/Order_8.tres" id="10_fi7ge"]
+[ext_resource type="Resource" uid="uid://btnejygox1ofr" path="res://Scripts/Orders/Order_7.tres" id="9_ymin2"]
+[ext_resource type="Resource" uid="uid://r25lpd2ogipn" path="res://Scripts/Orders/Order_8.tres" id="10_fi7ge"]
 [ext_resource type="PackedScene" uid="uid://dv17e08oqxyvc" path="res://Objects/person.tscn" id="11_1hmru"]
-[ext_resource type="Resource" uid="uid://dsi7dtugn1sdq" path="res://Scripts/Orders/Order_9.tres" id="11_w0agt"]
+[ext_resource type="Resource" uid="uid://cd21nfmisjwdv" path="res://Scripts/Orders/Order_9.tres" id="11_w0agt"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_wp7he"]
 [ext_resource type="PackedScene" uid="uid://cklthnmeg4r8e" path="res://Objects/ingredient_pile.tscn" id="11_ykokl"]
 [ext_resource type="PackedScene" uid="uid://vckw43bwo4tn" path="res://Assets/Meshes/ingredients/soup-onion.glb" id="12_216df"]
-[ext_resource type="Resource" uid="uid://bu2n4loai4mab" path="res://Scripts/Orders/Order_10.tres" id="12_wsxuy"]
+[ext_resource type="Resource" uid="uid://yhyd1v73cav5" path="res://Scripts/Orders/Order_10.tres" id="12_wsxuy"]
 [ext_resource type="PackedScene" uid="uid://dflu3mm2pgqog" path="res://Assets/Meshes/ingredients/pile-tomato.glb" id="13_04vpi"]
 [ext_resource type="PackedScene" uid="uid://8f3cvstobkdt" path="res://Assets/Meshes/ingredients/soup-sandal.glb" id="13_scl4j"]
 [ext_resource type="PackedScene" uid="uid://cvgxyrhemw8l6" path="res://Assets/Meshes/ingredients/soup-shroom.glb" id="14_fy5k0"]
@@ -147,7 +147,7 @@ script = ExtResource("1_a2221")
 persons = [NodePath("People/Person"), NodePath("People/Person7"), NodePath("People/Person4"), NodePath("People/Person2"), NodePath("People/Person10"), NodePath("People/Person5"), NodePath("People/Person3"), NodePath("People/Person8"), NodePath("People/Person9"), NodePath("People/Person6")]
 girl = NodePath("People/Girl")
 orders = Array[ExtResource("2_pvail")]([ExtResource("8_fxx7n"), ExtResource("4_t5jri"), ExtResource("5_01hux"), ExtResource("6_f4dos"), ExtResource("7_frx4q"), ExtResource("8_b5414"), ExtResource("9_ymin2"), ExtResource("10_fi7ge"), ExtResource("11_w0agt"), ExtResource("12_wsxuy")])
-order_papers = [NodePath("Orders/Order"), NodePath("Orders/Order2"), NodePath("Orders/Order3"), NodePath("Orders/Order4"), NodePath("Orders/Order5"), NodePath("Orders/Order6"), NodePath("Orders/Order7")]
+order_papers = [NodePath("Orders/Order"), NodePath("Orders/Order2"), NodePath("Orders/Order3"), NodePath("Orders/Order4"), NodePath("Orders/Order5"), NodePath("Orders/Order6"), NodePath("Orders/Order7"), NodePath("Orders/Order8"), NodePath("Orders/Order9"), NodePath("Orders/Order10")]
 
 [node name="Orders" type="Node3D" parent="."]
 

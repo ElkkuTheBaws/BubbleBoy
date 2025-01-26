@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctv0ofcqx2smi"]
+[gd_scene load_steps=6 format=3 uid="uid://ctv0ofcqx2smi"]
 
+[ext_resource type="Script" path="res://Scenes/outro.gd" id="1_8jksv"]
 [ext_resource type="FontFile" uid="uid://c81nv8lbyf1ok" path="res://Assets/Fonts/TypewriterBold.ttf" id="1_64wjx"]
+[ext_resource type="Shader" path="res://Assets/Shaders/shake_UI.gdshader" id="3_fdbvp"]
 
 [sub_resource type="Theme" id="Theme_3wps3"]
 default_font = ExtResource("1_64wjx")
 default_font_size = 25
 
-[node name="Outro" type="Node"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sa12k"]
+shader = ExtResource("3_fdbvp")
+shader_parameter/shakeAmount = 100.0
+shader_parameter/frequency = 1.0
+
+[node name="Outro" type="Node" node_paths=PackedStringArray("tex")]
+script = ExtResource("1_8jksv")
+tex = NodePath("Control/CenterContainer/TextureRect")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -26,11 +35,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="Control"]
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "HEllo"
+
+[node name="TextureRect" type="TextureRect" parent="Control/CenterContainer"]
+material = SubResource("ShaderMaterial_sa12k")
+layout_mode = 2

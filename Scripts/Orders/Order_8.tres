@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://hqh5x8sw6ila"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://r25lpd2ogipn"]
 
 [ext_resource type="Texture2D" uid="uid://c4yb63n3and6o" path="res://Assets/Textures/Orders/exoticfishsoup-high.jpg" id="1_1ahoo"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_gomfg"]

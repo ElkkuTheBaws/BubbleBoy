@@ -1,0 +1,197 @@
+[gd_scene load_steps=12 format=3 uid="uid://dtnnxbd0q7m1n"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_rqrn4"]
+[ext_resource type="Shader" path="res://Scenes/Game.gdshader" id="1_terbn"]
+[ext_resource type="PackedScene" uid="uid://b0vxrf0d1473a" path="res://Assets/Meshes/restaurant.glb" id="2_v5ef8"]
+[ext_resource type="FontFile" uid="uid://c81nv8lbyf1ok" path="res://Assets/Fonts/TypewriterBold.ttf" id="3_ktsl8"]
+[ext_resource type="AudioStream" uid="uid://cdu3a1vgq7aja" path="res://Assets/Sounds/Ambient/HVAC Loop 003.wav" id="4_5aoa1"]
+[ext_resource type="AudioStream" uid="uid://cgaaq2djgievi" path="res://Assets/Sounds/Ambient/Oven Hum Loop 001.wav" id="5_r7h77"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55sls"]
+shader = ExtResource("1_terbn")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 3
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3a8tn"]
+
+[sub_resource type="Sky" id="Sky_ydb3l"]
+sky_material = SubResource("ProceduralSkyMaterial_3a8tn")
+
+[sub_resource type="Environment" id="Environment_ry1wx"]
+background_mode = 1
+background_color = Color(0.846504, 0.834817, 0.749238, 1)
+sky = SubResource("Sky_ydb3l")
+ambient_light_source = 2
+ambient_light_color = Color(0.217405, 0.251657, 0.355596, 1)
+ssao_enabled = true
+ssao_radius = 0.41
+ssao_intensity = 14.8
+fog_enabled = true
+fog_light_color = Color(0.482237, 0.562243, 0.626384, 1)
+fog_light_energy = 3.0
+fog_density = 0.018
+fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.79
+adjustment_contrast = 1.25
+adjustment_saturation = 0.75
+
+[sub_resource type="Theme" id="Theme_6b0s2"]
+default_font = ExtResource("3_ktsl8")
+default_font_size = 25
+
+[node name="Game" type="Node"]
+script = ExtResource("1_rqrn4")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_55sls")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World"]
+transform = Transform3D(-0.457872, -0.505794, 0.731113, 0, 0.822382, 0.568936, -0.889018, 0.2605, -0.376546, -4.32778, 2.89161, -6.15044)
+fov = 49.0638
+
+[node name="AudioListener3D" type="AudioListener3D" parent="SubViewportContainer/SubViewport/World/Camera3D"]
+current = true
+
+[node name="restaurant" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("2_v5ef8")]
+
+[node name="Lights" type="Node3D" parent="SubViewportContainer/SubViewport/World"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/World/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534362, 1.98635, 1.62187)
+layers = 524289
+light_color = Color(0.6435, 0.903375, 0.99, 1)
+light_energy = 2.4
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 4.353
+omni_attenuation = 2.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="SubViewportContainer/SubViewport/World/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534362, 1.98635, -2.05494)
+layers = 524289
+light_color = Color(0.6435, 0.903375, 0.99, 1)
+light_energy = 2.4
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 4.353
+omni_attenuation = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/World/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99428, 1.47122, 0.393004)
+layers = 524289
+light_color = Color(0.85248, 0.81747, 0.589081, 1)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 8.006
+omni_attenuation = 0.2
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/SubViewport/World/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23019, 1.82775, -0.0909096)
+layers = 524289
+light_color = Color(0.85248, 0.81747, 0.589081, 1)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 5.506
+omni_attenuation = 0.2
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="SubViewportContainer/SubViewport/World/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23019, 2.91148, -5.82404)
+layers = 524289
+light_color = Color(0.85248, 0.81747, 0.589081, 1)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 5.506
+omni_attenuation = 0.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/World/Lights"]
+environment = SubResource("Environment_ry1wx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25256, 2.94968, 6.01068)
+stream = ExtResource("4_5aoa1")
+volume_db = -10.0
+unit_size = 5.0
+autoplay = true
+max_distance = 45.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61375, -0.0977305, 0.782244)
+stream = ExtResource("5_r7h77")
+volume_db = -10.0
+unit_size = 2.0
+autoplay = true
+max_distance = 30.0
+bus = &"R"
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6b0s2")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="UI/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start the game"
+
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+
+[editable path="SubViewportContainer/SubViewport/World/restaurant"]

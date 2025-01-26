@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Order" load_steps=12 format=3 uid="uid://dofa8dee0untp"]
+[gd_resource type="Resource" script_class="Order" load_steps=12 format=3 uid="uid://rit0r3n6y1hn"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_5iutm"]
 [ext_resource type="Texture2D" uid="uid://bh1tvrglr4aqa" path="res://Assets/Textures/Orders/simplesoup-high.jpg" id="1_m0gi3"]

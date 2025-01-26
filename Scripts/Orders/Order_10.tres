@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Order" load_steps=11 format=3 uid="uid://bu2n4loai4mab"]
+[gd_resource type="Resource" script_class="Order" load_steps=11 format=3 uid="uid://yhyd1v73cav5"]
 
 [ext_resource type="Texture2D" uid="uid://dd6tynixeng7s" path="res://Assets/Textures/Orders/whoreletter-high.jpg" id="1_77p3u"]
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_ahfhm"]

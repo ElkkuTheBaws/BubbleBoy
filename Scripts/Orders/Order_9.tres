@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://dsi7dtugn1sdq"]
+[gd_resource type="Resource" script_class="Order" load_steps=13 format=3 uid="uid://cd21nfmisjwdv"]
 
 [ext_resource type="Script" path="res://Scripts/Data/Order.gd" id="1_f746q"]
 [ext_resource type="Texture2D" uid="uid://c7vuqfk2pxuws" path="res://Assets/Textures/Orders/sampsonslastwishsoup-high.jpg" id="1_jrol4"]
